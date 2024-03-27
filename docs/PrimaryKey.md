@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.primary_key import PrimaryKey
+from dat_api_sdk.models.primary_key import PrimaryKey
 
 # TODO update the JSON string below
 json = "{}"

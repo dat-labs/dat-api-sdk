@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.protocol_version import ProtocolVersion
+from dat_api_sdk.models.protocol_version import ProtocolVersion
 
 # TODO update the JSON string below
 json = "{}"

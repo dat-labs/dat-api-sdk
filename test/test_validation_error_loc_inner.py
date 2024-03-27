@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.validation_error_loc_inner import ValidationErrorLocInner
+from dat_api_sdk.models.validation_error_loc_inner import ValidationErrorLocInner
 
 class TestValidationErrorLocInner(unittest.TestCase):
     """ValidationErrorLocInner unit test stubs"""

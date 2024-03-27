@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.catalog import Catalog
+from dat_api_sdk.models.catalog import Catalog
 
 class TestCatalog(unittest.TestCase):
     """Catalog unit test stubs"""

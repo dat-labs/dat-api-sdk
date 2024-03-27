@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.connector_specification import ConnectorSpecification
+from dat_api_sdk.models.connector_specification import ConnectorSpecification
 
 class TestConnectorSpecification(unittest.TestCase):
     """ConnectorSpecification unit test stubs"""

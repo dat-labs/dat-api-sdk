@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.dir_uris import DirUris
+from dat_api_sdk.models.dir_uris import DirUris
 
 # TODO update the JSON string below
 json = "{}"

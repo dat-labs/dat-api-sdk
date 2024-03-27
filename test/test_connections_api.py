@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.connections_api import ConnectionsApi
+from dat_api_sdk.api.connections_api import ConnectionsApi
 
 
 class TestConnectionsApi(unittest.TestCase):

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.supportsincremental import Supportsincremental
+from dat_api_sdk.models.supportsincremental import Supportsincremental
 
 # TODO update the JSON string below
 json = "{}"

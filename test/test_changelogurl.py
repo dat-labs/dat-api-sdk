@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.changelogurl import Changelogurl
+from dat_api_sdk.models.changelogurl import Changelogurl
 
 class TestChangelogurl(unittest.TestCase):
     """Changelogurl unit test stubs"""

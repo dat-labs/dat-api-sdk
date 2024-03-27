@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.connection_response_instance import ConnectionResponseInstance
+from dat_api_sdk.models.connection_response_instance import ConnectionResponseInstance
 
 class TestConnectionResponseInstance(unittest.TestCase):
     """ConnectionResponseInstance unit test stubs"""

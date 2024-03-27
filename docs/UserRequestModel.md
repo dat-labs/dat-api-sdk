@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.user_request_model import UserRequestModel
+from dat_api_sdk.models.user_request_model import UserRequestModel
 
 # TODO update the JSON string below
 json = "{}"

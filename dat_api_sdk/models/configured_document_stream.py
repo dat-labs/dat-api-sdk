@@ -17,28 +17,28 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.cursor_field1 import CursorField1
-from openapi_client.models.dir_uris import DirUris
-from openapi_client.models.json_schema import JsonSchema
-from openapi_client.models.namespace import Namespace
-from openapi_client.models.sync_mode import SyncMode
+from dat_api_sdk.models.cursor_field import CursorField
+from dat_api_sdk.models.dat_document_stream import DatDocumentStream
+from dat_api_sdk.models.destination_sync_mode import DestinationSyncMode
+from dat_api_sdk.models.primary_key import PrimaryKey
+from dat_api_sdk.models.sync_mode import SyncMode
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DatDocumentStream(BaseModel):
+class ConfiguredDocumentStream(BaseModel):
     """
-    DatDocumentStream
+    ConfiguredDocumentStream
     """ # noqa: E501
-    name: Optional[Any]
-    namespace: Optional[Namespace] = None
-    json_schema: Optional[JsonSchema] = None
-    dir_uris: Optional[DirUris] = None
+    stream: DatDocumentStream
+    namespace: Optional[Any] = Field(description="namespace the data is associated with")
     sync_mode: SyncMode
-    cursor_field: Optional[CursorField1] = None
+    destination_sync_mode: DestinationSyncMode
+    cursor_field: Optional[CursorField] = None
+    primary_key: Optional[PrimaryKey] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["name", "namespace", "json_schema", "dir_uris", "sync_mode", "cursor_field"]
+    __properties: ClassVar[List[str]] = ["stream", "namespace", "sync_mode", "destination_sync_mode", "cursor_field", "primary_key"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -58,7 +58,7 @@ class DatDocumentStream(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DatDocumentStream from a JSON string"""
+        """Create an instance of ConfiguredDocumentStream from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,33 +81,30 @@ class DatDocumentStream(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of namespace
-        if self.namespace:
-            _dict['namespace'] = self.namespace.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of json_schema
-        if self.json_schema:
-            _dict['json_schema'] = self.json_schema.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of dir_uris
-        if self.dir_uris:
-            _dict['dir_uris'] = self.dir_uris.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of stream
+        if self.stream:
+            _dict['stream'] = self.stream.to_dict()
         # override the default output from pydantic by calling `to_dict()` of cursor_field
         if self.cursor_field:
             _dict['cursor_field'] = self.cursor_field.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of primary_key
+        if self.primary_key:
+            _dict['primary_key'] = self.primary_key.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
 
-        # set to None if name (nullable) is None
+        # set to None if namespace (nullable) is None
         # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
+        if self.namespace is None and "namespace" in self.model_fields_set:
+            _dict['namespace'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DatDocumentStream from a dict"""
+        """Create an instance of ConfiguredDocumentStream from a dict"""
         if obj is None:
             return None
 
@@ -115,12 +112,12 @@ class DatDocumentStream(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "namespace": Namespace.from_dict(obj["namespace"]) if obj.get("namespace") is not None else None,
-            "json_schema": JsonSchema.from_dict(obj["json_schema"]) if obj.get("json_schema") is not None else None,
-            "dir_uris": DirUris.from_dict(obj["dir_uris"]) if obj.get("dir_uris") is not None else None,
+            "stream": DatDocumentStream.from_dict(obj["stream"]) if obj.get("stream") is not None else None,
+            "namespace": obj.get("namespace"),
             "sync_mode": obj.get("sync_mode"),
-            "cursor_field": CursorField1.from_dict(obj["cursor_field"]) if obj.get("cursor_field") is not None else None
+            "destination_sync_mode": obj.get("destination_sync_mode"),
+            "cursor_field": CursorField.from_dict(obj["cursor_field"]) if obj.get("cursor_field") is not None else None,
+            "primary_key": PrimaryKey.from_dict(obj["primary_key"]) if obj.get("primary_key") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

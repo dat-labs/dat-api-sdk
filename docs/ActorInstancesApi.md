@@ -23,8 +23,8 @@ Initialize actor obj from verified-actors repo and call discover() on it and ret
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import dat_api_sdk
+from dat_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
@@ -90,10 +90,10 @@ Create Actor Instance
 
 
 ```python
-import openapi_client
-from openapi_client.models.actor_instance_input import ActorInstanceInput
-from openapi_client.models.actor_instance_output import ActorInstanceOutput
-from openapi_client.rest import ApiException
+import dat_api_sdk
+from dat_api_sdk.models.actor_instance_input import ActorInstanceInput
+from dat_api_sdk.models.actor_instance_output import ActorInstanceOutput
+from dat_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
@@ -160,8 +160,8 @@ Delete Actor Instance
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import dat_api_sdk
+from dat_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
@@ -228,9 +228,9 @@ Fetch Available Actor Instances
 
 
 ```python
-import openapi_client
-from openapi_client.models.actor_instance_output import ActorInstanceOutput
-from openapi_client.rest import ApiException
+import dat_api_sdk
+from dat_api_sdk.models.actor_instance_output import ActorInstanceOutput
+from dat_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
@@ -296,9 +296,9 @@ Read Actor Instance
 
 
 ```python
-import openapi_client
-from openapi_client.models.actor_instance_output import ActorInstanceOutput
-from openapi_client.rest import ApiException
+import dat_api_sdk
+from dat_api_sdk.models.actor_instance_output import ActorInstanceOutput
+from dat_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
@@ -364,10 +364,10 @@ Update Actor Instance
 
 
 ```python
-import openapi_client
-from openapi_client.models.actor_instance_output import ActorInstanceOutput
-from openapi_client.models.body_update_actor_instance_actor_instances_actor_instance_uuid_put import BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
-from openapi_client.rest import ApiException
+import dat_api_sdk
+from dat_api_sdk.models.actor_instance_output import ActorInstanceOutput
+from dat_api_sdk.models.body_update_actor_instance_actor_instances_actor_instance_uuid_put import BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
+from dat_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost

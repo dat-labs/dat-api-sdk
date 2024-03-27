@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.stack_trace import StackTrace
+from dat_api_sdk.models.stack_trace import StackTrace
 
 # TODO update the JSON string below
 json = "{}"

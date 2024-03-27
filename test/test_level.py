@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.level import Level
+from dat_api_sdk.models.level import Level
 
 class TestLevel(unittest.TestCase):
     """Level unit test stubs"""

@@ -1,12 +1,12 @@
 
-import openapi_client
-from openapi_client.rest import ApiException
-from openapi_client.configuration import Configuration
+import dat_api_sdk
+from dat_api_sdk.rest import ApiException
+from dat_api_sdk.configuration import Configuration
 from pprint import pprint
-from openapi_client.models.dat_log_message import DatLogMessage
-from openapi_client.models.dat_log_message_level import DatLogMessageLevel
-from openapi_client.models.message import Message
-from openapi_client.models.stack_trace import StackTrace
+from dat_api_sdk.models.dat_log_message import DatLogMessage
+from dat_api_sdk.models.dat_log_message_level import DatLogMessageLevel
+from dat_api_sdk.models.message import Message
+from dat_api_sdk.models.stack_trace import StackTrace
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -18,10 +18,10 @@ configuration = Configuration(
 # import pdb;pdb.set_trace()
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    # actor_api_instance = openapi_client.ActorsApi(api_client)
-    # # user_request_model = openapi_client.UserRequestModel()  # UserRequestModel |
+    # actor_api_instance = dat_api_sdk.ActorsApi(api_client)
+    # # user_request_model = dat_api_sdk.UserRequestModel()  # UserRequestModel |
 
     # try:
     #     api_response = actor_api_instance.fetch_available_actors_actors_actor_type_list_get(
@@ -34,7 +34,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     #     print("Exception when calling ActorsApi->fetch_available_actors_actors_actor_type_list_get: %s\n" % e)
     
     
-    conn_run_log_api_instance = openapi_client.ConnectionRunLogsApi(api_client)
+    conn_run_log_api_instance = dat_api_sdk.ConnectionRunLogsApi(api_client)
     try:
         # Verify User
         api_response = conn_run_log_api_instance.add_connection_run_log_connection_run_logs_post(

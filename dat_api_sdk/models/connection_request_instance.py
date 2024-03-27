@@ -19,21 +19,26 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.connector_specification import ConnectorSpecification
+from dat_api_sdk.models.catalog import Catalog
+from dat_api_sdk.models.configuration import Configuration
+from dat_api_sdk.models.cron_string import CronString
+from dat_api_sdk.models.status import Status
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ActorInstanceOutput(BaseModel):
+class ConnectionRequestInstance(BaseModel):
     """
-    ActorInstanceOutput
+    ConnectionRequestInstance
     """ # noqa: E501
-    uuid: Optional[StrictStr] = 'd16e47d1-c6bf-4401-b656-5ad7ec552cc2'
     name: StrictStr
-    workspace_id: Optional[StrictStr] = 'wkspc-uuid'
-    actor_id: Optional[StrictStr] = 'gdrive-uuid'
-    user_id: Optional[StrictStr] = '09922bd9-7872-4664-99d0-08eae42fb554'
-    configuration: ConnectorSpecification
-    __properties: ClassVar[List[str]] = ["uuid", "name", "workspace_id", "actor_id", "user_id", "configuration"]
+    source_instance_id: StrictStr
+    generator_instance_id: StrictStr
+    destination_instance_id: StrictStr
+    configuration: Optional[Configuration] = None
+    catalog: Optional[Catalog] = None
+    cron_string: Optional[CronString] = None
+    status: Optional[Status] = None
+    __properties: ClassVar[List[str]] = ["name", "source_instance_id", "generator_instance_id", "destination_instance_id", "configuration", "catalog", "cron_string", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +58,7 @@ class ActorInstanceOutput(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ActorInstanceOutput from a JSON string"""
+        """Create an instance of ConnectionRequestInstance from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -77,11 +82,20 @@ class ActorInstanceOutput(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of configuration
         if self.configuration:
             _dict['configuration'] = self.configuration.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of catalog
+        if self.catalog:
+            _dict['catalog'] = self.catalog.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of cron_string
+        if self.cron_string:
+            _dict['cron_string'] = self.cron_string.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of status
+        if self.status:
+            _dict['status'] = self.status.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ActorInstanceOutput from a dict"""
+        """Create an instance of ConnectionRequestInstance from a dict"""
         if obj is None:
             return None
 
@@ -89,12 +103,14 @@ class ActorInstanceOutput(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "uuid": obj.get("uuid") if obj.get("uuid") is not None else 'd16e47d1-c6bf-4401-b656-5ad7ec552cc2',
             "name": obj.get("name"),
-            "workspace_id": obj.get("workspace_id") if obj.get("workspace_id") is not None else 'wkspc-uuid',
-            "actor_id": obj.get("actor_id") if obj.get("actor_id") is not None else 'gdrive-uuid',
-            "user_id": obj.get("user_id") if obj.get("user_id") is not None else '09922bd9-7872-4664-99d0-08eae42fb554',
-            "configuration": ConnectorSpecification.from_dict(obj["configuration"]) if obj.get("configuration") is not None else None
+            "source_instance_id": obj.get("source_instance_id"),
+            "generator_instance_id": obj.get("generator_instance_id"),
+            "destination_instance_id": obj.get("destination_instance_id"),
+            "configuration": Configuration.from_dict(obj["configuration"]) if obj.get("configuration") is not None else None,
+            "catalog": Catalog.from_dict(obj["catalog"]) if obj.get("catalog") is not None else None,
+            "cron_string": CronString.from_dict(obj["cron_string"]) if obj.get("cron_string") is not None else None,
+            "status": Status.from_dict(obj["status"]) if obj.get("status") is not None else None
         })
         return _obj
 

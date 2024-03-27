@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.documentationurl import Documentationurl
+from dat_api_sdk.models.documentationurl import Documentationurl
 
 # TODO update the JSON string below
 json = "{}"

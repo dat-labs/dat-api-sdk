@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.sync_mode import SyncMode
+from dat_api_sdk.models.sync_mode import SyncMode
 
 class TestSyncMode(unittest.TestCase):
     """SyncMode unit test stubs"""

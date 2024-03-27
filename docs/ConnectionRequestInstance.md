@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.connection_request_instance import ConnectionRequestInstance
+from dat_api_sdk.models.connection_request_instance import ConnectionRequestInstance
 
 # TODO update the JSON string below
 json = "{}"

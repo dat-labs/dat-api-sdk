@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.connection_run_logs_api import ConnectionRunLogsApi
+from dat_api_sdk.api.connection_run_logs_api import ConnectionRunLogsApi
 
 
 class TestConnectionRunLogsApi(unittest.TestCase):

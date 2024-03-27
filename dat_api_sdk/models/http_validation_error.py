@@ -18,19 +18,17 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
-from openapi_client.models.configured_document_stream import ConfiguredDocumentStream
-from openapi_client.models.connector_specification import ConnectorSpecification
+from typing import Any, ClassVar, Dict, List, Optional
+from dat_api_sdk.models.validation_error import ValidationError
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut(BaseModel):
+class HTTPValidationError(BaseModel):
     """
-    BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
+    HTTPValidationError
     """ # noqa: E501
-    conn_spec: ConnectorSpecification
-    configured_document_stream: ConfiguredDocumentStream
-    __properties: ClassVar[List[str]] = ["conn_spec", "configured_document_stream"]
+    detail: Optional[List[ValidationError]] = None
+    __properties: ClassVar[List[str]] = ["detail"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +48,7 @@ class BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut from a JSON string"""
+        """Create an instance of HTTPValidationError from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,17 +69,18 @@ class BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of conn_spec
-        if self.conn_spec:
-            _dict['conn_spec'] = self.conn_spec.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of configured_document_stream
-        if self.configured_document_stream:
-            _dict['configured_document_stream'] = self.configured_document_stream.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in detail (list)
+        _items = []
+        if self.detail:
+            for _item in self.detail:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['detail'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut from a dict"""
+        """Create an instance of HTTPValidationError from a dict"""
         if obj is None:
             return None
 
@@ -89,8 +88,7 @@ class BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "conn_spec": ConnectorSpecification.from_dict(obj["conn_spec"]) if obj.get("conn_spec") is not None else None,
-            "configured_document_stream": ConfiguredDocumentStream.from_dict(obj["configured_document_stream"]) if obj.get("configured_document_stream") is not None else None
+            "detail": [ValidationError.from_dict(_item) for _item in obj["detail"]] if obj.get("detail") is not None else None
         })
         return _obj
 

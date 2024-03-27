@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.dat_document_stream import DatDocumentStream
+from dat_api_sdk.models.dat_document_stream import DatDocumentStream
 
 # TODO update the JSON string below
 json = "{}"

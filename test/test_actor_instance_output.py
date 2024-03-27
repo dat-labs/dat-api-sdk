@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.actor_instance_output import ActorInstanceOutput
+from dat_api_sdk.models.actor_instance_output import ActorInstanceOutput
 
 class TestActorInstanceOutput(unittest.TestCase):
     """ActorInstanceOutput unit test stubs"""

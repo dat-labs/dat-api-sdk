@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.documentationurl import Documentationurl
+from dat_api_sdk.models.documentationurl import Documentationurl
 
 class TestDocumentationurl(unittest.TestCase):
     """Documentationurl unit test stubs"""

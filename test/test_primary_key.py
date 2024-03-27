@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.primary_key import PrimaryKey
+from dat_api_sdk.models.primary_key import PrimaryKey
 
 class TestPrimaryKey(unittest.TestCase):
     """PrimaryKey unit test stubs"""

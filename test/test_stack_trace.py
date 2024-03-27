@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.stack_trace import StackTrace
+from dat_api_sdk.models.stack_trace import StackTrace
 
 class TestStackTrace(unittest.TestCase):
     """StackTrace unit test stubs"""

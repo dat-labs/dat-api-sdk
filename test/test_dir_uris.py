@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.dir_uris import DirUris
+from dat_api_sdk.models.dir_uris import DirUris
 
 class TestDirUris(unittest.TestCase):
     """DirUris unit test stubs"""

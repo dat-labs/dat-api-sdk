@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.namespace import Namespace
+from dat_api_sdk.models.namespace import Namespace
 
 # TODO update the JSON string below
 json = "{}"

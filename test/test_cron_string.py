@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.cron_string import CronString
+from dat_api_sdk.models.cron_string import CronString
 
 class TestCronString(unittest.TestCase):
     """CronString unit test stubs"""

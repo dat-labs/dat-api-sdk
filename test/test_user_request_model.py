@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.user_request_model import UserRequestModel
+from dat_api_sdk.models.user_request_model import UserRequestModel
 
 class TestUserRequestModel(unittest.TestCase):
     """UserRequestModel unit test stubs"""

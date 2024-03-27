@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.dat_document_stream import DatDocumentStream
+from dat_api_sdk.models.dat_document_stream import DatDocumentStream
 
 class TestDatDocumentStream(unittest.TestCase):
     """DatDocumentStream unit test stubs"""

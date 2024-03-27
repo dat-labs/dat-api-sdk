@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.supported_destination_sync_modes import SupportedDestinationSyncModes
+from dat_api_sdk.models.supported_destination_sync_modes import SupportedDestinationSyncModes
 
 class TestSupportedDestinationSyncModes(unittest.TestCase):
     """SupportedDestinationSyncModes unit test stubs"""

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.connector_specification import ConnectorSpecification
+from dat_api_sdk.models.connector_specification import ConnectorSpecification
 
 # TODO update the JSON string below
 json = "{}"

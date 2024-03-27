@@ -19,21 +19,26 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.dat_log_message_level import DatLogMessageLevel
-from openapi_client.models.message import Message
-from openapi_client.models.stack_trace import StackTrace
+from dat_api_sdk.models.cursor_field1 import CursorField1
+from dat_api_sdk.models.dir_uris import DirUris
+from dat_api_sdk.models.json_schema import JsonSchema
+from dat_api_sdk.models.namespace import Namespace
+from dat_api_sdk.models.sync_mode import SyncMode
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DatLogMessage(BaseModel):
+class DatDocumentStream(BaseModel):
     """
-    DatLogMessage
+    DatDocumentStream
     """ # noqa: E501
-    level: Optional[DatLogMessageLevel] = None
-    message: Optional[Message] = None
-    stack_trace: Optional[StackTrace] = None
+    name: Optional[Any]
+    namespace: Optional[Namespace] = None
+    json_schema: Optional[JsonSchema] = None
+    dir_uris: Optional[DirUris] = None
+    sync_mode: SyncMode
+    cursor_field: Optional[CursorField1] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["level", "message", "stack_trace"]
+    __properties: ClassVar[List[str]] = ["name", "namespace", "json_schema", "dir_uris", "sync_mode", "cursor_field"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +58,7 @@ class DatLogMessage(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DatLogMessage from a JSON string"""
+        """Create an instance of DatDocumentStream from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,25 +81,33 @@ class DatLogMessage(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of level
-        if self.level:
-            _dict['level'] = self.level.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of message
-        if self.message:
-            _dict['message'] = self.message.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of stack_trace
-        if self.stack_trace:
-            _dict['stack_trace'] = self.stack_trace.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of namespace
+        if self.namespace:
+            _dict['namespace'] = self.namespace.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of json_schema
+        if self.json_schema:
+            _dict['json_schema'] = self.json_schema.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of dir_uris
+        if self.dir_uris:
+            _dict['dir_uris'] = self.dir_uris.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of cursor_field
+        if self.cursor_field:
+            _dict['cursor_field'] = self.cursor_field.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
 
+        # set to None if name (nullable) is None
+        # and model_fields_set contains the field
+        if self.name is None and "name" in self.model_fields_set:
+            _dict['name'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DatLogMessage from a dict"""
+        """Create an instance of DatDocumentStream from a dict"""
         if obj is None:
             return None
 
@@ -102,9 +115,12 @@ class DatLogMessage(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "level": DatLogMessageLevel.from_dict(obj["level"]) if obj.get("level") is not None else None,
-            "message": Message.from_dict(obj["message"]) if obj.get("message") is not None else None,
-            "stack_trace": StackTrace.from_dict(obj["stack_trace"]) if obj.get("stack_trace") is not None else None
+            "name": obj.get("name"),
+            "namespace": Namespace.from_dict(obj["namespace"]) if obj.get("namespace") is not None else None,
+            "json_schema": JsonSchema.from_dict(obj["json_schema"]) if obj.get("json_schema") is not None else None,
+            "dir_uris": DirUris.from_dict(obj["dir_uris"]) if obj.get("dir_uris") is not None else None,
+            "sync_mode": obj.get("sync_mode"),
+            "cursor_field": CursorField1.from_dict(obj["cursor_field"]) if obj.get("cursor_field") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

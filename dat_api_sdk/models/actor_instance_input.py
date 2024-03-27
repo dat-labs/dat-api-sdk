@@ -17,18 +17,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.validation_error import ValidationError
+from dat_api_sdk.models.connector_specification import ConnectorSpecification
 from typing import Optional, Set
 from typing_extensions import Self
 
-class HTTPValidationError(BaseModel):
+class ActorInstanceInput(BaseModel):
     """
-    HTTPValidationError
+    ActorInstanceInput
     """ # noqa: E501
-    detail: Optional[List[ValidationError]] = None
-    __properties: ClassVar[List[str]] = ["detail"]
+    uuid: Optional[StrictStr] = 'd16e47d1-c6bf-4401-b656-5ad7ec552cc2'
+    name: StrictStr
+    workspace_id: Optional[StrictStr] = 'wkspc-uuid'
+    actor_id: Optional[StrictStr] = 'gdrive-uuid'
+    user_id: Optional[StrictStr] = '09922bd9-7872-4664-99d0-08eae42fb554'
+    configuration: ConnectorSpecification
+    __properties: ClassVar[List[str]] = ["uuid", "name", "workspace_id", "actor_id", "user_id", "configuration"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +53,7 @@ class HTTPValidationError(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of HTTPValidationError from a JSON string"""
+        """Create an instance of ActorInstanceInput from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,18 +74,14 @@ class HTTPValidationError(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in detail (list)
-        _items = []
-        if self.detail:
-            for _item in self.detail:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['detail'] = _items
+        # override the default output from pydantic by calling `to_dict()` of configuration
+        if self.configuration:
+            _dict['configuration'] = self.configuration.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of HTTPValidationError from a dict"""
+        """Create an instance of ActorInstanceInput from a dict"""
         if obj is None:
             return None
 
@@ -88,7 +89,12 @@ class HTTPValidationError(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "detail": [ValidationError.from_dict(_item) for _item in obj["detail"]] if obj.get("detail") is not None else None
+            "uuid": obj.get("uuid") if obj.get("uuid") is not None else 'd16e47d1-c6bf-4401-b656-5ad7ec552cc2',
+            "name": obj.get("name"),
+            "workspace_id": obj.get("workspace_id") if obj.get("workspace_id") is not None else 'wkspc-uuid',
+            "actor_id": obj.get("actor_id") if obj.get("actor_id") is not None else 'gdrive-uuid',
+            "user_id": obj.get("user_id") if obj.get("user_id") is not None else '09922bd9-7872-4664-99d0-08eae42fb554',
+            "configuration": ConnectorSpecification.from_dict(obj["configuration"]) if obj.get("configuration") is not None else None
         })
         return _obj
 

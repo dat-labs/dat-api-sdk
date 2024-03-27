@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.actors_api import ActorsApi
+from dat_api_sdk.api.actors_api import ActorsApi
 
 
 class TestActorsApi(unittest.TestCase):

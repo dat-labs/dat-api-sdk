@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.body_update_actor_instance_actor_instances_actor_instance_uuid_put import BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
+from dat_api_sdk.models.body_update_actor_instance_actor_instances_actor_instance_uuid_put import BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
 
 class TestBodyUpdateActorInstanceActorInstancesActorInstanceUuidPut(unittest.TestCase):
     """BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut unit test stubs"""

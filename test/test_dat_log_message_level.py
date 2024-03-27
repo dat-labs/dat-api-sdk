@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.dat_log_message_level import DatLogMessageLevel
+from dat_api_sdk.models.dat_log_message_level import DatLogMessageLevel
 
 class TestDatLogMessageLevel(unittest.TestCase):
     """DatLogMessageLevel unit test stubs"""

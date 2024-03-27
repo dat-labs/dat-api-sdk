@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.supportsincremental import Supportsincremental
+from dat_api_sdk.models.supportsincremental import Supportsincremental
 
 class TestSupportsincremental(unittest.TestCase):
     """Supportsincremental unit test stubs"""

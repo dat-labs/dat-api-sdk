@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.actor_instance_input import ActorInstanceInput
+from dat_api_sdk.models.actor_instance_input import ActorInstanceInput
 
 class TestActorInstanceInput(unittest.TestCase):
     """ActorInstanceInput unit test stubs"""

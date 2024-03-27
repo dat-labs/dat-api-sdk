@@ -20,10 +20,10 @@ Create Connection
 
 
 ```python
-import openapi_client
-from openapi_client.models.connection_request_instance import ConnectionRequestInstance
-from openapi_client.models.connection_response_instance import ConnectionResponseInstance
-from openapi_client.rest import ApiException
+import dat_api_sdk
+from dat_api_sdk.models.connection_request_instance import ConnectionRequestInstance
+from dat_api_sdk.models.connection_response_instance import ConnectionResponseInstance
+from dat_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
@@ -90,8 +90,8 @@ Delete Connection
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import dat_api_sdk
+from dat_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
@@ -155,9 +155,9 @@ Fetch Available Connections
 
 
 ```python
-import openapi_client
-from openapi_client.models.connection_response_instance import ConnectionResponseInstance
-from openapi_client.rest import ApiException
+import dat_api_sdk
+from dat_api_sdk.models.connection_response_instance import ConnectionResponseInstance
+from dat_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
@@ -218,9 +218,9 @@ Read Connection
 
 
 ```python
-import openapi_client
-from openapi_client.models.connection_response_instance import ConnectionResponseInstance
-from openapi_client.rest import ApiException
+import dat_api_sdk
+from dat_api_sdk.models.connection_response_instance import ConnectionResponseInstance
+from dat_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
@@ -286,10 +286,10 @@ Update Connection
 
 
 ```python
-import openapi_client
-from openapi_client.models.connection_request_instance import ConnectionRequestInstance
-from openapi_client.models.connection_response_instance import ConnectionResponseInstance
-from openapi_client.rest import ApiException
+import dat_api_sdk
+from dat_api_sdk.models.connection_request_instance import ConnectionRequestInstance
+from dat_api_sdk.models.connection_response_instance import ConnectionResponseInstance
+from dat_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost

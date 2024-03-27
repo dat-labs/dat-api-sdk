@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.configured_document_stream import ConfiguredDocumentStream
+from dat_api_sdk.models.configured_document_stream import ConfiguredDocumentStream
 
 class TestConfiguredDocumentStream(unittest.TestCase):
     """ConfiguredDocumentStream unit test stubs"""

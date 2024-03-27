@@ -17,8 +17,8 @@ Root
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import dat_api_sdk
+from dat_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
@@ -78,8 +78,8 @@ Update Admin
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import dat_api_sdk
+from dat_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost

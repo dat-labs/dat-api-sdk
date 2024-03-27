@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.protocol_version import ProtocolVersion
+from dat_api_sdk.models.protocol_version import ProtocolVersion
 
 class TestProtocolVersion(unittest.TestCase):
     """ProtocolVersion unit test stubs"""

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.cron_string import CronString
+from dat_api_sdk.models.cron_string import CronString
 
 # TODO update the JSON string below
 json = "{}"

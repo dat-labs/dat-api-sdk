@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.cursor_field import CursorField
+from dat_api_sdk.models.cursor_field import CursorField
 
 # TODO update the JSON string below
 json = "{}"

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.supported_destination_sync_modes import SupportedDestinationSyncModes
+from dat_api_sdk.models.supported_destination_sync_modes import SupportedDestinationSyncModes
 
 # TODO update the JSON string below
 json = "{}"
