@@ -57,17 +57,17 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.UsersApi(api_client)
-    user_request_model = openapi_client.UserRequestModel() # UserRequestModel | 
+    api_instance = dat_api_sdk.UsersApi(api_client)
+    user_request_model = dat_api_sdk.UserRequestModel() # UserRequestModel | 
 
     try:
         # Verify User

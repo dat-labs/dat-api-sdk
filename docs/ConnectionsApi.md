@@ -1,4 +1,4 @@
-# openapi_client.ConnectionsApi
+# dat_api_sdk.ConnectionsApi
 
 All URIs are relative to *http://localhost*
 
@@ -28,16 +28,16 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ConnectionsApi(api_client)
-    connection_request_instance = openapi_client.ConnectionRequestInstance() # ConnectionRequestInstance | 
+    api_instance = dat_api_sdk.ConnectionsApi(api_client)
+    connection_request_instance = dat_api_sdk.ConnectionRequestInstance() # ConnectionRequestInstance | 
 
     try:
         # Create Connection
@@ -96,15 +96,15 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ConnectionsApi(api_client)
+    api_instance = dat_api_sdk.ConnectionsApi(api_client)
     connection_id = 'connection_id_example' # str | 
 
     try:
@@ -162,15 +162,15 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ConnectionsApi(api_client)
+    api_instance = dat_api_sdk.ConnectionsApi(api_client)
 
     try:
         # Fetch Available Connections
@@ -225,15 +225,15 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ConnectionsApi(api_client)
+    api_instance = dat_api_sdk.ConnectionsApi(api_client)
     connection_id = 'connection_id_example' # str | 
 
     try:
@@ -294,17 +294,17 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ConnectionsApi(api_client)
+    api_instance = dat_api_sdk.ConnectionsApi(api_client)
     connection_id = 'connection_id_example' # str | 
-    connection_request_instance = openapi_client.ConnectionRequestInstance() # ConnectionRequestInstance | 
+    connection_request_instance = dat_api_sdk.ConnectionRequestInstance() # ConnectionRequestInstance | 
 
     try:
         # Update Connection

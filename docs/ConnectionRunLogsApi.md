@@ -1,4 +1,4 @@
-# openapi_client.ConnectionRunLogsApi
+# dat_api_sdk.ConnectionRunLogsApi
 
 All URIs are relative to *http://localhost*
 
@@ -23,17 +23,17 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ConnectionRunLogsApi(api_client)
+    api_instance = dat_api_sdk.ConnectionRunLogsApi(api_client)
     connection_id = 'connection_id_example' # str | 
-    dat_log_message = openapi_client.DatLogMessage() # DatLogMessage | 
+    dat_log_message = dat_api_sdk.DatLogMessage() # DatLogMessage | 
 
     try:
         # Add Connection Run Log

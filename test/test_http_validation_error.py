@@ -36,7 +36,7 @@ class TestHTTPValidationError(unittest.TestCase):
         if include_optional:
             return HTTPValidationError(
                 detail = [
-                    openapi_client.models.validation_error.ValidationError(
+                    dat_api_sdk.models.validation_error.ValidationError(
                         loc = [
                             null
                             ], 

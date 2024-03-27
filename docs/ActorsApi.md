@@ -1,4 +1,4 @@
-# openapi_client.ActorsApi
+# dat_api_sdk.ActorsApi
 
 All URIs are relative to *http://localhost*
 
@@ -23,15 +23,15 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ActorsApi(api_client)
+    api_instance = dat_api_sdk.ActorsApi(api_client)
     actor_type = 'actor_type_example' # str | 
 
     try:
@@ -92,15 +92,15 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ActorsApi(api_client)
+    api_instance = dat_api_sdk.ActorsApi(api_client)
     actor_uuid = 'actor_uuid_example' # str | 
 
     try:

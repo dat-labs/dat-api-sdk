@@ -1,4 +1,4 @@
-# openapi_client.ActorInstancesApi
+# dat_api_sdk.ActorInstancesApi
 
 All URIs are relative to *http://localhost*
 
@@ -29,15 +29,15 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ActorInstancesApi(api_client)
+    api_instance = dat_api_sdk.ActorInstancesApi(api_client)
     actor_instance_uuid = 'actor_instance_uuid_example' # str | 
 
     try:
@@ -98,16 +98,16 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ActorInstancesApi(api_client)
-    actor_instance_input = openapi_client.ActorInstanceInput() # ActorInstanceInput | 
+    api_instance = dat_api_sdk.ActorInstancesApi(api_client)
+    actor_instance_input = dat_api_sdk.ActorInstanceInput() # ActorInstanceInput | 
 
     try:
         # Create Actor Instance
@@ -166,15 +166,15 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ActorInstancesApi(api_client)
+    api_instance = dat_api_sdk.ActorInstancesApi(api_client)
     actor_instance_uuid = 'actor_instance_uuid_example' # str | 
 
     try:
@@ -235,15 +235,15 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ActorInstancesApi(api_client)
+    api_instance = dat_api_sdk.ActorInstancesApi(api_client)
     actor_type = 'actor_type_example' # str | 
 
     try:
@@ -303,15 +303,15 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ActorInstancesApi(api_client)
+    api_instance = dat_api_sdk.ActorInstancesApi(api_client)
     actor_instance_uuid = 'actor_instance_uuid_example' # str | 
 
     try:
@@ -372,17 +372,17 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = dat_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with dat_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ActorInstancesApi(api_client)
+    api_instance = dat_api_sdk.ActorInstancesApi(api_client)
     actor_instance_uuid = 'actor_instance_uuid_example' # str | 
-    body_update_actor_instance_actor_instances_actor_instance_uuid_put = openapi_client.BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut() # BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut | 
+    body_update_actor_instance_actor_instances_actor_instance_uuid_put = dat_api_sdk.BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut() # BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut | 
 
     try:
         # Update Actor Instance
