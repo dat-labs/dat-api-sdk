@@ -1,0 +1,34 @@
+# ActorInstanceInput
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**uuid** | **str** |  | [optional] [default to 'd16e47d1-c6bf-4401-b656-5ad7ec552cc2']
+**name** | **str** |  | 
+**workspace_id** | **str** |  | [optional] [default to 'wkspc-uuid']
+**actor_id** | **str** |  | [optional] [default to 'gdrive-uuid']
+**user_id** | **str** |  | [optional] [default to '09922bd9-7872-4664-99d0-08eae42fb554']
+**configuration** | [**ConnectorSpecification**](ConnectorSpecification.md) |  | 
+
+## Example
+
+```python
+from openapi_client.models.actor_instance_input import ActorInstanceInput
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ActorInstanceInput from a JSON string
+actor_instance_input_instance = ActorInstanceInput.from_json(json)
+# print the JSON string representation of the object
+print(ActorInstanceInput.to_json())
+
+# convert the object into a dict
+actor_instance_input_dict = actor_instance_input_instance.to_dict()
+# create an instance of ActorInstanceInput from a dict
+actor_instance_input_form_dict = actor_instance_input.from_dict(actor_instance_input_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
