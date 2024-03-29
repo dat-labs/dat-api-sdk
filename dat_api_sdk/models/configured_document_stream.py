@@ -19,11 +19,11 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from dat_api_sdk.models.cursor_field import CursorField
-from dat_api_sdk.models.dat_document_stream import DatDocumentStream
-from dat_api_sdk.models.destination_sync_mode import DestinationSyncMode
-from dat_api_sdk.models.primary_key import PrimaryKey
-from dat_api_sdk.models.sync_mode import SyncMode
+from dat_client.models.cursor_field import CursorField
+from dat_client.models.dat_document_stream import DatDocumentStream
+from dat_client.models.destination_sync_mode import DestinationSyncMode
+from dat_client.models.primary_key import PrimaryKey
+from dat_client.models.sync_mode import SyncMode
 from typing import Optional, Set
 from typing_extensions import Self
 

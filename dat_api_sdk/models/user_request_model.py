@@ -26,11 +26,9 @@ class UserRequestModel(BaseModel):
     """
     UserRequestModel
     """ # noqa: E501
-    # email: StrictStr
-    # password: StrictStr
-    __properties: ClassVar[List[str]] = [
-        # "email", "password"
-    ]
+    email: StrictStr
+    password: StrictStr
+    __properties: ClassVar[List[str]] = ["email", "password"]
 
     model_config = ConfigDict(
         populate_by_name=True,

@@ -19,9 +19,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from dat_api_sdk.models.dat_log_message_level import DatLogMessageLevel
-from dat_api_sdk.models.message import Message
-from dat_api_sdk.models.stack_trace import StackTrace
+from dat_client.models.dat_log_message_level import DatLogMessageLevel
+from dat_client.models.message import Message
+from dat_client.models.stack_trace import StackTrace
 from typing import Optional, Set
 from typing_extensions import Self
 

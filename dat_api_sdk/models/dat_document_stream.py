@@ -19,11 +19,11 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from dat_api_sdk.models.cursor_field1 import CursorField1
-from dat_api_sdk.models.dir_uris import DirUris
-from dat_api_sdk.models.json_schema import JsonSchema
-from dat_api_sdk.models.namespace import Namespace
-from dat_api_sdk.models.sync_mode import SyncMode
+from dat_client.models.cursor_field1 import CursorField1
+from dat_client.models.dir_uris import DirUris
+from dat_client.models.json_schema import JsonSchema
+from dat_client.models.namespace import Namespace
+from dat_client.models.sync_mode import SyncMode
 from typing import Optional, Set
 from typing_extensions import Self
 

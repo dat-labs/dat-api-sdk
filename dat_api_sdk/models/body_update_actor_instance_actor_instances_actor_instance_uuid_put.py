@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from dat_api_sdk.models.configured_document_stream import ConfiguredDocumentStream
-from dat_api_sdk.models.connector_specification import ConnectorSpecification
+from dat_client.models.configured_document_stream import ConfiguredDocumentStream
+from dat_client.models.connector_specification import ConnectorSpecification
 from typing import Optional, Set
 from typing_extensions import Self
 

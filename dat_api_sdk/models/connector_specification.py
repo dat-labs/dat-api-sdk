@@ -19,11 +19,11 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from dat_api_sdk.models.changelogurl import Changelogurl
-from dat_api_sdk.models.documentationurl import Documentationurl
-from dat_api_sdk.models.protocol_version import ProtocolVersion
-from dat_api_sdk.models.supported_destination_sync_modes import SupportedDestinationSyncModes
-from dat_api_sdk.models.supportsincremental import Supportsincremental
+from dat_client.models.changelogurl import Changelogurl
+from dat_client.models.documentationurl import Documentationurl
+from dat_client.models.protocol_version import ProtocolVersion
+from dat_client.models.supported_destination_sync_modes import SupportedDestinationSyncModes
+from dat_client.models.supportsincremental import Supportsincremental
 from typing import Optional, Set
 from typing_extensions import Self
 

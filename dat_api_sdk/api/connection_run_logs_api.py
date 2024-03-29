@@ -17,11 +17,11 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from dat_api_sdk.models.dat_log_message import DatLogMessage
+from dat_client.models.dat_log_message import DatLogMessage
 
-from dat_api_sdk.api_client import ApiClient, RequestSerialized
-from dat_api_sdk.api_response import ApiResponse
-from dat_api_sdk.rest import RESTResponseType
+from dat_client.api_client import ApiClient, RequestSerialized
+from dat_client.api_response import ApiResponse
+from dat_client.rest import RESTResponseType
 
 
 class ConnectionRunLogsApi:

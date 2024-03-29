@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dat_api_sdk.models.connector_specification import ConnectorSpecification
+from dat_client.models.connector_specification import ConnectorSpecification
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class ActorInstanceOutput(BaseModel):
     """
     ActorInstanceOutput
     """ # noqa: E501
-    uuid: Optional[StrictStr] = 'd16e47d1-c6bf-4401-b656-5ad7ec552cc2'
+    uuid: Optional[StrictStr] = 'd565b077-029b-4cab-acdd-f2a5c2298cd3'
     name: StrictStr
     workspace_id: Optional[StrictStr] = 'wkspc-uuid'
     actor_id: Optional[StrictStr] = 'gdrive-uuid'
@@ -89,7 +89,7 @@ class ActorInstanceOutput(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "uuid": obj.get("uuid") if obj.get("uuid") is not None else 'd16e47d1-c6bf-4401-b656-5ad7ec552cc2',
+            "uuid": obj.get("uuid") if obj.get("uuid") is not None else 'd565b077-029b-4cab-acdd-f2a5c2298cd3',
             "name": obj.get("name"),
             "workspace_id": obj.get("workspace_id") if obj.get("workspace_id") is not None else 'wkspc-uuid',
             "actor_id": obj.get("actor_id") if obj.get("actor_id") is not None else 'gdrive-uuid',

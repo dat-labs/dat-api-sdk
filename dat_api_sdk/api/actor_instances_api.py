@@ -18,13 +18,13 @@ from typing_extensions import Annotated
 
 from pydantic import StrictStr
 from typing import Any, Dict, List
-from dat_api_sdk.models.actor_instance_input import ActorInstanceInput
-from dat_api_sdk.models.actor_instance_output import ActorInstanceOutput
-from dat_api_sdk.models.body_update_actor_instance_actor_instances_actor_instance_uuid_put import BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
+from dat_client.models.actor_instance_input import ActorInstanceInput
+from dat_client.models.actor_instance_output import ActorInstanceOutput
+from dat_client.models.body_update_actor_instance_actor_instances_actor_instance_uuid_put import BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
 
-from dat_api_sdk.api_client import ApiClient, RequestSerialized
-from dat_api_sdk.api_response import ApiResponse
-from dat_api_sdk.rest import RESTResponseType
+from dat_client.api_client import ApiClient, RequestSerialized
+from dat_client.api_response import ApiResponse
+from dat_client.rest import RESTResponseType
 
 
 class ActorInstancesApi:

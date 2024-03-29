@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "dat_api_sdk"
+name = "dat_client"
 version = "1.0.0"
 description = "FastAPI"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"
 readme = "README.md"
-repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
+repository = "https://github.com/riju-dc/dat-api-sdk"
 keywords = ["OpenAPI", "OpenAPI-Generator", "FastAPI"]
-include = ["dat_api_sdk/py.typed"]
+include = ["dat_client/py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -34,7 +34,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "dat_api_sdk",
+  "dat_client",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]

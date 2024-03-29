@@ -19,10 +19,10 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dat_api_sdk.models.catalog import Catalog
-from dat_api_sdk.models.configuration import Configuration
-from dat_api_sdk.models.cron_string import CronString
-from dat_api_sdk.models.status import Status
+from dat_client.models.catalog import Catalog
+from dat_client.models.configuration import Configuration
+from dat_client.models.cron_string import CronString
+from dat_client.models.status import Status
 from typing import Optional, Set
 from typing_extensions import Self
 
