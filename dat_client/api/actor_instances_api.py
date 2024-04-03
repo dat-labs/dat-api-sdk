@@ -18,8 +18,7 @@ from typing_extensions import Annotated
 
 from pydantic import StrictStr
 from typing import Any, Dict, List
-from dat_client.models.actor_instance_input import ActorInstanceInput
-from dat_client.models.actor_instance_output import ActorInstanceOutput
+from dat_client.models.actor_instance import ActorInstance
 from dat_client.models.body_update_actor_instance_actor_instances_actor_instance_uuid_put import BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
 
 from dat_client.api_client import ApiClient, RequestSerialized
@@ -306,7 +305,7 @@ class ActorInstancesApi:
     @validate_call
     def create_actor_instance_actor_instances_post(
         self,
-        actor_instance_input: ActorInstanceInput,
+        actor_instance: ActorInstance,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -319,12 +318,12 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ActorInstanceOutput:
+    ) -> ActorInstance:
         """Create Actor Instance
 
 
-        :param actor_instance_input: (required)
-        :type actor_instance_input: ActorInstanceInput
+        :param actor_instance: (required)
+        :type actor_instance: ActorInstance
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -348,7 +347,7 @@ class ActorInstancesApi:
         """ # noqa: E501
 
         _param = self._create_actor_instance_actor_instances_post_serialize(
-            actor_instance_input=actor_instance_input,
+            actor_instance=actor_instance,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -356,7 +355,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstanceOutput",
+            '200': "ActorInstance",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -375,7 +374,7 @@ class ActorInstancesApi:
     @validate_call
     def create_actor_instance_actor_instances_post_with_http_info(
         self,
-        actor_instance_input: ActorInstanceInput,
+        actor_instance: ActorInstance,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -388,12 +387,12 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ActorInstanceOutput]:
+    ) -> ApiResponse[ActorInstance]:
         """Create Actor Instance
 
 
-        :param actor_instance_input: (required)
-        :type actor_instance_input: ActorInstanceInput
+        :param actor_instance: (required)
+        :type actor_instance: ActorInstance
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -417,7 +416,7 @@ class ActorInstancesApi:
         """ # noqa: E501
 
         _param = self._create_actor_instance_actor_instances_post_serialize(
-            actor_instance_input=actor_instance_input,
+            actor_instance=actor_instance,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -425,7 +424,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstanceOutput",
+            '200': "ActorInstance",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -444,7 +443,7 @@ class ActorInstancesApi:
     @validate_call
     def create_actor_instance_actor_instances_post_without_preload_content(
         self,
-        actor_instance_input: ActorInstanceInput,
+        actor_instance: ActorInstance,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -461,8 +460,8 @@ class ActorInstancesApi:
         """Create Actor Instance
 
 
-        :param actor_instance_input: (required)
-        :type actor_instance_input: ActorInstanceInput
+        :param actor_instance: (required)
+        :type actor_instance: ActorInstance
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -486,7 +485,7 @@ class ActorInstancesApi:
         """ # noqa: E501
 
         _param = self._create_actor_instance_actor_instances_post_serialize(
-            actor_instance_input=actor_instance_input,
+            actor_instance=actor_instance,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -494,7 +493,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstanceOutput",
+            '200': "ActorInstance",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -508,7 +507,7 @@ class ActorInstancesApi:
 
     def _create_actor_instance_actor_instances_post_serialize(
         self,
-        actor_instance_input,
+        actor_instance,
         _request_auth,
         _content_type,
         _headers,
@@ -532,8 +531,8 @@ class ActorInstancesApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if actor_instance_input is not None:
-            _body_params = actor_instance_input
+        if actor_instance is not None:
+            _body_params = actor_instance
 
 
         # set the HTTP header `Accept`
@@ -858,7 +857,7 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ActorInstanceOutput]:
+    ) -> List[ActorInstance]:
         """Fetch Available Actor Instances
 
 
@@ -895,7 +894,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstanceOutput]",
+            '200': "List[ActorInstance]",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -926,7 +925,7 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ActorInstanceOutput]]:
+    ) -> ApiResponse[List[ActorInstance]]:
         """Fetch Available Actor Instances
 
 
@@ -963,7 +962,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstanceOutput]",
+            '200': "List[ActorInstance]",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1031,7 +1030,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstanceOutput]",
+            '200': "List[ActorInstance]",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1118,7 +1117,7 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ActorInstanceOutput:
+    ) -> ActorInstance:
         """Read Actor Instance
 
 
@@ -1155,7 +1154,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstanceOutput",
+            '200': "ActorInstance",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1186,7 +1185,7 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ActorInstanceOutput]:
+    ) -> ApiResponse[ActorInstance]:
         """Read Actor Instance
 
 
@@ -1223,7 +1222,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstanceOutput",
+            '200': "ActorInstance",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1291,7 +1290,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstanceOutput",
+            '200': "ActorInstance",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1379,7 +1378,7 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ActorInstanceOutput]:
+    ) -> List[ActorInstance]:
         """Update Actor Instance
 
 
@@ -1419,7 +1418,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstanceOutput]",
+            '200': "List[ActorInstance]",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -1452,7 +1451,7 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ActorInstanceOutput]]:
+    ) -> ApiResponse[List[ActorInstance]]:
         """Update Actor Instance
 
 
@@ -1492,7 +1491,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstanceOutput]",
+            '200': "List[ActorInstance]",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -1565,7 +1564,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstanceOutput]",
+            '200': "List[ActorInstance]",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",

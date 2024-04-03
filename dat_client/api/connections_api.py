@@ -16,10 +16,13 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictStr
+from pydantic import Field, StrictStr
 from typing import Any, List
-from dat_client.models.connection_request_instance import ConnectionRequestInstance
-from dat_client.models.connection_response_instance import ConnectionResponseInstance
+from typing_extensions import Annotated
+from dat_client.models.connection_orchestra_response import ConnectionOrchestraResponse
+from dat_client.models.connection_post_request import ConnectionPostRequest
+from dat_client.models.connection_put_request import ConnectionPutRequest
+from dat_client.models.connection_response import ConnectionResponse
 
 from dat_client.api_client import ApiClient, RequestSerialized
 from dat_client.api_response import ApiResponse
@@ -302,7 +305,7 @@ class ConnectionsApi:
     @validate_call
     def create_connection_connections_post(
         self,
-        connection_request_instance: ConnectionRequestInstance,
+        connection_post_request: ConnectionPostRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -315,12 +318,12 @@ class ConnectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ConnectionResponseInstance:
+    ) -> ConnectionResponse:
         """Create Connection
 
 
-        :param connection_request_instance: (required)
-        :type connection_request_instance: ConnectionRequestInstance
+        :param connection_post_request: (required)
+        :type connection_post_request: ConnectionPostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -344,7 +347,7 @@ class ConnectionsApi:
         """ # noqa: E501
 
         _param = self._create_connection_connections_post_serialize(
-            connection_request_instance=connection_request_instance,
+            connection_post_request=connection_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -352,7 +355,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectionResponseInstance",
+            '200': "ConnectionResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -371,7 +374,7 @@ class ConnectionsApi:
     @validate_call
     def create_connection_connections_post_with_http_info(
         self,
-        connection_request_instance: ConnectionRequestInstance,
+        connection_post_request: ConnectionPostRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -384,12 +387,12 @@ class ConnectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ConnectionResponseInstance]:
+    ) -> ApiResponse[ConnectionResponse]:
         """Create Connection
 
 
-        :param connection_request_instance: (required)
-        :type connection_request_instance: ConnectionRequestInstance
+        :param connection_post_request: (required)
+        :type connection_post_request: ConnectionPostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -413,7 +416,7 @@ class ConnectionsApi:
         """ # noqa: E501
 
         _param = self._create_connection_connections_post_serialize(
-            connection_request_instance=connection_request_instance,
+            connection_post_request=connection_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -421,7 +424,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectionResponseInstance",
+            '200': "ConnectionResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -440,7 +443,7 @@ class ConnectionsApi:
     @validate_call
     def create_connection_connections_post_without_preload_content(
         self,
-        connection_request_instance: ConnectionRequestInstance,
+        connection_post_request: ConnectionPostRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -457,8 +460,8 @@ class ConnectionsApi:
         """Create Connection
 
 
-        :param connection_request_instance: (required)
-        :type connection_request_instance: ConnectionRequestInstance
+        :param connection_post_request: (required)
+        :type connection_post_request: ConnectionPostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -482,7 +485,7 @@ class ConnectionsApi:
         """ # noqa: E501
 
         _param = self._create_connection_connections_post_serialize(
-            connection_request_instance=connection_request_instance,
+            connection_post_request=connection_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -490,7 +493,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectionResponseInstance",
+            '200': "ConnectionResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -504,7 +507,7 @@ class ConnectionsApi:
 
     def _create_connection_connections_post_serialize(
         self,
-        connection_request_instance,
+        connection_post_request,
         _request_auth,
         _content_type,
         _headers,
@@ -528,8 +531,8 @@ class ConnectionsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if connection_request_instance is not None:
-            _body_params = connection_request_instance
+        if connection_post_request is not None:
+            _body_params = connection_post_request
 
 
         # set the HTTP header `Accept`
@@ -559,7 +562,7 @@ class ConnectionsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/connections/',
+            resource_path='/connections',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -850,9 +853,10 @@ class ConnectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ConnectionResponseInstance]:
+    ) -> List[ConnectionResponse]:
         """Fetch Available Connections
 
+        Fetch all active connections
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -884,7 +888,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ConnectionResponseInstance]",
+            '200': "List[ConnectionResponse]",
             '404': None,
         }
         response_data = self.api_client.call_api(
@@ -913,9 +917,10 @@ class ConnectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ConnectionResponseInstance]]:
+    ) -> ApiResponse[List[ConnectionResponse]]:
         """Fetch Available Connections
 
+        Fetch all active connections
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -947,7 +952,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ConnectionResponseInstance]",
+            '200': "List[ConnectionResponse]",
             '404': None,
         }
         response_data = self.api_client.call_api(
@@ -979,6 +984,7 @@ class ConnectionsApi:
     ) -> RESTResponseType:
         """Fetch Available Connections
 
+        Fetch all active connections
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1010,7 +1016,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ConnectionResponseInstance]",
+            '200': "List[ConnectionResponse]",
             '404': None,
         }
         response_data = self.api_client.call_api(
@@ -1061,7 +1067,270 @@ class ConnectionsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/connections/list/',
+            resource_path='/connections/list',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def fetch_connection_config_internal_connections_connection_id_get(
+        self,
+        connection_id: Annotated[StrictStr, Field(description="The ID of the connection to fetch")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ConnectionOrchestraResponse:
+        """Fetch Connection Config
+
+        Fetch connection configuration for orchestra
+
+        :param connection_id: The ID of the connection to fetch (required)
+        :type connection_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_connection_config_internal_connections_connection_id_get_serialize(
+            connection_id=connection_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ConnectionOrchestraResponse",
+            '404': None,
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def fetch_connection_config_internal_connections_connection_id_get_with_http_info(
+        self,
+        connection_id: Annotated[StrictStr, Field(description="The ID of the connection to fetch")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ConnectionOrchestraResponse]:
+        """Fetch Connection Config
+
+        Fetch connection configuration for orchestra
+
+        :param connection_id: The ID of the connection to fetch (required)
+        :type connection_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_connection_config_internal_connections_connection_id_get_serialize(
+            connection_id=connection_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ConnectionOrchestraResponse",
+            '404': None,
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def fetch_connection_config_internal_connections_connection_id_get_without_preload_content(
+        self,
+        connection_id: Annotated[StrictStr, Field(description="The ID of the connection to fetch")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Fetch Connection Config
+
+        Fetch connection configuration for orchestra
+
+        :param connection_id: The ID of the connection to fetch (required)
+        :type connection_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._fetch_connection_config_internal_connections_connection_id_get_serialize(
+            connection_id=connection_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ConnectionOrchestraResponse",
+            '404': None,
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _fetch_connection_config_internal_connections_connection_id_get_serialize(
+        self,
+        connection_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if connection_id is not None:
+            _path_params['connection_id'] = connection_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/internal/connections/{connection_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1093,7 +1362,7 @@ class ConnectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ConnectionResponseInstance:
+    ) -> ConnectionResponse:
         """Read Connection
 
 
@@ -1130,7 +1399,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectionResponseInstance",
+            '200': "ConnectionResponse",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1161,7 +1430,7 @@ class ConnectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ConnectionResponseInstance]:
+    ) -> ApiResponse[ConnectionResponse]:
         """Read Connection
 
 
@@ -1198,7 +1467,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectionResponseInstance",
+            '200': "ConnectionResponse",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1266,7 +1535,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectionResponseInstance",
+            '200': "ConnectionResponse",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1321,7 +1590,7 @@ class ConnectionsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/connections/{connection_id}/',
+            resource_path='/connections/{connection_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1341,7 +1610,7 @@ class ConnectionsApi:
     def update_connection_connections_connection_id_put(
         self,
         connection_id: StrictStr,
-        connection_request_instance: ConnectionRequestInstance,
+        connection_put_request: ConnectionPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1354,14 +1623,14 @@ class ConnectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ConnectionResponseInstance:
+    ) -> ConnectionResponse:
         """Update Connection
 
 
         :param connection_id: (required)
         :type connection_id: str
-        :param connection_request_instance: (required)
-        :type connection_request_instance: ConnectionRequestInstance
+        :param connection_put_request: (required)
+        :type connection_put_request: ConnectionPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1386,7 +1655,7 @@ class ConnectionsApi:
 
         _param = self._update_connection_connections_connection_id_put_serialize(
             connection_id=connection_id,
-            connection_request_instance=connection_request_instance,
+            connection_put_request=connection_put_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1394,7 +1663,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectionResponseInstance",
+            '200': "ConnectionResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -1414,7 +1683,7 @@ class ConnectionsApi:
     def update_connection_connections_connection_id_put_with_http_info(
         self,
         connection_id: StrictStr,
-        connection_request_instance: ConnectionRequestInstance,
+        connection_put_request: ConnectionPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1427,14 +1696,14 @@ class ConnectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ConnectionResponseInstance]:
+    ) -> ApiResponse[ConnectionResponse]:
         """Update Connection
 
 
         :param connection_id: (required)
         :type connection_id: str
-        :param connection_request_instance: (required)
-        :type connection_request_instance: ConnectionRequestInstance
+        :param connection_put_request: (required)
+        :type connection_put_request: ConnectionPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1459,7 +1728,7 @@ class ConnectionsApi:
 
         _param = self._update_connection_connections_connection_id_put_serialize(
             connection_id=connection_id,
-            connection_request_instance=connection_request_instance,
+            connection_put_request=connection_put_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1467,7 +1736,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectionResponseInstance",
+            '200': "ConnectionResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -1487,7 +1756,7 @@ class ConnectionsApi:
     def update_connection_connections_connection_id_put_without_preload_content(
         self,
         connection_id: StrictStr,
-        connection_request_instance: ConnectionRequestInstance,
+        connection_put_request: ConnectionPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1506,8 +1775,8 @@ class ConnectionsApi:
 
         :param connection_id: (required)
         :type connection_id: str
-        :param connection_request_instance: (required)
-        :type connection_request_instance: ConnectionRequestInstance
+        :param connection_put_request: (required)
+        :type connection_put_request: ConnectionPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1532,7 +1801,7 @@ class ConnectionsApi:
 
         _param = self._update_connection_connections_connection_id_put_serialize(
             connection_id=connection_id,
-            connection_request_instance=connection_request_instance,
+            connection_put_request=connection_put_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1540,7 +1809,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectionResponseInstance",
+            '200': "ConnectionResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -1555,7 +1824,7 @@ class ConnectionsApi:
     def _update_connection_connections_connection_id_put_serialize(
         self,
         connection_id,
-        connection_request_instance,
+        connection_put_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1581,8 +1850,8 @@ class ConnectionsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if connection_request_instance is not None:
-            _body_params = connection_request_instance
+        if connection_put_request is not None:
+            _body_params = connection_put_request
 
 
         # set the HTTP header `Accept`

@@ -19,26 +19,27 @@ import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, Optional
+from dat_client.models.schedule import Schedule
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-PRIMARYKEY_ANY_OF_SCHEMAS = ["object"]
+CONNECTIONORCHESTRARESPONSESCHEDULE_ANY_OF_SCHEMAS = ["Schedule", "object"]
 
-class PrimaryKey(BaseModel):
+class ConnectionOrchestraResponseSchedule(BaseModel):
     """
-    Paths to the fields that will be used as primary key. This field is REQUIRED if `write_sync_mode` is `*_dedup`. Otherwise it is ignored.
+    ConnectionOrchestraResponseSchedule
     """
 
-    # data type: object
-    anyof_schema_1_validator: Optional[Any] = None
+    # data type: Schedule
+    anyof_schema_1_validator: Optional[Schedule] = None
     # data type: object
     anyof_schema_2_validator: Optional[Any] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[object]] = None
+        actual_instance: Optional[Union[Schedule, object]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "object" }
+    any_of_schemas: Set[str] = { "Schedule", "object" }
 
     model_config = {
         "validate_assignment": True,
@@ -57,14 +58,14 @@ class PrimaryKey(BaseModel):
 
     @field_validator('actual_instance')
     def actual_instance_must_validate_anyof(cls, v):
-        instance = PrimaryKey.model_construct()
+        instance = ConnectionOrchestraResponseSchedule.model_construct()
         error_messages = []
-        # validate data type: object
-        try:
-            instance.anyof_schema_1_validator = v
+        # validate data type: Schedule
+        if not isinstance(v, Schedule):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `Schedule`")
+        else:
             return v
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
+
         # validate data type: object
         try:
             instance.anyof_schema_2_validator = v
@@ -73,7 +74,7 @@ class PrimaryKey(BaseModel):
             error_messages.append(str(e))
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in PrimaryKey with anyOf schemas: object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in ConnectionOrchestraResponseSchedule with anyOf schemas: Schedule, object. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -86,15 +87,12 @@ class PrimaryKey(BaseModel):
         """Returns the object represented by the json string"""
         instance = cls.model_construct()
         error_messages = []
-        # deserialize data into object
+        # anyof_schema_1_validator: Optional[Schedule] = None
         try:
-            # validation
-            instance.anyof_schema_1_validator = json.loads(json_str)
-            # assign value to actual_instance
-            instance.actual_instance = instance.anyof_schema_1_validator
+            instance.actual_instance = Schedule.from_json(json_str)
             return instance
         except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
+             error_messages.append(str(e))
         # deserialize data into object
         try:
             # validation
@@ -107,7 +105,7 @@ class PrimaryKey(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into PrimaryKey with anyOf schemas: object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ConnectionOrchestraResponseSchedule with anyOf schemas: Schedule, object. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -121,7 +119,7 @@ class PrimaryKey(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], object]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], Schedule, object]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

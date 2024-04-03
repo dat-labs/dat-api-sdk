@@ -23,22 +23,22 @@ from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-STATUS_ANY_OF_SCHEMAS = ["object", "str"]
+STATUS_ANY_OF_SCHEMAS = ["object"]
 
 class Status(BaseModel):
     """
     Status
     """
 
-    # data type: str
-    anyof_schema_1_validator: Optional[StrictStr] = None
+    # data type: object
+    anyof_schema_1_validator: Optional[Any] = None
     # data type: object
     anyof_schema_2_validator: Optional[Any] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[object, str]] = None
+        actual_instance: Optional[Union[object]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "object", "str" }
+    any_of_schemas: Set[str] = { "object" }
 
     model_config = {
         "validate_assignment": True,
@@ -59,7 +59,7 @@ class Status(BaseModel):
     def actual_instance_must_validate_anyof(cls, v):
         instance = Status.model_construct()
         error_messages = []
-        # validate data type: str
+        # validate data type: object
         try:
             instance.anyof_schema_1_validator = v
             return v
@@ -73,7 +73,7 @@ class Status(BaseModel):
             error_messages.append(str(e))
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in Status with anyOf schemas: object, str. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in Status with anyOf schemas: object. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -86,7 +86,7 @@ class Status(BaseModel):
         """Returns the object represented by the json string"""
         instance = cls.model_construct()
         error_messages = []
-        # deserialize data into str
+        # deserialize data into object
         try:
             # validation
             instance.anyof_schema_1_validator = json.loads(json_str)
@@ -107,7 +107,7 @@ class Status(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into Status with anyOf schemas: object, str. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into Status with anyOf schemas: object. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -121,7 +121,7 @@ class Status(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], object, str]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], object]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

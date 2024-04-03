@@ -23,11 +23,11 @@ from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-PRIMARYKEY_ANY_OF_SCHEMAS = ["object"]
+SCHEDULETYPE_ANY_OF_SCHEMAS = ["object"]
 
-class PrimaryKey(BaseModel):
+class ScheduleType(BaseModel):
     """
-    Paths to the fields that will be used as primary key. This field is REQUIRED if `write_sync_mode` is `*_dedup`. Otherwise it is ignored.
+    ScheduleType
     """
 
     # data type: object
@@ -57,7 +57,7 @@ class PrimaryKey(BaseModel):
 
     @field_validator('actual_instance')
     def actual_instance_must_validate_anyof(cls, v):
-        instance = PrimaryKey.model_construct()
+        instance = ScheduleType.model_construct()
         error_messages = []
         # validate data type: object
         try:
@@ -73,7 +73,7 @@ class PrimaryKey(BaseModel):
             error_messages.append(str(e))
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in PrimaryKey with anyOf schemas: object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in ScheduleType with anyOf schemas: object. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -107,7 +107,7 @@ class PrimaryKey(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into PrimaryKey with anyOf schemas: object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ScheduleType with anyOf schemas: object. Details: " + ", ".join(error_messages))
         else:
             return instance
 

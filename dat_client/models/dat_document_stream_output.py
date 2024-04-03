@@ -17,22 +17,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dat_client.models.documentation_url import DocumentationUrl
+from dat_client.models.read_sync_mode import ReadSyncMode
+from dat_client.models.write_sync_mode_output import WriteSyncModeOutput
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ConnectorSpecification(BaseModel):
+class DatDocumentStreamOutput(BaseModel):
     """
-    ConnectorSpecification
+    DatDocumentStreamOutput
     """ # noqa: E501
-    documentation_url: Optional[DocumentationUrl] = None
-    name: Optional[Any] = Field(description="The name of the specific connector to which this ConnectorSpecification belongs.")
-    module_name: Optional[Any] = Field(description="Name of the python module for this connector")
-    connection_specification: Dict[str, Any] = Field(description="ConnectorDefinition specific blob. Must be a valid JSON string.")
-    additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["documentation_url", "name", "module_name", "connection_specification"]
+    name: StrictStr = Field(description="The name of the document stream.")
+    namespace: Optional[StrictStr] = None
+    json_schema: Optional[Dict[str, Any]] = None
+    read_sync_mode: Optional[ReadSyncMode] = None
+    write_sync_mode: Optional[WriteSyncModeOutput] = None
+    cursor_field: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["name", "namespace", "json_schema", "read_sync_mode", "write_sync_mode", "cursor_field"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +54,7 @@ class ConnectorSpecification(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ConnectorSpecification from a JSON string"""
+        """Create an instance of DatDocumentStreamOutput from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -64,10 +66,8 @@ class ConnectorSpecification(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
-            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -75,29 +75,36 @@ class ConnectorSpecification(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of documentation_url
-        if self.documentation_url:
-            _dict['documentation_url'] = self.documentation_url.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
-        # set to None if name (nullable) is None
+        # set to None if namespace (nullable) is None
         # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
+        if self.namespace is None and "namespace" in self.model_fields_set:
+            _dict['namespace'] = None
 
-        # set to None if module_name (nullable) is None
+        # set to None if json_schema (nullable) is None
         # and model_fields_set contains the field
-        if self.module_name is None and "module_name" in self.model_fields_set:
-            _dict['module_name'] = None
+        if self.json_schema is None and "json_schema" in self.model_fields_set:
+            _dict['json_schema'] = None
+
+        # set to None if read_sync_mode (nullable) is None
+        # and model_fields_set contains the field
+        if self.read_sync_mode is None and "read_sync_mode" in self.model_fields_set:
+            _dict['read_sync_mode'] = None
+
+        # set to None if write_sync_mode (nullable) is None
+        # and model_fields_set contains the field
+        if self.write_sync_mode is None and "write_sync_mode" in self.model_fields_set:
+            _dict['write_sync_mode'] = None
+
+        # set to None if cursor_field (nullable) is None
+        # and model_fields_set contains the field
+        if self.cursor_field is None and "cursor_field" in self.model_fields_set:
+            _dict['cursor_field'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ConnectorSpecification from a dict"""
+        """Create an instance of DatDocumentStreamOutput from a dict"""
         if obj is None:
             return None
 
@@ -105,16 +112,13 @@ class ConnectorSpecification(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "documentation_url": DocumentationUrl.from_dict(obj["documentation_url"]) if obj.get("documentation_url") is not None else None,
             "name": obj.get("name"),
-            "module_name": obj.get("module_name"),
-            "connection_specification": obj.get("connection_specification")
+            "namespace": obj.get("namespace"),
+            "json_schema": obj.get("json_schema"),
+            "read_sync_mode": obj.get("read_sync_mode"),
+            "write_sync_mode": obj.get("write_sync_mode"),
+            "cursor_field": obj.get("cursor_field")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

@@ -17,13 +17,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from dat_client.models.cursor_field import CursorField
-from dat_client.models.dat_document_stream import DatDocumentStream
-from dat_client.models.destination_sync_mode import DestinationSyncMode
+from dat_client.models.dat_core_pydantic_models_configured_document_stream_write_sync_mode import DatCorePydanticModelsConfiguredDocumentStreamWriteSyncMode
+from dat_client.models.dat_document_stream_input import DatDocumentStreamInput
 from dat_client.models.primary_key import PrimaryKey
-from dat_client.models.sync_mode import SyncMode
+from dat_client.models.read_sync_mode import ReadSyncMode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,14 +31,13 @@ class ConfiguredDocumentStream(BaseModel):
     """
     ConfiguredDocumentStream
     """ # noqa: E501
-    stream: DatDocumentStream
-    namespace: Optional[Any] = Field(description="namespace the data is associated with")
-    sync_mode: SyncMode
-    destination_sync_mode: DestinationSyncMode
+    stream: DatDocumentStreamInput
+    read_sync_mode: ReadSyncMode
+    write_sync_mode: DatCorePydanticModelsConfiguredDocumentStreamWriteSyncMode
     cursor_field: Optional[CursorField] = None
     primary_key: Optional[PrimaryKey] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["stream", "namespace", "sync_mode", "destination_sync_mode", "cursor_field", "primary_key"]
+    __properties: ClassVar[List[str]] = ["stream", "read_sync_mode", "write_sync_mode", "cursor_field", "primary_key"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -95,11 +94,6 @@ class ConfiguredDocumentStream(BaseModel):
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
 
-        # set to None if namespace (nullable) is None
-        # and model_fields_set contains the field
-        if self.namespace is None and "namespace" in self.model_fields_set:
-            _dict['namespace'] = None
-
         return _dict
 
     @classmethod
@@ -112,10 +106,9 @@ class ConfiguredDocumentStream(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "stream": DatDocumentStream.from_dict(obj["stream"]) if obj.get("stream") is not None else None,
-            "namespace": obj.get("namespace"),
-            "sync_mode": obj.get("sync_mode"),
-            "destination_sync_mode": obj.get("destination_sync_mode"),
+            "stream": DatDocumentStreamInput.from_dict(obj["stream"]) if obj.get("stream") is not None else None,
+            "read_sync_mode": obj.get("read_sync_mode"),
+            "write_sync_mode": obj.get("write_sync_mode"),
             "cursor_field": CursorField.from_dict(obj["cursor_field"]) if obj.get("cursor_field") is not None else None,
             "primary_key": PrimaryKey.from_dict(obj["primary_key"]) if obj.get("primary_key") is not None else None
         })
