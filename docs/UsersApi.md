@@ -1,4 +1,4 @@
-# dat_api_sdk.UsersApi
+# dat_client.UsersApi
 
 All URIs are relative to *http://localhost*
 
@@ -18,23 +18,23 @@ Verify user credentials.  Parameters: - user (UserRequestModel): User request mo
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.models.user_request_model import UserRequestModel
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.models.user_request_model import UserRequestModel
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.UsersApi(api_client)
-    user_request_model = dat_api_sdk.UserRequestModel() # UserRequestModel | 
+    api_instance = dat_client.UsersApi(api_client)
+    user_request_model = dat_client.UserRequestModel() # UserRequestModel | 
 
     try:
         # Verify User

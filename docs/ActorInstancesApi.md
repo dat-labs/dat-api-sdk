@@ -1,4 +1,4 @@
-# dat_api_sdk.ActorInstancesApi
+# dat_client.ActorInstancesApi
 
 All URIs are relative to *http://localhost*
 
@@ -23,21 +23,21 @@ Initialize actor obj from verified-actors repo and call discover() on it and ret
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ActorInstancesApi(api_client)
+    api_instance = dat_client.ActorInstancesApi(api_client)
     actor_instance_uuid = 'actor_instance_uuid_example' # str | 
 
     try:
@@ -82,7 +82,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_actor_instance_actor_instances_post**
-> ActorInstanceOutput create_actor_instance_actor_instances_post(actor_instance_input)
+> ActorInstance create_actor_instance_actor_instances_post(actor_instance)
 
 Create Actor Instance
 
@@ -90,28 +90,27 @@ Create Actor Instance
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.models.actor_instance_input import ActorInstanceInput
-from dat_api_sdk.models.actor_instance_output import ActorInstanceOutput
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.models.actor_instance import ActorInstance
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ActorInstancesApi(api_client)
-    actor_instance_input = dat_api_sdk.ActorInstanceInput() # ActorInstanceInput | 
+    api_instance = dat_client.ActorInstancesApi(api_client)
+    actor_instance = dat_client.ActorInstance() # ActorInstance | 
 
     try:
         # Create Actor Instance
-        api_response = api_instance.create_actor_instance_actor_instances_post(actor_instance_input)
+        api_response = api_instance.create_actor_instance_actor_instances_post(actor_instance)
         print("The response of ActorInstancesApi->create_actor_instance_actor_instances_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -125,11 +124,11 @@ with dat_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **actor_instance_input** | [**ActorInstanceInput**](ActorInstanceInput.md)|  | 
+ **actor_instance** | [**ActorInstance**](ActorInstance.md)|  | 
 
 ### Return type
 
-[**ActorInstanceOutput**](ActorInstanceOutput.md)
+[**ActorInstance**](ActorInstance.md)
 
 ### Authorization
 
@@ -160,21 +159,21 @@ Delete Actor Instance
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ActorInstancesApi(api_client)
+    api_instance = dat_client.ActorInstancesApi(api_client)
     actor_instance_uuid = 'actor_instance_uuid_example' # str | 
 
     try:
@@ -220,7 +219,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **fetch_available_actor_instances_actor_instances_actor_type_list_get**
-> List[ActorInstanceOutput] fetch_available_actor_instances_actor_instances_actor_type_list_get(actor_type)
+> List[ActorInstance] fetch_available_actor_instances_actor_instances_actor_type_list_get(actor_type)
 
 Fetch Available Actor Instances
 
@@ -228,22 +227,22 @@ Fetch Available Actor Instances
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.models.actor_instance_output import ActorInstanceOutput
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.models.actor_instance import ActorInstance
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ActorInstancesApi(api_client)
+    api_instance = dat_client.ActorInstancesApi(api_client)
     actor_type = 'actor_type_example' # str | 
 
     try:
@@ -266,7 +265,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ActorInstanceOutput]**](ActorInstanceOutput.md)
+[**List[ActorInstance]**](ActorInstance.md)
 
 ### Authorization
 
@@ -288,7 +287,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_actor_instance_actor_instances_actor_instance_uuid_get**
-> ActorInstanceOutput read_actor_instance_actor_instances_actor_instance_uuid_get(actor_instance_uuid)
+> ActorInstance read_actor_instance_actor_instances_actor_instance_uuid_get(actor_instance_uuid)
 
 Read Actor Instance
 
@@ -296,22 +295,22 @@ Read Actor Instance
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.models.actor_instance_output import ActorInstanceOutput
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.models.actor_instance import ActorInstance
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ActorInstancesApi(api_client)
+    api_instance = dat_client.ActorInstancesApi(api_client)
     actor_instance_uuid = 'actor_instance_uuid_example' # str | 
 
     try:
@@ -334,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ActorInstanceOutput**](ActorInstanceOutput.md)
+[**ActorInstance**](ActorInstance.md)
 
 ### Authorization
 
@@ -356,7 +355,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_actor_instance_actor_instances_actor_instance_uuid_put**
-> List[ActorInstanceOutput] update_actor_instance_actor_instances_actor_instance_uuid_put(actor_instance_uuid, body_update_actor_instance_actor_instances_actor_instance_uuid_put)
+> List[ActorInstance] update_actor_instance_actor_instances_actor_instance_uuid_put(actor_instance_uuid, body_update_actor_instance_actor_instances_actor_instance_uuid_put)
 
 Update Actor Instance
 
@@ -364,25 +363,25 @@ Update Actor Instance
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.models.actor_instance_output import ActorInstanceOutput
-from dat_api_sdk.models.body_update_actor_instance_actor_instances_actor_instance_uuid_put import BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.models.actor_instance import ActorInstance
+from dat_client.models.body_update_actor_instance_actor_instances_actor_instance_uuid_put import BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ActorInstancesApi(api_client)
+    api_instance = dat_client.ActorInstancesApi(api_client)
     actor_instance_uuid = 'actor_instance_uuid_example' # str | 
-    body_update_actor_instance_actor_instances_actor_instance_uuid_put = dat_api_sdk.BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut() # BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut | 
+    body_update_actor_instance_actor_instances_actor_instance_uuid_put = dat_client.BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut() # BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut | 
 
     try:
         # Update Actor Instance
@@ -405,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ActorInstanceOutput]**](ActorInstanceOutput.md)
+[**List[ActorInstance]**](ActorInstance.md)
 
 ### Authorization
 

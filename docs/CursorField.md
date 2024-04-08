@@ -1,6 +1,6 @@
 # CursorField
 
-Path to the field that will be used to determine if a record is new or modified since the last sync. This field is REQUIRED if `sync_mode` is `incremental`. Otherwise it is ignored.
+Path to the field that will be used to determine if a record is new or modified since the last sync. This field is REQUIRED if `read_sync_mode` is `incremental`. Otherwise it is ignored.
 
 ## Properties
 
@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from dat_api_sdk.models.cursor_field import CursorField
+from dat_client.models.cursor_field import CursorField
 
 # TODO update the JSON string below
 json = "{}"

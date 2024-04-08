@@ -1,6 +1,6 @@
 # PrimaryKey
 
-Paths to the fields that will be used as primary key. This field is REQUIRED if `destination_sync_mode` is `*_dedup`. Otherwise it is ignored.
+Paths to the fields that will be used as primary key. This field is REQUIRED if `write_sync_mode` is `*_dedup`. Otherwise it is ignored.
 
 ## Properties
 
@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from dat_api_sdk.models.primary_key import PrimaryKey
+from dat_client.models.primary_key import PrimaryKey
 
 # TODO update the JSON string below
 json = "{}"

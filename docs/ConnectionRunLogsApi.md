@@ -1,10 +1,10 @@
-# dat_api_sdk.ConnectionRunLogsApi
+# dat_client.ConnectionRunLogsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_connection_run_log_connection_run_logs_post**](ConnectionRunLogsApi.md#add_connection_run_log_connection_run_logs_post) | **POST** /connection_run_logs/ | Add Connection Run Log
+[**add_connection_run_log_connection_run_logs_post**](ConnectionRunLogsApi.md#add_connection_run_log_connection_run_logs_post) | **POST** /connection-run-logs/ | Add Connection Run Log
 
 
 # **add_connection_run_log_connection_run_logs_post**
@@ -16,24 +16,24 @@ Add Connection Run Log
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.models.dat_log_message import DatLogMessage
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.models.dat_log_message import DatLogMessage
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ConnectionRunLogsApi(api_client)
+    api_instance = dat_client.ConnectionRunLogsApi(api_client)
     connection_id = 'connection_id_example' # str | 
-    dat_log_message = dat_api_sdk.DatLogMessage() # DatLogMessage | 
+    dat_log_message = dat_client.DatLogMessage() # DatLogMessage | 
 
     try:
         # Add Connection Run Log

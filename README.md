@@ -96,10 +96,11 @@ Class | Method | HTTP request | Description
 *ActorsApi* | [**get_actor_specs_actors_actor_uuid_specs_get**](docs/ActorsApi.md#get_actor_specs_actors_actor_uuid_specs_get) | **GET** /actors/{actor_uuid}/specs | Get Actor Specs
 *ConnectionRunLogsApi* | [**add_connection_run_log_connection_run_logs_post**](docs/ConnectionRunLogsApi.md#add_connection_run_log_connection_run_logs_post) | **POST** /connection-run-logs/ | Add Connection Run Log
 *ConnectionsApi* | [**connection_trigger_run_connections_connection_id_run_post**](docs/ConnectionsApi.md#connection_trigger_run_connections_connection_id_run_post) | **POST** /connections/{connection_id}/run | Connection Trigger Run
-*ConnectionsApi* | [**create_connection_connections_post**](docs/ConnectionsApi.md#create_connection_connections_post) | **POST** /connections/ | Create Connection
+*ConnectionsApi* | [**create_connection_connections_post**](docs/ConnectionsApi.md#create_connection_connections_post) | **POST** /connections | Create Connection
 *ConnectionsApi* | [**delete_connection_connections_connection_id_delete**](docs/ConnectionsApi.md#delete_connection_connections_connection_id_delete) | **DELETE** /connections/{connection_id} | Delete Connection
-*ConnectionsApi* | [**fetch_available_connections_connections_list_get**](docs/ConnectionsApi.md#fetch_available_connections_connections_list_get) | **GET** /connections/list/ | Fetch Available Connections
-*ConnectionsApi* | [**read_connection_connections_connection_id_get**](docs/ConnectionsApi.md#read_connection_connections_connection_id_get) | **GET** /connections/{connection_id}/ | Read Connection
+*ConnectionsApi* | [**fetch_available_connections_connections_list_get**](docs/ConnectionsApi.md#fetch_available_connections_connections_list_get) | **GET** /connections/list | Fetch Available Connections
+*ConnectionsApi* | [**fetch_connection_config_internal_connections_connection_id_get**](docs/ConnectionsApi.md#fetch_connection_config_internal_connections_connection_id_get) | **GET** /internal/connections/{connection_id} | Fetch Connection Config
+*ConnectionsApi* | [**read_connection_connections_connection_id_get**](docs/ConnectionsApi.md#read_connection_connections_connection_id_get) | **GET** /connections/{connection_id} | Read Connection
 *ConnectionsApi* | [**update_connection_connections_connection_id_put**](docs/ConnectionsApi.md#update_connection_connections_connection_id_put) | **PUT** /connections/{connection_id} | Update Connection
 *DefaultApi* | [**root_get**](docs/DefaultApi.md#root_get) | **GET** / | Root
 *DefaultApi* | [**update_admin_admin_post**](docs/DefaultApi.md#update_admin_admin_post) | **POST** /admin/ | Update Admin
@@ -107,40 +108,42 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [ActorInstanceInput](docs/ActorInstanceInput.md)
- - [ActorInstanceOutput](docs/ActorInstanceOutput.md)
+ - [ActorInstance](docs/ActorInstance.md)
  - [BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut](docs/BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut.md)
- - [Catalog](docs/Catalog.md)
- - [Changelogurl](docs/Changelogurl.md)
  - [Configuration](docs/Configuration.md)
  - [ConfiguredDocumentStream](docs/ConfiguredDocumentStream.md)
- - [ConnectionRequestInstance](docs/ConnectionRequestInstance.md)
- - [ConnectionResponseInstance](docs/ConnectionResponseInstance.md)
+ - [ConnectionOrchestraResponse](docs/ConnectionOrchestraResponse.md)
+ - [ConnectionOrchestraResponseCatalog](docs/ConnectionOrchestraResponseCatalog.md)
+ - [ConnectionOrchestraResponseSchedule](docs/ConnectionOrchestraResponseSchedule.md)
+ - [ConnectionPostRequest](docs/ConnectionPostRequest.md)
+ - [ConnectionPutRequest](docs/ConnectionPutRequest.md)
+ - [ConnectionResponse](docs/ConnectionResponse.md)
  - [ConnectorSpecification](docs/ConnectorSpecification.md)
- - [CronString](docs/CronString.md)
+ - [Cron](docs/Cron.md)
  - [CursorField](docs/CursorField.md)
- - [CursorField1](docs/CursorField1.md)
- - [DatDocumentStream](docs/DatDocumentStream.md)
+ - [DatCatalogInput](docs/DatCatalogInput.md)
+ - [DatCatalogOutput](docs/DatCatalogOutput.md)
+ - [DatCorePydanticModelsConfiguredDocumentStreamWriteSyncMode](docs/DatCorePydanticModelsConfiguredDocumentStreamWriteSyncMode.md)
+ - [DatCorePydanticModelsDatDocumentStreamWriteSyncMode](docs/DatCorePydanticModelsDatDocumentStreamWriteSyncMode.md)
+ - [DatDocumentStreamInput](docs/DatDocumentStreamInput.md)
+ - [DatDocumentStreamOutput](docs/DatDocumentStreamOutput.md)
  - [DatLogMessage](docs/DatLogMessage.md)
  - [DatLogMessageLevel](docs/DatLogMessageLevel.md)
- - [DestinationSyncMode](docs/DestinationSyncMode.md)
- - [DirUris](docs/DirUris.md)
- - [Documentationurl](docs/Documentationurl.md)
+ - [DocumentationUrl](docs/DocumentationUrl.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
- - [JsonSchema](docs/JsonSchema.md)
  - [Level](docs/Level.md)
  - [Message](docs/Message.md)
- - [Namespace](docs/Namespace.md)
+ - [Prefix](docs/Prefix.md)
  - [PrimaryKey](docs/PrimaryKey.md)
- - [ProtocolVersion](docs/ProtocolVersion.md)
+ - [ReadSyncMode](docs/ReadSyncMode.md)
+ - [Schedule](docs/Schedule.md)
+ - [ScheduleType](docs/ScheduleType.md)
  - [StackTrace](docs/StackTrace.md)
  - [Status](docs/Status.md)
- - [SupportedDestinationSyncModes](docs/SupportedDestinationSyncModes.md)
- - [Supportsincremental](docs/Supportsincremental.md)
- - [SyncMode](docs/SyncMode.md)
  - [UserRequestModel](docs/UserRequestModel.md)
  - [ValidationError](docs/ValidationError.md)
  - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
+ - [WriteSyncModeOutput](docs/WriteSyncModeOutput.md)
 
 
 <a id="documentation-for-authorization"></a>

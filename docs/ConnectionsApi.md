@@ -1,18 +1,87 @@
-# dat_api_sdk.ConnectionsApi
+# dat_client.ConnectionsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_connection_connections_post**](ConnectionsApi.md#create_connection_connections_post) | **POST** /connections/ | Create Connection
+[**connection_trigger_run_connections_connection_id_run_post**](ConnectionsApi.md#connection_trigger_run_connections_connection_id_run_post) | **POST** /connections/{connection_id}/run | Connection Trigger Run
+[**create_connection_connections_post**](ConnectionsApi.md#create_connection_connections_post) | **POST** /connections | Create Connection
 [**delete_connection_connections_connection_id_delete**](ConnectionsApi.md#delete_connection_connections_connection_id_delete) | **DELETE** /connections/{connection_id} | Delete Connection
-[**fetch_available_connections_connections_list_get**](ConnectionsApi.md#fetch_available_connections_connections_list_get) | **GET** /connections/list/ | Fetch Available Connections
-[**read_connection_connections_connection_id_get**](ConnectionsApi.md#read_connection_connections_connection_id_get) | **GET** /connections/{connection_id}/ | Read Connection
+[**fetch_available_connections_connections_list_get**](ConnectionsApi.md#fetch_available_connections_connections_list_get) | **GET** /connections/list | Fetch Available Connections
+[**fetch_connection_config_internal_connections_connection_id_get**](ConnectionsApi.md#fetch_connection_config_internal_connections_connection_id_get) | **GET** /internal/connections/{connection_id} | Fetch Connection Config
+[**read_connection_connections_connection_id_get**](ConnectionsApi.md#read_connection_connections_connection_id_get) | **GET** /connections/{connection_id} | Read Connection
 [**update_connection_connections_connection_id_put**](ConnectionsApi.md#update_connection_connections_connection_id_put) | **PUT** /connections/{connection_id} | Update Connection
 
 
+# **connection_trigger_run_connections_connection_id_run_post**
+> object connection_trigger_run_connections_connection_id_run_post(connection_id)
+
+Connection Trigger Run
+
+### Example
+
+
+```python
+import dat_client
+from dat_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = dat_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with dat_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = dat_client.ConnectionsApi(api_client)
+    connection_id = 'connection_id_example' # str | 
+
+    try:
+        # Connection Trigger Run
+        api_response = api_instance.connection_trigger_run_connections_connection_id_run_post(connection_id)
+        print("The response of ConnectionsApi->connection_trigger_run_connections_connection_id_run_post:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ConnectionsApi->connection_trigger_run_connections_connection_id_run_post: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **connection_id** | **str**|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**404** | Not found |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **create_connection_connections_post**
-> ConnectionResponseInstance create_connection_connections_post(connection_request_instance)
+> ConnectionResponse create_connection_connections_post(connection_post_request)
 
 Create Connection
 
@@ -20,28 +89,28 @@ Create Connection
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.models.connection_request_instance import ConnectionRequestInstance
-from dat_api_sdk.models.connection_response_instance import ConnectionResponseInstance
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.models.connection_post_request import ConnectionPostRequest
+from dat_client.models.connection_response import ConnectionResponse
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ConnectionsApi(api_client)
-    connection_request_instance = dat_api_sdk.ConnectionRequestInstance() # ConnectionRequestInstance | 
+    api_instance = dat_client.ConnectionsApi(api_client)
+    connection_post_request = dat_client.ConnectionPostRequest() # ConnectionPostRequest | 
 
     try:
         # Create Connection
-        api_response = api_instance.create_connection_connections_post(connection_request_instance)
+        api_response = api_instance.create_connection_connections_post(connection_post_request)
         print("The response of ConnectionsApi->create_connection_connections_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -55,11 +124,11 @@ with dat_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **connection_request_instance** | [**ConnectionRequestInstance**](ConnectionRequestInstance.md)|  | 
+ **connection_post_request** | [**ConnectionPostRequest**](ConnectionPostRequest.md)|  | 
 
 ### Return type
 
-[**ConnectionResponseInstance**](ConnectionResponseInstance.md)
+[**ConnectionResponse**](ConnectionResponse.md)
 
 ### Authorization
 
@@ -90,21 +159,21 @@ Delete Connection
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ConnectionsApi(api_client)
+    api_instance = dat_client.ConnectionsApi(api_client)
     connection_id = 'connection_id_example' # str | 
 
     try:
@@ -147,30 +216,32 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **fetch_available_connections_connections_list_get**
-> List[ConnectionResponseInstance] fetch_available_connections_connections_list_get()
+> List[ConnectionResponse] fetch_available_connections_connections_list_get()
 
 Fetch Available Connections
+
+Fetch all active connections
 
 ### Example
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.models.connection_response_instance import ConnectionResponseInstance
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.models.connection_response import ConnectionResponse
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ConnectionsApi(api_client)
+    api_instance = dat_client.ConnectionsApi(api_client)
 
     try:
         # Fetch Available Connections
@@ -189,7 +260,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List[ConnectionResponseInstance]**](ConnectionResponseInstance.md)
+[**List[ConnectionResponse]**](ConnectionResponse.md)
 
 ### Authorization
 
@@ -209,8 +280,78 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **fetch_connection_config_internal_connections_connection_id_get**
+> ConnectionOrchestraResponse fetch_connection_config_internal_connections_connection_id_get(connection_id)
+
+Fetch Connection Config
+
+Fetch connection configuration for orchestra
+
+### Example
+
+
+```python
+import dat_client
+from dat_client.models.connection_orchestra_response import ConnectionOrchestraResponse
+from dat_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = dat_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with dat_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = dat_client.ConnectionsApi(api_client)
+    connection_id = 'connection_id_example' # str | The ID of the connection to fetch
+
+    try:
+        # Fetch Connection Config
+        api_response = api_instance.fetch_connection_config_internal_connections_connection_id_get(connection_id)
+        print("The response of ConnectionsApi->fetch_connection_config_internal_connections_connection_id_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ConnectionsApi->fetch_connection_config_internal_connections_connection_id_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **connection_id** | **str**| The ID of the connection to fetch | 
+
+### Return type
+
+[**ConnectionOrchestraResponse**](ConnectionOrchestraResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**404** | Not found |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **read_connection_connections_connection_id_get**
-> ConnectionResponseInstance read_connection_connections_connection_id_get(connection_id)
+> ConnectionResponse read_connection_connections_connection_id_get(connection_id)
 
 Read Connection
 
@@ -218,22 +359,22 @@ Read Connection
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.models.connection_response_instance import ConnectionResponseInstance
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.models.connection_response import ConnectionResponse
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ConnectionsApi(api_client)
+    api_instance = dat_client.ConnectionsApi(api_client)
     connection_id = 'connection_id_example' # str | 
 
     try:
@@ -256,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConnectionResponseInstance**](ConnectionResponseInstance.md)
+[**ConnectionResponse**](ConnectionResponse.md)
 
 ### Authorization
 
@@ -278,7 +419,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_connection_connections_connection_id_put**
-> ConnectionResponseInstance update_connection_connections_connection_id_put(connection_id, connection_request_instance)
+> ConnectionResponse update_connection_connections_connection_id_put(connection_id, connection_put_request)
 
 Update Connection
 
@@ -286,29 +427,29 @@ Update Connection
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.models.connection_request_instance import ConnectionRequestInstance
-from dat_api_sdk.models.connection_response_instance import ConnectionResponseInstance
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.models.connection_put_request import ConnectionPutRequest
+from dat_client.models.connection_response import ConnectionResponse
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ConnectionsApi(api_client)
+    api_instance = dat_client.ConnectionsApi(api_client)
     connection_id = 'connection_id_example' # str | 
-    connection_request_instance = dat_api_sdk.ConnectionRequestInstance() # ConnectionRequestInstance | 
+    connection_put_request = dat_client.ConnectionPutRequest() # ConnectionPutRequest | 
 
     try:
         # Update Connection
-        api_response = api_instance.update_connection_connections_connection_id_put(connection_id, connection_request_instance)
+        api_response = api_instance.update_connection_connections_connection_id_put(connection_id, connection_put_request)
         print("The response of ConnectionsApi->update_connection_connections_connection_id_put:\n")
         pprint(api_response)
     except Exception as e:
@@ -323,11 +464,11 @@ with dat_api_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connection_id** | **str**|  | 
- **connection_request_instance** | [**ConnectionRequestInstance**](ConnectionRequestInstance.md)|  | 
+ **connection_put_request** | [**ConnectionPutRequest**](ConnectionPutRequest.md)|  | 
 
 ### Return type
 
-[**ConnectionResponseInstance**](ConnectionResponseInstance.md)
+[**ConnectionResponse**](ConnectionResponse.md)
 
 ### Authorization
 

@@ -1,4 +1,4 @@
-# dat_api_sdk.ActorsApi
+# dat_client.ActorsApi
 
 All URIs are relative to *http://localhost*
 
@@ -17,21 +17,21 @@ Fetch Available Actors
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ActorsApi(api_client)
+    api_instance = dat_client.ActorsApi(api_client)
     actor_type = 'actor_type_example' # str | 
 
     try:
@@ -86,21 +86,21 @@ Initialize actor obj from verified-actors repo and call spec() on it and return
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.ActorsApi(api_client)
+    api_instance = dat_client.ActorsApi(api_client)
     actor_uuid = 'actor_uuid_example' # str | 
 
     try:

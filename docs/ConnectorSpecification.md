@@ -5,18 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**protocol_version** | [**ProtocolVersion**](ProtocolVersion.md) |  | [optional] 
-**documentation_url** | [**Documentationurl**](Documentationurl.md) |  | [optional] 
-**changelog_url** | [**Changelogurl**](Changelogurl.md) |  | [optional] 
+**documentation_url** | [**DocumentationUrl**](DocumentationUrl.md) |  | [optional] 
 **name** | **object** | The name of the specific connector to which this ConnectorSpecification belongs. | 
+**module_name** | **object** | Name of the python module for this connector | 
 **connection_specification** | **object** | ConnectorDefinition specific blob. Must be a valid JSON string. | 
-**supports_incremental** | [**Supportsincremental**](Supportsincremental.md) |  | [optional] 
-**supported_destination_sync_modes** | [**SupportedDestinationSyncModes**](SupportedDestinationSyncModes.md) |  | [optional] 
 
 ## Example
 
 ```python
-from dat_api_sdk.models.connector_specification import ConnectorSpecification
+from dat_client.models.connector_specification import ConnectorSpecification
 
 # TODO update the JSON string below
 json = "{}"

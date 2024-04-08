@@ -1,4 +1,4 @@
-# dat_api_sdk.DefaultApi
+# dat_client.DefaultApi
 
 All URIs are relative to *http://localhost*
 
@@ -17,21 +17,21 @@ Root
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.DefaultApi(api_client)
+    api_instance = dat_client.DefaultApi(api_client)
 
     try:
         # Root
@@ -78,21 +78,21 @@ Update Admin
 
 
 ```python
-import dat_api_sdk
-from dat_api_sdk.rest import ApiException
+import dat_client
+from dat_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = dat_api_sdk.Configuration(
+configuration = dat_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with dat_api_sdk.ApiClient(configuration) as api_client:
+with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dat_api_sdk.DefaultApi(api_client)
+    api_instance = dat_client.DefaultApi(api_client)
 
     try:
         # Update Admin

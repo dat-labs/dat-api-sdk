@@ -5,17 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**stream** | [**DatDocumentStream**](DatDocumentStream.md) |  | 
-**namespace** | **object** | namespace the data is associated with | 
-**sync_mode** | [**SyncMode**](SyncMode.md) |  | 
-**destination_sync_mode** | [**DestinationSyncMode**](DestinationSyncMode.md) |  | 
+**stream** | [**DatDocumentStreamInput**](DatDocumentStreamInput.md) |  | 
+**read_sync_mode** | [**ReadSyncMode**](ReadSyncMode.md) |  | 
+**write_sync_mode** | [**DatCorePydanticModelsConfiguredDocumentStreamWriteSyncMode**](DatCorePydanticModelsConfiguredDocumentStreamWriteSyncMode.md) |  | 
 **cursor_field** | [**CursorField**](CursorField.md) |  | [optional] 
 **primary_key** | [**PrimaryKey**](PrimaryKey.md) |  | [optional] 
 
 ## Example
 
 ```python
-from dat_api_sdk.models.configured_document_stream import ConfiguredDocumentStream
+from dat_client.models.configured_document_stream import ConfiguredDocumentStream
 
 # TODO update the JSON string below
 json = "{}"

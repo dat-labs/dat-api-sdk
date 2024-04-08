@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from dat_api_sdk.models.body_update_actor_instance_actor_instances_actor_instance_uuid_put import BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
+from dat_client.models.body_update_actor_instance_actor_instances_actor_instance_uuid_put import BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
 
 # TODO update the JSON string below
 json = "{}"

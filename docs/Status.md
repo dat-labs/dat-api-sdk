@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from dat_api_sdk.models.status import Status
+from dat_client.models.status import Status
 
 # TODO update the JSON string below
 json = "{}"
