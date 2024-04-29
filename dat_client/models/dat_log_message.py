@@ -17,10 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from dat_client.models.dat_log_message_level import DatLogMessageLevel
-from dat_client.models.message import Message
+from dat_client.models.level import Level
 from dat_client.models.stack_trace import StackTrace
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,8 +28,8 @@ class DatLogMessage(BaseModel):
     """
     DatLogMessage
     """ # noqa: E501
-    level: Optional[DatLogMessageLevel] = None
-    message: Optional[Message] = None
+    level: Level = Field(description="log level of the log message")
+    message: Optional[Any] = Field(description="log message")
     stack_trace: Optional[StackTrace] = None
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["level", "message", "stack_trace"]
@@ -76,12 +75,6 @@ class DatLogMessage(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of level
-        if self.level:
-            _dict['level'] = self.level.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of message
-        if self.message:
-            _dict['message'] = self.message.to_dict()
         # override the default output from pydantic by calling `to_dict()` of stack_trace
         if self.stack_trace:
             _dict['stack_trace'] = self.stack_trace.to_dict()
@@ -89,6 +82,11 @@ class DatLogMessage(BaseModel):
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
+
+        # set to None if message (nullable) is None
+        # and model_fields_set contains the field
+        if self.message is None and "message" in self.model_fields_set:
+            _dict['message'] = None
 
         return _dict
 
@@ -102,8 +100,8 @@ class DatLogMessage(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "level": DatLogMessageLevel.from_dict(obj["level"]) if obj.get("level") is not None else None,
-            "message": Message.from_dict(obj["message"]) if obj.get("message") is not None else None,
+            "level": obj.get("level"),
+            "message": obj.get("message"),
             "stack_trace": StackTrace.from_dict(obj["stack_trace"]) if obj.get("stack_trace") is not None else None
         })
         # store additional fields in additional_properties

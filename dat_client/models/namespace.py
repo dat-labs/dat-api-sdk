@@ -27,7 +27,7 @@ NAMESPACE_ANY_OF_SCHEMAS = ["object"]
 
 class Namespace(BaseModel):
     """
-    namespace the data is associated with
+    The namespace the data is associated with.
     """
 
     # data type: object

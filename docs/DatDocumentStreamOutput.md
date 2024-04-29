@@ -5,12 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** | The name of the document stream. | 
-**namespace** | **str** |  | [optional] 
-**json_schema** | **object** |  | [optional] 
-**read_sync_mode** | [**ReadSyncMode**](ReadSyncMode.md) |  | [optional] 
-**write_sync_mode** | [**WriteSyncModeOutput**](WriteSyncModeOutput.md) |  | [optional] 
-**cursor_field** | **str** |  | [optional] 
+**name** | **object** | The name of the document stream. | 
+**namespace** | [**Namespace**](Namespace.md) |  | [optional] 
+**json_schema** | [**JsonSchema**](JsonSchema.md) |  | [optional] 
+**read_sync_mode** | [**DatDocumentStreamInputReadSyncMode**](DatDocumentStreamInputReadSyncMode.md) |  | [optional] 
+**write_sync_mode** | [**DatDocumentStreamInputWriteSyncMode**](DatDocumentStreamInputWriteSyncMode.md) |  | [optional] 
+**cursor_field** | [**CursorField**](CursorField.md) |  | [optional] 
+**advanced** | [**DatDocumentStreamOutputAdvanced**](DatDocumentStreamOutputAdvanced.md) |  | [optional] 
 
 ## Example
 

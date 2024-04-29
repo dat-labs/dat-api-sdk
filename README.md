@@ -87,13 +87,18 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *UsersApi* | [**verify_user_users_verify_post**](docs/UsersApi.md#verify_user_users_verify_post) | **POST** /users/verify | Verify User
 *ActorInstancesApi* | [**call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get**](docs/ActorInstancesApi.md#call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get) | **GET** /actor_instances/{actor_instance_uuid}/discover | Call Actor Instance Discover
-*ActorInstancesApi* | [**create_actor_instance_actor_instances_post**](docs/ActorInstancesApi.md#create_actor_instance_actor_instances_post) | **POST** /actor_instances/ | Create Actor Instance
-*ActorInstancesApi* | [**delete_actor_instance_actor_instances_actor_instance_uuid_delete**](docs/ActorInstancesApi.md#delete_actor_instance_actor_instances_actor_instance_uuid_delete) | **DELETE** /actor_instances/{actor_instance_uuid} | Delete Actor Instance
+*ActorInstancesApi* | [**create_actor_instance_actor_instances_post**](docs/ActorInstancesApi.md#create_actor_instance_actor_instances_post) | **POST** /actor_instances | Create Actor Instance
+*ActorInstancesApi* | [**delete_actor_instance_actor_instances_actor_instance_id_delete**](docs/ActorInstancesApi.md#delete_actor_instance_actor_instances_actor_instance_id_delete) | **DELETE** /actor_instances/{actor_instance_id} | Delete Actor Instance
 *ActorInstancesApi* | [**fetch_available_actor_instances_actor_instances_actor_type_list_get**](docs/ActorInstancesApi.md#fetch_available_actor_instances_actor_instances_actor_type_list_get) | **GET** /actor_instances/{actor_type}/list | Fetch Available Actor Instances
-*ActorInstancesApi* | [**read_actor_instance_actor_instances_actor_instance_uuid_get**](docs/ActorInstancesApi.md#read_actor_instance_actor_instances_actor_instance_uuid_get) | **GET** /actor_instances/{actor_instance_uuid} | Read Actor Instance
-*ActorInstancesApi* | [**update_actor_instance_actor_instances_actor_instance_uuid_put**](docs/ActorInstancesApi.md#update_actor_instance_actor_instances_actor_instance_uuid_put) | **PUT** /actor_instances/{actor_instance_uuid} | Update Actor Instance
+*ActorInstancesApi* | [**read_actor_instance_actor_instances_actor_instance_id_get**](docs/ActorInstancesApi.md#read_actor_instance_actor_instances_actor_instance_id_get) | **GET** /actor_instances/{actor_instance_id} | Read Actor Instance
+*ActorInstancesApi* | [**update_actor_instance_actor_instances_actor_instance_id_put**](docs/ActorInstancesApi.md#update_actor_instance_actor_instances_actor_instance_id_put) | **PUT** /actor_instances/{actor_instance_id} | Update Actor Instance
+*ActorsApi* | [**create_actor_actors_post**](docs/ActorsApi.md#create_actor_actors_post) | **POST** /actors | Create Actor
+*ActorsApi* | [**delete_actor_actors_actor_id_delete**](docs/ActorsApi.md#delete_actor_actors_actor_id_delete) | **DELETE** /actors/{actor_id} | Delete Actor
 *ActorsApi* | [**fetch_available_actors_actors_actor_type_list_get**](docs/ActorsApi.md#fetch_available_actors_actors_actor_type_list_get) | **GET** /actors/{actor_type}/list | Fetch Available Actors
-*ActorsApi* | [**get_actor_specs_actors_actor_uuid_specs_get**](docs/ActorsApi.md#get_actor_specs_actors_actor_uuid_specs_get) | **GET** /actors/{actor_uuid}/specs | Get Actor Specs
+*ActorsApi* | [**get_actor_specs_actors_actor_id_spec_get**](docs/ActorsApi.md#get_actor_specs_actors_actor_id_spec_get) | **GET** /actors/{actor_id}/spec | Get Actor Specs
+*ActorsApi* | [**mark_actor_inactive_actors_actor_id_mark_inactive_delete**](docs/ActorsApi.md#mark_actor_inactive_actors_actor_id_mark_inactive_delete) | **DELETE** /actors/{actor_id}/mark_inactive | Mark Actor Inactive
+*ActorsApi* | [**read_actor_actors_actor_id_get**](docs/ActorsApi.md#read_actor_actors_actor_id_get) | **GET** /actors/{actor_id} | Read Actor
+*ActorsApi* | [**update_actor_actors_actor_id_put**](docs/ActorsApi.md#update_actor_actors_actor_id_put) | **PUT** /actors/{actor_id} | Update Actor
 *ConnectionRunLogsApi* | [**add_connection_run_log_connection_run_logs_post**](docs/ConnectionRunLogsApi.md#add_connection_run_log_connection_run_logs_post) | **POST** /connection-run-logs/ | Add Connection Run Log
 *ConnectionsApi* | [**connection_trigger_run_connections_connection_id_run_post**](docs/ConnectionsApi.md#connection_trigger_run_connections_connection_id_run_post) | **POST** /connections/{connection_id}/run | Connection Trigger Run
 *ConnectionsApi* | [**create_connection_connections_post**](docs/ConnectionsApi.md#create_connection_connections_post) | **POST** /connections | Create Connection
@@ -104,14 +109,25 @@ Class | Method | HTTP request | Description
 *ConnectionsApi* | [**update_connection_connections_connection_id_put**](docs/ConnectionsApi.md#update_connection_connections_connection_id_put) | **PUT** /connections/{connection_id} | Update Connection
 *DefaultApi* | [**root_get**](docs/DefaultApi.md#root_get) | **GET** / | Root
 *DefaultApi* | [**update_admin_admin_post**](docs/DefaultApi.md#update_admin_admin_post) | **POST** /admin/ | Update Admin
+*WorkspacesApi* | [**create_workspace_workspaces_post**](docs/WorkspacesApi.md#create_workspace_workspaces_post) | **POST** /workspaces | Create Workspace
+*WorkspacesApi* | [**delete_workspace_workspaces_workspace_id_delete**](docs/WorkspacesApi.md#delete_workspace_workspaces_workspace_id_delete) | **DELETE** /workspaces/{workspace_id} | Delete Workspace
+*WorkspacesApi* | [**fetch_available_workspaces_workspaces_list_get**](docs/WorkspacesApi.md#fetch_available_workspaces_workspaces_list_get) | **GET** /workspaces/list | Fetch Available Workspaces
+*WorkspacesApi* | [**read_workspace_workspaces_workspace_id_get**](docs/WorkspacesApi.md#read_workspace_workspaces_workspace_id_get) | **GET** /workspaces/{workspace_id} | Read Workspace
+*WorkspacesApi* | [**update_workspace_workspaces_workspace_id_put**](docs/WorkspacesApi.md#update_workspace_workspaces_workspace_id_put) | **PUT** /workspaces/{workspace_id} | Update Workspace
 
 
 ## Documentation For Models
 
- - [ActorInstance](docs/ActorInstance.md)
- - [BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut](docs/BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut.md)
+ - [ActorInstanceGetResponse](docs/ActorInstanceGetResponse.md)
+ - [ActorInstancePostRequest](docs/ActorInstancePostRequest.md)
+ - [ActorInstancePutRequest](docs/ActorInstancePutRequest.md)
+ - [ActorInstanceResponse](docs/ActorInstanceResponse.md)
+ - [ActorPostRequest](docs/ActorPostRequest.md)
+ - [ActorPutRequest](docs/ActorPutRequest.md)
+ - [ActorResponse](docs/ActorResponse.md)
+ - [AdvancedInput](docs/AdvancedInput.md)
+ - [AdvancedOutput](docs/AdvancedOutput.md)
  - [Configuration](docs/Configuration.md)
- - [ConfiguredDocumentStream](docs/ConfiguredDocumentStream.md)
  - [ConnectionOrchestraResponse](docs/ConnectionOrchestraResponse.md)
  - [ConnectionOrchestraResponseCatalog](docs/ConnectionOrchestraResponseCatalog.md)
  - [ConnectionOrchestraResponseSchedule](docs/ConnectionOrchestraResponseSchedule.md)
@@ -123,27 +139,43 @@ Class | Method | HTTP request | Description
  - [CursorField](docs/CursorField.md)
  - [DatCatalogInput](docs/DatCatalogInput.md)
  - [DatCatalogOutput](docs/DatCatalogOutput.md)
- - [DatCorePydanticModelsConfiguredDocumentStreamWriteSyncMode](docs/DatCorePydanticModelsConfiguredDocumentStreamWriteSyncMode.md)
- - [DatCorePydanticModelsDatDocumentStreamWriteSyncMode](docs/DatCorePydanticModelsDatDocumentStreamWriteSyncMode.md)
  - [DatDocumentStreamInput](docs/DatDocumentStreamInput.md)
+ - [DatDocumentStreamInputAdvanced](docs/DatDocumentStreamInputAdvanced.md)
+ - [DatDocumentStreamInputReadSyncMode](docs/DatDocumentStreamInputReadSyncMode.md)
+ - [DatDocumentStreamInputWriteSyncMode](docs/DatDocumentStreamInputWriteSyncMode.md)
  - [DatDocumentStreamOutput](docs/DatDocumentStreamOutput.md)
+ - [DatDocumentStreamOutputAdvanced](docs/DatDocumentStreamOutputAdvanced.md)
  - [DatLogMessage](docs/DatLogMessage.md)
- - [DatLogMessageLevel](docs/DatLogMessageLevel.md)
  - [DocumentationUrl](docs/DocumentationUrl.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
+ - [JsonSchema](docs/JsonSchema.md)
  - [Level](docs/Level.md)
- - [Message](docs/Message.md)
+ - [Namespace](docs/Namespace.md)
  - [Prefix](docs/Prefix.md)
- - [PrimaryKey](docs/PrimaryKey.md)
  - [ReadSyncMode](docs/ReadSyncMode.md)
  - [Schedule](docs/Schedule.md)
  - [ScheduleType](docs/ScheduleType.md)
+ - [SplitByCharacterExtraConfig](docs/SplitByCharacterExtraConfig.md)
+ - [SplitByCharacterRecursiverlyConfig](docs/SplitByCharacterRecursiverlyConfig.md)
+ - [SplitByCharacterRecursiverlySettings](docs/SplitByCharacterRecursiverlySettings.md)
+ - [SplitByCharacterSettings](docs/SplitByCharacterSettings.md)
+ - [SplitByHtmlHeaderExtraConfig](docs/SplitByHtmlHeaderExtraConfig.md)
+ - [SplitByHtmlHeaderSettings](docs/SplitByHtmlHeaderSettings.md)
+ - [SplitByMarkdownSettings](docs/SplitByMarkdownSettings.md)
+ - [SplitByTokensSettings](docs/SplitByTokensSettings.md)
+ - [SplitCodeExtraConfig](docs/SplitCodeExtraConfig.md)
+ - [SplitCodeSettings](docs/SplitCodeSettings.md)
+ - [SplitJsonRecursivelySettings](docs/SplitJsonRecursivelySettings.md)
+ - [SplitterSettings](docs/SplitterSettings.md)
  - [StackTrace](docs/StackTrace.md)
  - [Status](docs/Status.md)
  - [UserRequestModel](docs/UserRequestModel.md)
  - [ValidationError](docs/ValidationError.md)
  - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
- - [WriteSyncModeOutput](docs/WriteSyncModeOutput.md)
+ - [WorkspacePostRequest](docs/WorkspacePostRequest.md)
+ - [WorkspacePutRequest](docs/WorkspacePutRequest.md)
+ - [WorkspaceResponse](docs/WorkspaceResponse.md)
+ - [WriteSyncMode](docs/WriteSyncMode.md)
 
 
 <a id="documentation-for-authorization"></a>

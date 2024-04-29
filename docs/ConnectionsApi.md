@@ -14,15 +14,18 @@ Method | HTTP request | Description
 
 
 # **connection_trigger_run_connections_connection_id_run_post**
-> object connection_trigger_run_connections_connection_id_run_post(connection_id)
+> ConnectionOrchestraResponse connection_trigger_run_connections_connection_id_run_post(connection_id)
 
 Connection Trigger Run
+
+Trigger the run for the connection
 
 ### Example
 
 
 ```python
 import dat_client
+from dat_client.models.connection_orchestra_response import ConnectionOrchestraResponse
 from dat_client.rest import ApiException
 from pprint import pprint
 
@@ -59,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**ConnectionOrchestraResponse**](ConnectionOrchestraResponse.md)
 
 ### Authorization
 
@@ -84,6 +87,8 @@ No authorization required
 > ConnectionResponse create_connection_connections_post(connection_post_request)
 
 Create Connection
+
+Creates a new connection.  Args:     payload: The request payload containing the connection details.  Returns:     The created connection.  Raises:     HTTPException: If the operation is forbidden or an error occurs.
 
 ### Example
 
@@ -154,6 +159,8 @@ No authorization required
 > delete_connection_connections_connection_id_delete(connection_id)
 
 Delete Connection
+
+Deletes a connection.  Args:     connection_id: The ID of the connection to delete.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
 ### Example
 
@@ -355,6 +362,8 @@ No authorization required
 
 Read Connection
 
+Retrieves a connection by its ID.  Args:     connection_id: The ID of the connection.  Returns:     The connection with the specified ID.  Raises:     HTTPException: If the connection is not found.
+
 ### Example
 
 
@@ -422,6 +431,8 @@ No authorization required
 > ConnectionResponse update_connection_connections_connection_id_put(connection_id, connection_put_request)
 
 Update Connection
+
+Updates an existing connection.  Args:     connection_id: The ID of the connection to update.     payload: The request payload containing the updated connection details.  Returns:     The updated connection.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
 ### Example
 

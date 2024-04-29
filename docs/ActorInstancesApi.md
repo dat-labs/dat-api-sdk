@@ -5,19 +5,17 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get**](ActorInstancesApi.md#call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get) | **GET** /actor_instances/{actor_instance_uuid}/discover | Call Actor Instance Discover
-[**create_actor_instance_actor_instances_post**](ActorInstancesApi.md#create_actor_instance_actor_instances_post) | **POST** /actor_instances/ | Create Actor Instance
-[**delete_actor_instance_actor_instances_actor_instance_uuid_delete**](ActorInstancesApi.md#delete_actor_instance_actor_instances_actor_instance_uuid_delete) | **DELETE** /actor_instances/{actor_instance_uuid} | Delete Actor Instance
+[**create_actor_instance_actor_instances_post**](ActorInstancesApi.md#create_actor_instance_actor_instances_post) | **POST** /actor_instances | Create Actor Instance
+[**delete_actor_instance_actor_instances_actor_instance_id_delete**](ActorInstancesApi.md#delete_actor_instance_actor_instances_actor_instance_id_delete) | **DELETE** /actor_instances/{actor_instance_id} | Delete Actor Instance
 [**fetch_available_actor_instances_actor_instances_actor_type_list_get**](ActorInstancesApi.md#fetch_available_actor_instances_actor_instances_actor_type_list_get) | **GET** /actor_instances/{actor_type}/list | Fetch Available Actor Instances
-[**read_actor_instance_actor_instances_actor_instance_uuid_get**](ActorInstancesApi.md#read_actor_instance_actor_instances_actor_instance_uuid_get) | **GET** /actor_instances/{actor_instance_uuid} | Read Actor Instance
-[**update_actor_instance_actor_instances_actor_instance_uuid_put**](ActorInstancesApi.md#update_actor_instance_actor_instances_actor_instance_uuid_put) | **PUT** /actor_instances/{actor_instance_uuid} | Update Actor Instance
+[**read_actor_instance_actor_instances_actor_instance_id_get**](ActorInstancesApi.md#read_actor_instance_actor_instances_actor_instance_id_get) | **GET** /actor_instances/{actor_instance_id} | Read Actor Instance
+[**update_actor_instance_actor_instances_actor_instance_id_put**](ActorInstancesApi.md#update_actor_instance_actor_instances_actor_instance_id_put) | **PUT** /actor_instances/{actor_instance_id} | Update Actor Instance
 
 
 # **call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get**
 > object call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get(actor_instance_uuid)
 
 Call Actor Instance Discover
-
-Initialize actor obj from verified-actors repo and call discover() on it and return  curl -X 'GET'     'http://localhost:8000/actor_instances/c6713b9d-0b97-4903-8982-4c80132f4a21/discover'     -H 'accept: application/json'     -H 'Content-Type: application/json'
 
 ### Example
 
@@ -82,7 +80,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_actor_instance_actor_instances_post**
-> ActorInstance create_actor_instance_actor_instances_post(actor_instance)
+> ActorInstanceResponse create_actor_instance_actor_instances_post(actor_instance_post_request)
 
 Create Actor Instance
 
@@ -91,7 +89,8 @@ Create Actor Instance
 
 ```python
 import dat_client
-from dat_client.models.actor_instance import ActorInstance
+from dat_client.models.actor_instance_post_request import ActorInstancePostRequest
+from dat_client.models.actor_instance_response import ActorInstanceResponse
 from dat_client.rest import ApiException
 from pprint import pprint
 
@@ -106,11 +105,11 @@ configuration = dat_client.Configuration(
 with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ActorInstancesApi(api_client)
-    actor_instance = dat_client.ActorInstance() # ActorInstance | 
+    actor_instance_post_request = dat_client.ActorInstancePostRequest() # ActorInstancePostRequest | 
 
     try:
         # Create Actor Instance
-        api_response = api_instance.create_actor_instance_actor_instances_post(actor_instance)
+        api_response = api_instance.create_actor_instance_actor_instances_post(actor_instance_post_request)
         print("The response of ActorInstancesApi->create_actor_instance_actor_instances_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -124,11 +123,11 @@ with dat_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **actor_instance** | [**ActorInstance**](ActorInstance.md)|  | 
+ **actor_instance_post_request** | [**ActorInstancePostRequest**](ActorInstancePostRequest.md)|  | 
 
 ### Return type
 
-[**ActorInstance**](ActorInstance.md)
+[**ActorInstanceResponse**](ActorInstanceResponse.md)
 
 ### Authorization
 
@@ -150,8 +149,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_actor_instance_actor_instances_actor_instance_uuid_delete**
-> object delete_actor_instance_actor_instances_actor_instance_uuid_delete(actor_instance_uuid)
+# **delete_actor_instance_actor_instances_actor_instance_id_delete**
+> object delete_actor_instance_actor_instances_actor_instance_id_delete(actor_instance_id)
 
 Delete Actor Instance
 
@@ -174,15 +173,15 @@ configuration = dat_client.Configuration(
 with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ActorInstancesApi(api_client)
-    actor_instance_uuid = 'actor_instance_uuid_example' # str | 
+    actor_instance_id = 'actor_instance_id_example' # str | 
 
     try:
         # Delete Actor Instance
-        api_response = api_instance.delete_actor_instance_actor_instances_actor_instance_uuid_delete(actor_instance_uuid)
-        print("The response of ActorInstancesApi->delete_actor_instance_actor_instances_actor_instance_uuid_delete:\n")
+        api_response = api_instance.delete_actor_instance_actor_instances_actor_instance_id_delete(actor_instance_id)
+        print("The response of ActorInstancesApi->delete_actor_instance_actor_instances_actor_instance_id_delete:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ActorInstancesApi->delete_actor_instance_actor_instances_actor_instance_uuid_delete: %s\n" % e)
+        print("Exception when calling ActorInstancesApi->delete_actor_instance_actor_instances_actor_instance_id_delete: %s\n" % e)
 ```
 
 
@@ -192,7 +191,7 @@ with dat_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **actor_instance_uuid** | **str**|  | 
+ **actor_instance_id** | **str**|  | 
 
 ### Return type
 
@@ -219,16 +218,18 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **fetch_available_actor_instances_actor_instances_actor_type_list_get**
-> List[ActorInstance] fetch_available_actor_instances_actor_instances_actor_type_list_get(actor_type)
+> List[ActorInstanceGetResponse] fetch_available_actor_instances_actor_instances_actor_type_list_get(actor_type)
 
 Fetch Available Actor Instances
+
+Fetch all active actors
 
 ### Example
 
 
 ```python
 import dat_client
-from dat_client.models.actor_instance import ActorInstance
+from dat_client.models.actor_instance_get_response import ActorInstanceGetResponse
 from dat_client.rest import ApiException
 from pprint import pprint
 
@@ -265,7 +266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ActorInstance]**](ActorInstance.md)
+[**List[ActorInstanceGetResponse]**](ActorInstanceGetResponse.md)
 
 ### Authorization
 
@@ -286,8 +287,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **read_actor_instance_actor_instances_actor_instance_uuid_get**
-> ActorInstance read_actor_instance_actor_instances_actor_instance_uuid_get(actor_instance_uuid)
+# **read_actor_instance_actor_instances_actor_instance_id_get**
+> ActorInstanceGetResponse read_actor_instance_actor_instances_actor_instance_id_get(actor_instance_id)
 
 Read Actor Instance
 
@@ -296,7 +297,7 @@ Read Actor Instance
 
 ```python
 import dat_client
-from dat_client.models.actor_instance import ActorInstance
+from dat_client.models.actor_instance_get_response import ActorInstanceGetResponse
 from dat_client.rest import ApiException
 from pprint import pprint
 
@@ -311,15 +312,15 @@ configuration = dat_client.Configuration(
 with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ActorInstancesApi(api_client)
-    actor_instance_uuid = 'actor_instance_uuid_example' # str | 
+    actor_instance_id = 'actor_instance_id_example' # str | 
 
     try:
         # Read Actor Instance
-        api_response = api_instance.read_actor_instance_actor_instances_actor_instance_uuid_get(actor_instance_uuid)
-        print("The response of ActorInstancesApi->read_actor_instance_actor_instances_actor_instance_uuid_get:\n")
+        api_response = api_instance.read_actor_instance_actor_instances_actor_instance_id_get(actor_instance_id)
+        print("The response of ActorInstancesApi->read_actor_instance_actor_instances_actor_instance_id_get:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ActorInstancesApi->read_actor_instance_actor_instances_actor_instance_uuid_get: %s\n" % e)
+        print("Exception when calling ActorInstancesApi->read_actor_instance_actor_instances_actor_instance_id_get: %s\n" % e)
 ```
 
 
@@ -329,11 +330,11 @@ with dat_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **actor_instance_uuid** | **str**|  | 
+ **actor_instance_id** | **str**|  | 
 
 ### Return type
 
-[**ActorInstance**](ActorInstance.md)
+[**ActorInstanceGetResponse**](ActorInstanceGetResponse.md)
 
 ### Authorization
 
@@ -354,18 +355,20 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_actor_instance_actor_instances_actor_instance_uuid_put**
-> List[ActorInstance] update_actor_instance_actor_instances_actor_instance_uuid_put(actor_instance_uuid, body_update_actor_instance_actor_instances_actor_instance_uuid_put)
+# **update_actor_instance_actor_instances_actor_instance_id_put**
+> ActorInstanceResponse update_actor_instance_actor_instances_actor_instance_id_put(actor_instance_id, actor_instance_put_request)
 
 Update Actor Instance
+
+Update an actor instance.  Args:     actor_instance_id (str): The ID of the actor instance to update.     payload (ActorInstancePutRequest): The updated data for the actor instance.     db (Database): The database session.  Returns:     ActorInstanceResponse: The updated actor instance.  Raises:     HTTPException: If the actor instance is not found or if there     is a validation error or an exception occurs.
 
 ### Example
 
 
 ```python
 import dat_client
-from dat_client.models.actor_instance import ActorInstance
-from dat_client.models.body_update_actor_instance_actor_instances_actor_instance_uuid_put import BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
+from dat_client.models.actor_instance_put_request import ActorInstancePutRequest
+from dat_client.models.actor_instance_response import ActorInstanceResponse
 from dat_client.rest import ApiException
 from pprint import pprint
 
@@ -380,16 +383,16 @@ configuration = dat_client.Configuration(
 with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ActorInstancesApi(api_client)
-    actor_instance_uuid = 'actor_instance_uuid_example' # str | 
-    body_update_actor_instance_actor_instances_actor_instance_uuid_put = dat_client.BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut() # BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut | 
+    actor_instance_id = 'actor_instance_id_example' # str | 
+    actor_instance_put_request = dat_client.ActorInstancePutRequest() # ActorInstancePutRequest | 
 
     try:
         # Update Actor Instance
-        api_response = api_instance.update_actor_instance_actor_instances_actor_instance_uuid_put(actor_instance_uuid, body_update_actor_instance_actor_instances_actor_instance_uuid_put)
-        print("The response of ActorInstancesApi->update_actor_instance_actor_instances_actor_instance_uuid_put:\n")
+        api_response = api_instance.update_actor_instance_actor_instances_actor_instance_id_put(actor_instance_id, actor_instance_put_request)
+        print("The response of ActorInstancesApi->update_actor_instance_actor_instances_actor_instance_id_put:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ActorInstancesApi->update_actor_instance_actor_instances_actor_instance_uuid_put: %s\n" % e)
+        print("Exception when calling ActorInstancesApi->update_actor_instance_actor_instances_actor_instance_id_put: %s\n" % e)
 ```
 
 
@@ -399,12 +402,12 @@ with dat_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **actor_instance_uuid** | **str**|  | 
- **body_update_actor_instance_actor_instances_actor_instance_uuid_put** | [**BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut**](BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut.md)|  | 
+ **actor_instance_id** | **str**|  | 
+ **actor_instance_put_request** | [**ActorInstancePutRequest**](ActorInstancePutRequest.md)|  | 
 
 ### Return type
 
-[**List[ActorInstance]**](ActorInstance.md)
+[**ActorInstanceResponse**](ActorInstanceResponse.md)
 
 ### Authorization
 

@@ -27,7 +27,7 @@ CURSORFIELD_ANY_OF_SCHEMAS = ["object"]
 
 class CursorField(BaseModel):
     """
-    Path to the field that will be used to determine if a record is new or modified since the last sync. This field is REQUIRED if `read_sync_mode` is `incremental`. Otherwise it is ignored.
+    The path to the field used to determine if a record is new or modified. REQUIRED for INCREMENTAL sync mode.
     """
 
     # data type: object

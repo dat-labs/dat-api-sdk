@@ -17,9 +17,11 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from typing import Any, Dict, List
-from dat_client.models.actor_instance import ActorInstance
-from dat_client.models.body_update_actor_instance_actor_instances_actor_instance_uuid_put import BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
+from typing import Any, List
+from dat_client.models.actor_instance_get_response import ActorInstanceGetResponse
+from dat_client.models.actor_instance_post_request import ActorInstancePostRequest
+from dat_client.models.actor_instance_put_request import ActorInstancePutRequest
+from dat_client.models.actor_instance_response import ActorInstanceResponse
 
 from dat_client.api_client import ApiClient, RequestSerialized
 from dat_client.api_response import ApiResponse
@@ -58,7 +60,6 @@ class ActorInstancesApi:
     ) -> object:
         """Call Actor Instance Discover
 
-        Initialize actor obj from verified-actors repo and call discover() on it and return  curl -X 'GET'     'http://localhost:8000/actor_instances/c6713b9d-0b97-4903-8982-4c80132f4a21/discover'     -H 'accept: application/json'     -H 'Content-Type: application/json'
 
         :param actor_instance_uuid: (required)
         :type actor_instance_uuid: str
@@ -127,7 +128,6 @@ class ActorInstancesApi:
     ) -> ApiResponse[object]:
         """Call Actor Instance Discover
 
-        Initialize actor obj from verified-actors repo and call discover() on it and return  curl -X 'GET'     'http://localhost:8000/actor_instances/c6713b9d-0b97-4903-8982-4c80132f4a21/discover'     -H 'accept: application/json'     -H 'Content-Type: application/json'
 
         :param actor_instance_uuid: (required)
         :type actor_instance_uuid: str
@@ -196,7 +196,6 @@ class ActorInstancesApi:
     ) -> RESTResponseType:
         """Call Actor Instance Discover
 
-        Initialize actor obj from verified-actors repo and call discover() on it and return  curl -X 'GET'     'http://localhost:8000/actor_instances/c6713b9d-0b97-4903-8982-4c80132f4a21/discover'     -H 'accept: application/json'     -H 'Content-Type: application/json'
 
         :param actor_instance_uuid: (required)
         :type actor_instance_uuid: str
@@ -305,7 +304,7 @@ class ActorInstancesApi:
     @validate_call
     def create_actor_instance_actor_instances_post(
         self,
-        actor_instance: ActorInstance,
+        actor_instance_post_request: ActorInstancePostRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -318,12 +317,12 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ActorInstance:
+    ) -> ActorInstanceResponse:
         """Create Actor Instance
 
 
-        :param actor_instance: (required)
-        :type actor_instance: ActorInstance
+        :param actor_instance_post_request: (required)
+        :type actor_instance_post_request: ActorInstancePostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -347,7 +346,7 @@ class ActorInstancesApi:
         """ # noqa: E501
 
         _param = self._create_actor_instance_actor_instances_post_serialize(
-            actor_instance=actor_instance,
+            actor_instance_post_request=actor_instance_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -355,7 +354,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstance",
+            '200': "ActorInstanceResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -374,7 +373,7 @@ class ActorInstancesApi:
     @validate_call
     def create_actor_instance_actor_instances_post_with_http_info(
         self,
-        actor_instance: ActorInstance,
+        actor_instance_post_request: ActorInstancePostRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -387,12 +386,12 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ActorInstance]:
+    ) -> ApiResponse[ActorInstanceResponse]:
         """Create Actor Instance
 
 
-        :param actor_instance: (required)
-        :type actor_instance: ActorInstance
+        :param actor_instance_post_request: (required)
+        :type actor_instance_post_request: ActorInstancePostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -416,7 +415,7 @@ class ActorInstancesApi:
         """ # noqa: E501
 
         _param = self._create_actor_instance_actor_instances_post_serialize(
-            actor_instance=actor_instance,
+            actor_instance_post_request=actor_instance_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -424,7 +423,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstance",
+            '200': "ActorInstanceResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -443,7 +442,7 @@ class ActorInstancesApi:
     @validate_call
     def create_actor_instance_actor_instances_post_without_preload_content(
         self,
-        actor_instance: ActorInstance,
+        actor_instance_post_request: ActorInstancePostRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -460,8 +459,8 @@ class ActorInstancesApi:
         """Create Actor Instance
 
 
-        :param actor_instance: (required)
-        :type actor_instance: ActorInstance
+        :param actor_instance_post_request: (required)
+        :type actor_instance_post_request: ActorInstancePostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -485,7 +484,7 @@ class ActorInstancesApi:
         """ # noqa: E501
 
         _param = self._create_actor_instance_actor_instances_post_serialize(
-            actor_instance=actor_instance,
+            actor_instance_post_request=actor_instance_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -493,7 +492,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstance",
+            '200': "ActorInstanceResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -507,7 +506,7 @@ class ActorInstancesApi:
 
     def _create_actor_instance_actor_instances_post_serialize(
         self,
-        actor_instance,
+        actor_instance_post_request,
         _request_auth,
         _content_type,
         _headers,
@@ -531,8 +530,8 @@ class ActorInstancesApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if actor_instance is not None:
-            _body_params = actor_instance
+        if actor_instance_post_request is not None:
+            _body_params = actor_instance_post_request
 
 
         # set the HTTP header `Accept`
@@ -562,7 +561,7 @@ class ActorInstancesApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/actor_instances/',
+            resource_path='/actor_instances',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -579,9 +578,9 @@ class ActorInstancesApi:
 
 
     @validate_call
-    def delete_actor_instance_actor_instances_actor_instance_uuid_delete(
+    def delete_actor_instance_actor_instances_actor_instance_id_delete(
         self,
-        actor_instance_uuid: StrictStr,
+        actor_instance_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -598,8 +597,8 @@ class ActorInstancesApi:
         """Delete Actor Instance
 
 
-        :param actor_instance_uuid: (required)
-        :type actor_instance_uuid: str
+        :param actor_instance_id: (required)
+        :type actor_instance_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -622,8 +621,8 @@ class ActorInstancesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_actor_instance_actor_instances_actor_instance_uuid_delete_serialize(
-            actor_instance_uuid=actor_instance_uuid,
+        _param = self._delete_actor_instance_actor_instances_actor_instance_id_delete_serialize(
+            actor_instance_id=actor_instance_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -648,9 +647,9 @@ class ActorInstancesApi:
 
 
     @validate_call
-    def delete_actor_instance_actor_instances_actor_instance_uuid_delete_with_http_info(
+    def delete_actor_instance_actor_instances_actor_instance_id_delete_with_http_info(
         self,
-        actor_instance_uuid: StrictStr,
+        actor_instance_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -667,8 +666,8 @@ class ActorInstancesApi:
         """Delete Actor Instance
 
 
-        :param actor_instance_uuid: (required)
-        :type actor_instance_uuid: str
+        :param actor_instance_id: (required)
+        :type actor_instance_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -691,8 +690,8 @@ class ActorInstancesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_actor_instance_actor_instances_actor_instance_uuid_delete_serialize(
-            actor_instance_uuid=actor_instance_uuid,
+        _param = self._delete_actor_instance_actor_instances_actor_instance_id_delete_serialize(
+            actor_instance_id=actor_instance_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -717,9 +716,9 @@ class ActorInstancesApi:
 
 
     @validate_call
-    def delete_actor_instance_actor_instances_actor_instance_uuid_delete_without_preload_content(
+    def delete_actor_instance_actor_instances_actor_instance_id_delete_without_preload_content(
         self,
-        actor_instance_uuid: StrictStr,
+        actor_instance_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -736,8 +735,8 @@ class ActorInstancesApi:
         """Delete Actor Instance
 
 
-        :param actor_instance_uuid: (required)
-        :type actor_instance_uuid: str
+        :param actor_instance_id: (required)
+        :type actor_instance_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -760,8 +759,8 @@ class ActorInstancesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_actor_instance_actor_instances_actor_instance_uuid_delete_serialize(
-            actor_instance_uuid=actor_instance_uuid,
+        _param = self._delete_actor_instance_actor_instances_actor_instance_id_delete_serialize(
+            actor_instance_id=actor_instance_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -781,9 +780,9 @@ class ActorInstancesApi:
         return response_data.response
 
 
-    def _delete_actor_instance_actor_instances_actor_instance_uuid_delete_serialize(
+    def _delete_actor_instance_actor_instances_actor_instance_id_delete_serialize(
         self,
-        actor_instance_uuid,
+        actor_instance_id,
         _request_auth,
         _content_type,
         _headers,
@@ -803,8 +802,8 @@ class ActorInstancesApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if actor_instance_uuid is not None:
-            _path_params['actor_instance_uuid'] = actor_instance_uuid
+        if actor_instance_id is not None:
+            _path_params['actor_instance_id'] = actor_instance_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -825,7 +824,7 @@ class ActorInstancesApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/actor_instances/{actor_instance_uuid}',
+            resource_path='/actor_instances/{actor_instance_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -857,9 +856,10 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ActorInstance]:
+    ) -> List[ActorInstanceGetResponse]:
         """Fetch Available Actor Instances
 
+        Fetch all active actors
 
         :param actor_type: (required)
         :type actor_type: str
@@ -894,7 +894,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstance]",
+            '200': "List[ActorInstanceGetResponse]",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -925,9 +925,10 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ActorInstance]]:
+    ) -> ApiResponse[List[ActorInstanceGetResponse]]:
         """Fetch Available Actor Instances
 
+        Fetch all active actors
 
         :param actor_type: (required)
         :type actor_type: str
@@ -962,7 +963,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstance]",
+            '200': "List[ActorInstanceGetResponse]",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -996,6 +997,7 @@ class ActorInstancesApi:
     ) -> RESTResponseType:
         """Fetch Available Actor Instances
 
+        Fetch all active actors
 
         :param actor_type: (required)
         :type actor_type: str
@@ -1030,7 +1032,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstance]",
+            '200': "List[ActorInstanceGetResponse]",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1102,9 +1104,9 @@ class ActorInstancesApi:
 
 
     @validate_call
-    def read_actor_instance_actor_instances_actor_instance_uuid_get(
+    def read_actor_instance_actor_instances_actor_instance_id_get(
         self,
-        actor_instance_uuid: StrictStr,
+        actor_instance_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1117,12 +1119,12 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ActorInstance:
+    ) -> ActorInstanceGetResponse:
         """Read Actor Instance
 
 
-        :param actor_instance_uuid: (required)
-        :type actor_instance_uuid: str
+        :param actor_instance_id: (required)
+        :type actor_instance_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1145,8 +1147,8 @@ class ActorInstancesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._read_actor_instance_actor_instances_actor_instance_uuid_get_serialize(
-            actor_instance_uuid=actor_instance_uuid,
+        _param = self._read_actor_instance_actor_instances_actor_instance_id_get_serialize(
+            actor_instance_id=actor_instance_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1154,7 +1156,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstance",
+            '200': "ActorInstanceGetResponse",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1170,9 +1172,9 @@ class ActorInstancesApi:
 
 
     @validate_call
-    def read_actor_instance_actor_instances_actor_instance_uuid_get_with_http_info(
+    def read_actor_instance_actor_instances_actor_instance_id_get_with_http_info(
         self,
-        actor_instance_uuid: StrictStr,
+        actor_instance_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1185,12 +1187,12 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ActorInstance]:
+    ) -> ApiResponse[ActorInstanceGetResponse]:
         """Read Actor Instance
 
 
-        :param actor_instance_uuid: (required)
-        :type actor_instance_uuid: str
+        :param actor_instance_id: (required)
+        :type actor_instance_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1213,8 +1215,8 @@ class ActorInstancesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._read_actor_instance_actor_instances_actor_instance_uuid_get_serialize(
-            actor_instance_uuid=actor_instance_uuid,
+        _param = self._read_actor_instance_actor_instances_actor_instance_id_get_serialize(
+            actor_instance_id=actor_instance_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1222,7 +1224,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstance",
+            '200': "ActorInstanceGetResponse",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1238,9 +1240,9 @@ class ActorInstancesApi:
 
 
     @validate_call
-    def read_actor_instance_actor_instances_actor_instance_uuid_get_without_preload_content(
+    def read_actor_instance_actor_instances_actor_instance_id_get_without_preload_content(
         self,
-        actor_instance_uuid: StrictStr,
+        actor_instance_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1257,8 +1259,8 @@ class ActorInstancesApi:
         """Read Actor Instance
 
 
-        :param actor_instance_uuid: (required)
-        :type actor_instance_uuid: str
+        :param actor_instance_id: (required)
+        :type actor_instance_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1281,8 +1283,8 @@ class ActorInstancesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._read_actor_instance_actor_instances_actor_instance_uuid_get_serialize(
-            actor_instance_uuid=actor_instance_uuid,
+        _param = self._read_actor_instance_actor_instances_actor_instance_id_get_serialize(
+            actor_instance_id=actor_instance_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1290,7 +1292,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstance",
+            '200': "ActorInstanceGetResponse",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1301,9 +1303,9 @@ class ActorInstancesApi:
         return response_data.response
 
 
-    def _read_actor_instance_actor_instances_actor_instance_uuid_get_serialize(
+    def _read_actor_instance_actor_instances_actor_instance_id_get_serialize(
         self,
-        actor_instance_uuid,
+        actor_instance_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1323,8 +1325,8 @@ class ActorInstancesApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if actor_instance_uuid is not None:
-            _path_params['actor_instance_uuid'] = actor_instance_uuid
+        if actor_instance_id is not None:
+            _path_params['actor_instance_id'] = actor_instance_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1345,7 +1347,7 @@ class ActorInstancesApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/actor_instances/{actor_instance_uuid}',
+            resource_path='/actor_instances/{actor_instance_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1362,10 +1364,10 @@ class ActorInstancesApi:
 
 
     @validate_call
-    def update_actor_instance_actor_instances_actor_instance_uuid_put(
+    def update_actor_instance_actor_instances_actor_instance_id_put(
         self,
-        actor_instance_uuid: StrictStr,
-        body_update_actor_instance_actor_instances_actor_instance_uuid_put: BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut,
+        actor_instance_id: StrictStr,
+        actor_instance_put_request: ActorInstancePutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1378,14 +1380,15 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ActorInstance]:
+    ) -> ActorInstanceResponse:
         """Update Actor Instance
 
+        Update an actor instance.  Args:     actor_instance_id (str): The ID of the actor instance to update.     payload (ActorInstancePutRequest): The updated data for the actor instance.     db (Database): The database session.  Returns:     ActorInstanceResponse: The updated actor instance.  Raises:     HTTPException: If the actor instance is not found or if there     is a validation error or an exception occurs.
 
-        :param actor_instance_uuid: (required)
-        :type actor_instance_uuid: str
-        :param body_update_actor_instance_actor_instances_actor_instance_uuid_put: (required)
-        :type body_update_actor_instance_actor_instances_actor_instance_uuid_put: BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
+        :param actor_instance_id: (required)
+        :type actor_instance_id: str
+        :param actor_instance_put_request: (required)
+        :type actor_instance_put_request: ActorInstancePutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1408,9 +1411,9 @@ class ActorInstancesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_actor_instance_actor_instances_actor_instance_uuid_put_serialize(
-            actor_instance_uuid=actor_instance_uuid,
-            body_update_actor_instance_actor_instances_actor_instance_uuid_put=body_update_actor_instance_actor_instances_actor_instance_uuid_put,
+        _param = self._update_actor_instance_actor_instances_actor_instance_id_put_serialize(
+            actor_instance_id=actor_instance_id,
+            actor_instance_put_request=actor_instance_put_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1418,7 +1421,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstance]",
+            '200': "ActorInstanceResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -1435,10 +1438,10 @@ class ActorInstancesApi:
 
 
     @validate_call
-    def update_actor_instance_actor_instances_actor_instance_uuid_put_with_http_info(
+    def update_actor_instance_actor_instances_actor_instance_id_put_with_http_info(
         self,
-        actor_instance_uuid: StrictStr,
-        body_update_actor_instance_actor_instances_actor_instance_uuid_put: BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut,
+        actor_instance_id: StrictStr,
+        actor_instance_put_request: ActorInstancePutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1451,14 +1454,15 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ActorInstance]]:
+    ) -> ApiResponse[ActorInstanceResponse]:
         """Update Actor Instance
 
+        Update an actor instance.  Args:     actor_instance_id (str): The ID of the actor instance to update.     payload (ActorInstancePutRequest): The updated data for the actor instance.     db (Database): The database session.  Returns:     ActorInstanceResponse: The updated actor instance.  Raises:     HTTPException: If the actor instance is not found or if there     is a validation error or an exception occurs.
 
-        :param actor_instance_uuid: (required)
-        :type actor_instance_uuid: str
-        :param body_update_actor_instance_actor_instances_actor_instance_uuid_put: (required)
-        :type body_update_actor_instance_actor_instances_actor_instance_uuid_put: BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
+        :param actor_instance_id: (required)
+        :type actor_instance_id: str
+        :param actor_instance_put_request: (required)
+        :type actor_instance_put_request: ActorInstancePutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1481,9 +1485,9 @@ class ActorInstancesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_actor_instance_actor_instances_actor_instance_uuid_put_serialize(
-            actor_instance_uuid=actor_instance_uuid,
-            body_update_actor_instance_actor_instances_actor_instance_uuid_put=body_update_actor_instance_actor_instances_actor_instance_uuid_put,
+        _param = self._update_actor_instance_actor_instances_actor_instance_id_put_serialize(
+            actor_instance_id=actor_instance_id,
+            actor_instance_put_request=actor_instance_put_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1491,7 +1495,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstance]",
+            '200': "ActorInstanceResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -1508,10 +1512,10 @@ class ActorInstancesApi:
 
 
     @validate_call
-    def update_actor_instance_actor_instances_actor_instance_uuid_put_without_preload_content(
+    def update_actor_instance_actor_instances_actor_instance_id_put_without_preload_content(
         self,
-        actor_instance_uuid: StrictStr,
-        body_update_actor_instance_actor_instances_actor_instance_uuid_put: BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut,
+        actor_instance_id: StrictStr,
+        actor_instance_put_request: ActorInstancePutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1527,11 +1531,12 @@ class ActorInstancesApi:
     ) -> RESTResponseType:
         """Update Actor Instance
 
+        Update an actor instance.  Args:     actor_instance_id (str): The ID of the actor instance to update.     payload (ActorInstancePutRequest): The updated data for the actor instance.     db (Database): The database session.  Returns:     ActorInstanceResponse: The updated actor instance.  Raises:     HTTPException: If the actor instance is not found or if there     is a validation error or an exception occurs.
 
-        :param actor_instance_uuid: (required)
-        :type actor_instance_uuid: str
-        :param body_update_actor_instance_actor_instances_actor_instance_uuid_put: (required)
-        :type body_update_actor_instance_actor_instances_actor_instance_uuid_put: BodyUpdateActorInstanceActorInstancesActorInstanceUuidPut
+        :param actor_instance_id: (required)
+        :type actor_instance_id: str
+        :param actor_instance_put_request: (required)
+        :type actor_instance_put_request: ActorInstancePutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1554,9 +1559,9 @@ class ActorInstancesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_actor_instance_actor_instances_actor_instance_uuid_put_serialize(
-            actor_instance_uuid=actor_instance_uuid,
-            body_update_actor_instance_actor_instances_actor_instance_uuid_put=body_update_actor_instance_actor_instances_actor_instance_uuid_put,
+        _param = self._update_actor_instance_actor_instances_actor_instance_id_put_serialize(
+            actor_instance_id=actor_instance_id,
+            actor_instance_put_request=actor_instance_put_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1564,7 +1569,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstance]",
+            '200': "ActorInstanceResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -1576,10 +1581,10 @@ class ActorInstancesApi:
         return response_data.response
 
 
-    def _update_actor_instance_actor_instances_actor_instance_uuid_put_serialize(
+    def _update_actor_instance_actor_instances_actor_instance_id_put_serialize(
         self,
-        actor_instance_uuid,
-        body_update_actor_instance_actor_instances_actor_instance_uuid_put,
+        actor_instance_id,
+        actor_instance_put_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1599,14 +1604,14 @@ class ActorInstancesApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if actor_instance_uuid is not None:
-            _path_params['actor_instance_uuid'] = actor_instance_uuid
+        if actor_instance_id is not None:
+            _path_params['actor_instance_id'] = actor_instance_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body_update_actor_instance_actor_instances_actor_instance_uuid_put is not None:
-            _body_params = body_update_actor_instance_actor_instances_actor_instance_uuid_put
+        if actor_instance_put_request is not None:
+            _body_params = actor_instance_put_request
 
 
         # set the HTTP header `Accept`
@@ -1636,7 +1641,7 @@ class ActorInstancesApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/actor_instances/{actor_instance_uuid}',
+            resource_path='/actor_instances/{actor_instance_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

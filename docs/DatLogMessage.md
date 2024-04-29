@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**level** | [**DatLogMessageLevel**](DatLogMessageLevel.md) |  | [optional] 
-**message** | [**Message**](Message.md) |  | [optional] 
+**level** | [**Level**](Level.md) | log level of the log message | 
+**message** | **object** | log message | 
 **stack_trace** | [**StackTrace**](StackTrace.md) |  | [optional] 
 
 ## Example

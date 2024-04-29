@@ -17,10 +17,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from dat_client.models.read_sync_mode import ReadSyncMode
-from dat_client.models.write_sync_mode_output import WriteSyncModeOutput
+from dat_client.models.cursor_field import CursorField
+from dat_client.models.dat_document_stream_input_read_sync_mode import DatDocumentStreamInputReadSyncMode
+from dat_client.models.dat_document_stream_input_write_sync_mode import DatDocumentStreamInputWriteSyncMode
+from dat_client.models.dat_document_stream_output_advanced import DatDocumentStreamOutputAdvanced
+from dat_client.models.json_schema import JsonSchema
+from dat_client.models.namespace import Namespace
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,13 +32,15 @@ class DatDocumentStreamOutput(BaseModel):
     """
     DatDocumentStreamOutput
     """ # noqa: E501
-    name: StrictStr = Field(description="The name of the document stream.")
-    namespace: Optional[StrictStr] = None
-    json_schema: Optional[Dict[str, Any]] = None
-    read_sync_mode: Optional[ReadSyncMode] = None
-    write_sync_mode: Optional[WriteSyncModeOutput] = None
-    cursor_field: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["name", "namespace", "json_schema", "read_sync_mode", "write_sync_mode", "cursor_field"]
+    name: Optional[Any] = Field(description="The name of the document stream.")
+    namespace: Optional[Namespace] = None
+    json_schema: Optional[JsonSchema] = None
+    read_sync_mode: Optional[DatDocumentStreamInputReadSyncMode] = None
+    write_sync_mode: Optional[DatDocumentStreamInputWriteSyncMode] = None
+    cursor_field: Optional[CursorField] = None
+    advanced: Optional[DatDocumentStreamOutputAdvanced] = None
+    additional_properties: Dict[str, Any] = {}
+    __properties: ClassVar[List[str]] = ["name", "namespace", "json_schema", "read_sync_mode", "write_sync_mode", "cursor_field", "advanced"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -66,8 +72,10 @@ class DatDocumentStreamOutput(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -75,30 +83,33 @@ class DatDocumentStreamOutput(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if namespace (nullable) is None
-        # and model_fields_set contains the field
-        if self.namespace is None and "namespace" in self.model_fields_set:
-            _dict['namespace'] = None
+        # override the default output from pydantic by calling `to_dict()` of namespace
+        if self.namespace:
+            _dict['namespace'] = self.namespace.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of json_schema
+        if self.json_schema:
+            _dict['json_schema'] = self.json_schema.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of read_sync_mode
+        if self.read_sync_mode:
+            _dict['read_sync_mode'] = self.read_sync_mode.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of write_sync_mode
+        if self.write_sync_mode:
+            _dict['write_sync_mode'] = self.write_sync_mode.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of cursor_field
+        if self.cursor_field:
+            _dict['cursor_field'] = self.cursor_field.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of advanced
+        if self.advanced:
+            _dict['advanced'] = self.advanced.to_dict()
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
 
-        # set to None if json_schema (nullable) is None
+        # set to None if name (nullable) is None
         # and model_fields_set contains the field
-        if self.json_schema is None and "json_schema" in self.model_fields_set:
-            _dict['json_schema'] = None
-
-        # set to None if read_sync_mode (nullable) is None
-        # and model_fields_set contains the field
-        if self.read_sync_mode is None and "read_sync_mode" in self.model_fields_set:
-            _dict['read_sync_mode'] = None
-
-        # set to None if write_sync_mode (nullable) is None
-        # and model_fields_set contains the field
-        if self.write_sync_mode is None and "write_sync_mode" in self.model_fields_set:
-            _dict['write_sync_mode'] = None
-
-        # set to None if cursor_field (nullable) is None
-        # and model_fields_set contains the field
-        if self.cursor_field is None and "cursor_field" in self.model_fields_set:
-            _dict['cursor_field'] = None
+        if self.name is None and "name" in self.model_fields_set:
+            _dict['name'] = None
 
         return _dict
 
@@ -113,12 +124,18 @@ class DatDocumentStreamOutput(BaseModel):
 
         _obj = cls.model_validate({
             "name": obj.get("name"),
-            "namespace": obj.get("namespace"),
-            "json_schema": obj.get("json_schema"),
-            "read_sync_mode": obj.get("read_sync_mode"),
-            "write_sync_mode": obj.get("write_sync_mode"),
-            "cursor_field": obj.get("cursor_field")
+            "namespace": Namespace.from_dict(obj["namespace"]) if obj.get("namespace") is not None else None,
+            "json_schema": JsonSchema.from_dict(obj["json_schema"]) if obj.get("json_schema") is not None else None,
+            "read_sync_mode": DatDocumentStreamInputReadSyncMode.from_dict(obj["read_sync_mode"]) if obj.get("read_sync_mode") is not None else None,
+            "write_sync_mode": DatDocumentStreamInputWriteSyncMode.from_dict(obj["write_sync_mode"]) if obj.get("write_sync_mode") is not None else None,
+            "cursor_field": CursorField.from_dict(obj["cursor_field"]) if obj.get("cursor_field") is not None else None,
+            "advanced": DatDocumentStreamOutputAdvanced.from_dict(obj["advanced"]) if obj.get("advanced") is not None else None
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

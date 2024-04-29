@@ -1,6 +1,6 @@
 # Namespace
 
-namespace the data is associated with
+The namespace the data is associated with.
 
 ## Properties
 
@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from dat_api_sdk.models.namespace import Namespace
+from dat_client.models.namespace import Namespace
 
 # TODO update the JSON string below
 json = "{}"

@@ -1,5 +1,6 @@
 # JsonSchema
 
+The JSON schema for the document stream.
 
 ## Properties
 
@@ -9,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from dat_api_sdk.models.json_schema import JsonSchema
+from dat_client.models.json_schema import JsonSchema
 
 # TODO update the JSON string below
 json = "{}"

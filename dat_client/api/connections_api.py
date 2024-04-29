@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
-from typing import Any, List
+from typing import List
 from typing_extensions import Annotated
 from dat_client.models.connection_orchestra_response import ConnectionOrchestraResponse
 from dat_client.models.connection_post_request import ConnectionPostRequest
@@ -58,9 +58,10 @@ class ConnectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> ConnectionOrchestraResponse:
         """Connection Trigger Run
 
+        Trigger the run for the connection
 
         :param connection_id: (required)
         :type connection_id: str
@@ -95,7 +96,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "ConnectionOrchestraResponse",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -126,9 +127,10 @@ class ConnectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[ConnectionOrchestraResponse]:
         """Connection Trigger Run
 
+        Trigger the run for the connection
 
         :param connection_id: (required)
         :type connection_id: str
@@ -163,7 +165,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "ConnectionOrchestraResponse",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -197,6 +199,7 @@ class ConnectionsApi:
     ) -> RESTResponseType:
         """Connection Trigger Run
 
+        Trigger the run for the connection
 
         :param connection_id: (required)
         :type connection_id: str
@@ -231,7 +234,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "ConnectionOrchestraResponse",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -321,6 +324,7 @@ class ConnectionsApi:
     ) -> ConnectionResponse:
         """Create Connection
 
+        Creates a new connection.  Args:     payload: The request payload containing the connection details.  Returns:     The created connection.  Raises:     HTTPException: If the operation is forbidden or an error occurs.
 
         :param connection_post_request: (required)
         :type connection_post_request: ConnectionPostRequest
@@ -390,6 +394,7 @@ class ConnectionsApi:
     ) -> ApiResponse[ConnectionResponse]:
         """Create Connection
 
+        Creates a new connection.  Args:     payload: The request payload containing the connection details.  Returns:     The created connection.  Raises:     HTTPException: If the operation is forbidden or an error occurs.
 
         :param connection_post_request: (required)
         :type connection_post_request: ConnectionPostRequest
@@ -459,6 +464,7 @@ class ConnectionsApi:
     ) -> RESTResponseType:
         """Create Connection
 
+        Creates a new connection.  Args:     payload: The request payload containing the connection details.  Returns:     The created connection.  Raises:     HTTPException: If the operation is forbidden or an error occurs.
 
         :param connection_post_request: (required)
         :type connection_post_request: ConnectionPostRequest
@@ -597,6 +603,7 @@ class ConnectionsApi:
     ) -> None:
         """Delete Connection
 
+        Deletes a connection.  Args:     connection_id: The ID of the connection to delete.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
@@ -665,6 +672,7 @@ class ConnectionsApi:
     ) -> ApiResponse[None]:
         """Delete Connection
 
+        Deletes a connection.  Args:     connection_id: The ID of the connection to delete.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
@@ -733,6 +741,7 @@ class ConnectionsApi:
     ) -> RESTResponseType:
         """Delete Connection
 
+        Deletes a connection.  Args:     connection_id: The ID of the connection to delete.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
@@ -1365,6 +1374,7 @@ class ConnectionsApi:
     ) -> ConnectionResponse:
         """Read Connection
 
+        Retrieves a connection by its ID.  Args:     connection_id: The ID of the connection.  Returns:     The connection with the specified ID.  Raises:     HTTPException: If the connection is not found.
 
         :param connection_id: (required)
         :type connection_id: str
@@ -1433,6 +1443,7 @@ class ConnectionsApi:
     ) -> ApiResponse[ConnectionResponse]:
         """Read Connection
 
+        Retrieves a connection by its ID.  Args:     connection_id: The ID of the connection.  Returns:     The connection with the specified ID.  Raises:     HTTPException: If the connection is not found.
 
         :param connection_id: (required)
         :type connection_id: str
@@ -1501,6 +1512,7 @@ class ConnectionsApi:
     ) -> RESTResponseType:
         """Read Connection
 
+        Retrieves a connection by its ID.  Args:     connection_id: The ID of the connection.  Returns:     The connection with the specified ID.  Raises:     HTTPException: If the connection is not found.
 
         :param connection_id: (required)
         :type connection_id: str
@@ -1626,6 +1638,7 @@ class ConnectionsApi:
     ) -> ConnectionResponse:
         """Update Connection
 
+        Updates an existing connection.  Args:     connection_id: The ID of the connection to update.     payload: The request payload containing the updated connection details.  Returns:     The updated connection.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
@@ -1699,6 +1712,7 @@ class ConnectionsApi:
     ) -> ApiResponse[ConnectionResponse]:
         """Update Connection
 
+        Updates an existing connection.  Args:     connection_id: The ID of the connection to update.     payload: The request payload containing the updated connection details.  Returns:     The updated connection.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
@@ -1772,6 +1786,7 @@ class ConnectionsApi:
     ) -> RESTResponseType:
         """Update Connection
 
+        Updates an existing connection.  Args:     connection_id: The ID of the connection to update.     payload: The request payload containing the updated connection details.  Returns:     The updated connection.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
