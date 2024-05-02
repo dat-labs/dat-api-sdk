@@ -22,7 +22,7 @@ print(DatDocumentStreamInputReadSyncMode.to_json())
 # convert the object into a dict
 dat_document_stream_input_read_sync_mode_dict = dat_document_stream_input_read_sync_mode_instance.to_dict()
 # create an instance of DatDocumentStreamInputReadSyncMode from a dict
-dat_document_stream_input_read_sync_mode_form_dict = dat_document_stream_input_read_sync_mode.from_dict(dat_document_stream_input_read_sync_mode_dict)
+dat_document_stream_input_read_sync_mode_from_dict = DatDocumentStreamInputReadSyncMode.from_dict(dat_document_stream_input_read_sync_mode_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

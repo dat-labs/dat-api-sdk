@@ -21,7 +21,7 @@ print(Prefix.to_json())
 # convert the object into a dict
 prefix_dict = prefix_instance.to_dict()
 # create an instance of Prefix from a dict
-prefix_form_dict = prefix.from_dict(prefix_dict)
+prefix_from_dict = Prefix.from_dict(prefix_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -23,7 +23,7 @@ print(SplitByTokensSettings.to_json())
 # convert the object into a dict
 split_by_tokens_settings_dict = split_by_tokens_settings_instance.to_dict()
 # create an instance of SplitByTokensSettings from a dict
-split_by_tokens_settings_form_dict = split_by_tokens_settings.from_dict(split_by_tokens_settings_dict)
+split_by_tokens_settings_from_dict = SplitByTokensSettings.from_dict(split_by_tokens_settings_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

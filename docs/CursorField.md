@@ -22,7 +22,7 @@ print(CursorField.to_json())
 # convert the object into a dict
 cursor_field_dict = cursor_field_instance.to_dict()
 # create an instance of CursorField from a dict
-cursor_field_form_dict = cursor_field.from_dict(cursor_field_dict)
+cursor_field_from_dict = CursorField.from_dict(cursor_field_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

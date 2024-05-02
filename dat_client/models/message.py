@@ -27,7 +27,7 @@ MESSAGE_ANY_OF_SCHEMAS = ["object"]
 
 class Message(BaseModel):
     """
-    log message
+    Message
     """
 
     # data type: object

@@ -23,7 +23,7 @@ print(DatDocumentStreamInputAdvanced.to_json())
 # convert the object into a dict
 dat_document_stream_input_advanced_dict = dat_document_stream_input_advanced_instance.to_dict()
 # create an instance of DatDocumentStreamInputAdvanced from a dict
-dat_document_stream_input_advanced_form_dict = dat_document_stream_input_advanced.from_dict(dat_document_stream_input_advanced_dict)
+dat_document_stream_input_advanced_from_dict = DatDocumentStreamInputAdvanced.from_dict(dat_document_stream_input_advanced_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -24,7 +24,7 @@ print(DatLogMessage.to_json())
 # convert the object into a dict
 dat_log_message_dict = dat_log_message_instance.to_dict()
 # create an instance of DatLogMessage from a dict
-dat_log_message_form_dict = dat_log_message.from_dict(dat_log_message_dict)
+dat_log_message_from_dict = DatLogMessage.from_dict(dat_log_message_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

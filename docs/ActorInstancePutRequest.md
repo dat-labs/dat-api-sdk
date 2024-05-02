@@ -28,7 +28,7 @@ print(ActorInstancePutRequest.to_json())
 # convert the object into a dict
 actor_instance_put_request_dict = actor_instance_put_request_instance.to_dict()
 # create an instance of ActorInstancePutRequest from a dict
-actor_instance_put_request_form_dict = actor_instance_put_request.from_dict(actor_instance_put_request_dict)
+actor_instance_put_request_from_dict = ActorInstancePutRequest.from_dict(actor_instance_put_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

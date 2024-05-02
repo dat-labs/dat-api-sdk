@@ -22,7 +22,7 @@ print(StackTrace.to_json())
 # convert the object into a dict
 stack_trace_dict = stack_trace_instance.to_dict()
 # create an instance of StackTrace from a dict
-stack_trace_form_dict = stack_trace.from_dict(stack_trace_dict)
+stack_trace_from_dict = StackTrace.from_dict(stack_trace_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

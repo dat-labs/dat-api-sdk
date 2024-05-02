@@ -23,7 +23,7 @@ print(SplitByMarkdownSettings.to_json())
 # convert the object into a dict
 split_by_markdown_settings_dict = split_by_markdown_settings_instance.to_dict()
 # create an instance of SplitByMarkdownSettings from a dict
-split_by_markdown_settings_form_dict = split_by_markdown_settings.from_dict(split_by_markdown_settings_dict)
+split_by_markdown_settings_from_dict = SplitByMarkdownSettings.from_dict(split_by_markdown_settings_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

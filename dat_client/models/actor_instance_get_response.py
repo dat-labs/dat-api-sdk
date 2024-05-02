@@ -32,7 +32,7 @@ class ActorInstanceGetResponse(BaseModel):
     user_id: StrictStr
     name: StrictStr
     actor_type: StrictStr
-    status: StrictStr
+    status: Optional[StrictStr] = 'active'
     configuration: Optional[Dict[str, Any]] = None
     id: StrictStr
     actor: Optional[ActorResponse] = None
@@ -98,7 +98,7 @@ class ActorInstanceGetResponse(BaseModel):
             "user_id": obj.get("user_id"),
             "name": obj.get("name"),
             "actor_type": obj.get("actor_type"),
-            "status": obj.get("status"),
+            "status": obj.get("status") if obj.get("status") is not None else 'active',
             "configuration": obj.get("configuration"),
             "id": obj.get("id"),
             "actor": ActorResponse.from_dict(obj["actor"]) if obj.get("actor") is not None else None,

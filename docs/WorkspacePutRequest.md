@@ -24,7 +24,7 @@ print(WorkspacePutRequest.to_json())
 # convert the object into a dict
 workspace_put_request_dict = workspace_put_request_instance.to_dict()
 # create an instance of WorkspacePutRequest from a dict
-workspace_put_request_form_dict = workspace_put_request.from_dict(workspace_put_request_dict)
+workspace_put_request_from_dict = WorkspacePutRequest.from_dict(workspace_put_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

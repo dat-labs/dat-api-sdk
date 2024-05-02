@@ -22,7 +22,7 @@ print(AdvancedInput.to_json())
 # convert the object into a dict
 advanced_input_dict = advanced_input_instance.to_dict()
 # create an instance of AdvancedInput from a dict
-advanced_input_form_dict = advanced_input.from_dict(advanced_input_dict)
+advanced_input_from_dict = AdvancedInput.from_dict(advanced_input_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -25,7 +25,7 @@ from dat_client.models.connection_orchestra_response_schedule import ConnectionO
 from dat_client.models.connector_specification import ConnectorSpecification
 from dat_client.models.prefix import Prefix
 from dat_client.models.schedule_type import ScheduleType
-from dat_client.models.status import Status
+from dat_client.models.status1 import Status1
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -47,7 +47,7 @@ class ConnectionOrchestraResponse(BaseModel):
     configuration: Optional[Configuration] = None
     schedule: Optional[ConnectionOrchestraResponseSchedule] = None
     schedule_type: Optional[ScheduleType] = None
-    status: Optional[Status] = None
+    status: Optional[Status1] = None
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["name", "namespace_format", "prefix", "catalog", "source", "generator", "destination", "source_instance_id", "generator_instance_id", "destination_instance_id", "workspace_id", "configuration", "schedule", "schedule_type", "status"]
 
@@ -180,7 +180,7 @@ class ConnectionOrchestraResponse(BaseModel):
             "configuration": Configuration.from_dict(obj["configuration"]) if obj.get("configuration") is not None else None,
             "schedule": ConnectionOrchestraResponseSchedule.from_dict(obj["schedule"]) if obj.get("schedule") is not None else None,
             "schedule_type": ScheduleType.from_dict(obj["schedule_type"]) if obj.get("schedule_type") is not None else None,
-            "status": Status.from_dict(obj["status"]) if obj.get("status") is not None else None
+            "status": Status1.from_dict(obj["status"]) if obj.get("status") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

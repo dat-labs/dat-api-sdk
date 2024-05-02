@@ -23,7 +23,7 @@ print(UserRequestModel.to_json())
 # convert the object into a dict
 user_request_model_dict = user_request_model_instance.to_dict()
 # create an instance of UserRequestModel from a dict
-user_request_model_form_dict = user_request_model.from_dict(user_request_model_dict)
+user_request_model_from_dict = UserRequestModel.from_dict(user_request_model_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -26,7 +26,7 @@ class SplitByCharacterRecursiverlyConfig(BaseModel):
     """
     SplitByCharacterRecursiverlyConfig
     """ # noqa: E501
-    separators: Optional[Any] = None
+    separators: Optional[List[Any]] = None
     __properties: ClassVar[List[str]] = ["separators"]
 
     model_config = ConfigDict(

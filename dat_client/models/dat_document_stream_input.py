@@ -24,7 +24,7 @@ from dat_client.models.dat_document_stream_input_advanced import DatDocumentStre
 from dat_client.models.dat_document_stream_input_read_sync_mode import DatDocumentStreamInputReadSyncMode
 from dat_client.models.dat_document_stream_input_write_sync_mode import DatDocumentStreamInputWriteSyncMode
 from dat_client.models.json_schema import JsonSchema
-from dat_client.models.namespace import Namespace
+from dat_client.models.namespace1 import Namespace1
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -33,7 +33,7 @@ class DatDocumentStreamInput(BaseModel):
     DatDocumentStreamInput
     """ # noqa: E501
     name: Optional[Any] = Field(description="The name of the document stream.")
-    namespace: Optional[Namespace] = None
+    namespace: Optional[Namespace1] = None
     json_schema: Optional[JsonSchema] = None
     read_sync_mode: Optional[DatDocumentStreamInputReadSyncMode] = None
     write_sync_mode: Optional[DatDocumentStreamInputWriteSyncMode] = None
@@ -124,7 +124,7 @@ class DatDocumentStreamInput(BaseModel):
 
         _obj = cls.model_validate({
             "name": obj.get("name"),
-            "namespace": Namespace.from_dict(obj["namespace"]) if obj.get("namespace") is not None else None,
+            "namespace": Namespace1.from_dict(obj["namespace"]) if obj.get("namespace") is not None else None,
             "json_schema": JsonSchema.from_dict(obj["json_schema"]) if obj.get("json_schema") is not None else None,
             "read_sync_mode": DatDocumentStreamInputReadSyncMode.from_dict(obj["read_sync_mode"]) if obj.get("read_sync_mode") is not None else None,
             "write_sync_mode": DatDocumentStreamInputWriteSyncMode.from_dict(obj["write_sync_mode"]) if obj.get("write_sync_mode") is not None else None,

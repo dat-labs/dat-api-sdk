@@ -10,9 +10,10 @@ Name | Type | Description | Notes
 **user_id** | **str** |  | 
 **name** | **str** |  | 
 **actor_type** | **str** |  | 
-**status** | **str** |  | 
+**status** | **str** |  | [optional] [default to 'active']
 **configuration** | **object** |  | [optional] 
 **id** | **str** |  | 
+**actor** | [**ActorResponse**](ActorResponse.md) |  | [optional] 
 
 ## Example
 
@@ -29,7 +30,7 @@ print(ActorInstanceResponse.to_json())
 # convert the object into a dict
 actor_instance_response_dict = actor_instance_response_instance.to_dict()
 # create an instance of ActorInstanceResponse from a dict
-actor_instance_response_form_dict = actor_instance_response.from_dict(actor_instance_response_dict)
+actor_instance_response_from_dict = ActorInstanceResponse.from_dict(actor_instance_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

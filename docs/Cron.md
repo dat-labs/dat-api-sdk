@@ -23,7 +23,7 @@ print(Cron.to_json())
 # convert the object into a dict
 cron_dict = cron_instance.to_dict()
 # create an instance of Cron from a dict
-cron_form_dict = cron.from_dict(cron_dict)
+cron_from_dict = Cron.from_dict(cron_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

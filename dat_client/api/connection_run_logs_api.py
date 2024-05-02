@@ -17,7 +17,9 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from dat_client.models.dat_log_message import DatLogMessage
+from typing import List
+from dat_client.models.connection_run_log_response import ConnectionRunLogResponse
+from dat_client.models.dat_message import DatMessage
 
 from dat_client.api_client import ApiClient, RequestSerialized
 from dat_client.api_response import ApiResponse
@@ -41,7 +43,8 @@ class ConnectionRunLogsApi:
     def add_connection_run_log_connection_run_logs_post(
         self,
         connection_id: StrictStr,
-        dat_log_message: DatLogMessage,
+        run_id: StrictStr,
+        dat_message: DatMessage,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -54,14 +57,17 @@ class ConnectionRunLogsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DatLogMessage:
+    ) -> ConnectionRunLogResponse:
         """Add Connection Run Log
 
+        Endpoint for adding a connection run log.  Args:     connection_id (str): The ID of the connection for which the log is being added.     dat_message (DatMessage): The DatMessage object containing the log information.     run_id (str): id of the run for which the log is being added     db (Database Session, optional): The database session. Defaults to Depends(get_db).  Returns:     ConnectionRunLogResponse: The response containing the added connection run log.
 
         :param connection_id: (required)
         :type connection_id: str
-        :param dat_log_message: (required)
-        :type dat_log_message: DatLogMessage
+        :param run_id: (required)
+        :type run_id: str
+        :param dat_message: (required)
+        :type dat_message: DatMessage
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -86,7 +92,8 @@ class ConnectionRunLogsApi:
 
         _param = self._add_connection_run_log_connection_run_logs_post_serialize(
             connection_id=connection_id,
-            dat_log_message=dat_log_message,
+            run_id=run_id,
+            dat_message=dat_message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -94,7 +101,7 @@ class ConnectionRunLogsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DatLogMessage",
+            '200': "ConnectionRunLogResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -114,7 +121,8 @@ class ConnectionRunLogsApi:
     def add_connection_run_log_connection_run_logs_post_with_http_info(
         self,
         connection_id: StrictStr,
-        dat_log_message: DatLogMessage,
+        run_id: StrictStr,
+        dat_message: DatMessage,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -127,14 +135,17 @@ class ConnectionRunLogsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DatLogMessage]:
+    ) -> ApiResponse[ConnectionRunLogResponse]:
         """Add Connection Run Log
 
+        Endpoint for adding a connection run log.  Args:     connection_id (str): The ID of the connection for which the log is being added.     dat_message (DatMessage): The DatMessage object containing the log information.     run_id (str): id of the run for which the log is being added     db (Database Session, optional): The database session. Defaults to Depends(get_db).  Returns:     ConnectionRunLogResponse: The response containing the added connection run log.
 
         :param connection_id: (required)
         :type connection_id: str
-        :param dat_log_message: (required)
-        :type dat_log_message: DatLogMessage
+        :param run_id: (required)
+        :type run_id: str
+        :param dat_message: (required)
+        :type dat_message: DatMessage
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -159,7 +170,8 @@ class ConnectionRunLogsApi:
 
         _param = self._add_connection_run_log_connection_run_logs_post_serialize(
             connection_id=connection_id,
-            dat_log_message=dat_log_message,
+            run_id=run_id,
+            dat_message=dat_message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -167,7 +179,7 @@ class ConnectionRunLogsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DatLogMessage",
+            '200': "ConnectionRunLogResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -187,7 +199,8 @@ class ConnectionRunLogsApi:
     def add_connection_run_log_connection_run_logs_post_without_preload_content(
         self,
         connection_id: StrictStr,
-        dat_log_message: DatLogMessage,
+        run_id: StrictStr,
+        dat_message: DatMessage,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -203,11 +216,14 @@ class ConnectionRunLogsApi:
     ) -> RESTResponseType:
         """Add Connection Run Log
 
+        Endpoint for adding a connection run log.  Args:     connection_id (str): The ID of the connection for which the log is being added.     dat_message (DatMessage): The DatMessage object containing the log information.     run_id (str): id of the run for which the log is being added     db (Database Session, optional): The database session. Defaults to Depends(get_db).  Returns:     ConnectionRunLogResponse: The response containing the added connection run log.
 
         :param connection_id: (required)
         :type connection_id: str
-        :param dat_log_message: (required)
-        :type dat_log_message: DatLogMessage
+        :param run_id: (required)
+        :type run_id: str
+        :param dat_message: (required)
+        :type dat_message: DatMessage
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -232,7 +248,8 @@ class ConnectionRunLogsApi:
 
         _param = self._add_connection_run_log_connection_run_logs_post_serialize(
             connection_id=connection_id,
-            dat_log_message=dat_log_message,
+            run_id=run_id,
+            dat_message=dat_message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -240,7 +257,7 @@ class ConnectionRunLogsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DatLogMessage",
+            '200': "ConnectionRunLogResponse",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -255,7 +272,8 @@ class ConnectionRunLogsApi:
     def _add_connection_run_log_connection_run_logs_post_serialize(
         self,
         connection_id,
-        dat_log_message,
+        run_id,
+        dat_message,
         _request_auth,
         _content_type,
         _headers,
@@ -280,11 +298,15 @@ class ConnectionRunLogsApi:
             
             _query_params.append(('connection_id', connection_id))
             
+        if run_id is not None:
+            
+            _query_params.append(('run_id', run_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if dat_log_message is not None:
-            _body_params = dat_log_message
+        if dat_message is not None:
+            _body_params = dat_message
 
 
         # set the HTTP header `Accept`
@@ -315,6 +337,532 @@ class ConnectionRunLogsApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/connection-run-logs/',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_connection_run_logs_connection_run_logs_connection_id_runs_get(
+        self,
+        connection_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[ConnectionRunLogResponse]:
+        """Get Connection Run Logs
+
+        Get all runs for a given connection id
+
+        :param connection_id: (required)
+        :type connection_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_connection_run_logs_connection_run_logs_connection_id_runs_get_serialize(
+            connection_id=connection_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[ConnectionRunLogResponse]",
+            '404': None,
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_connection_run_logs_connection_run_logs_connection_id_runs_get_with_http_info(
+        self,
+        connection_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[ConnectionRunLogResponse]]:
+        """Get Connection Run Logs
+
+        Get all runs for a given connection id
+
+        :param connection_id: (required)
+        :type connection_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_connection_run_logs_connection_run_logs_connection_id_runs_get_serialize(
+            connection_id=connection_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[ConnectionRunLogResponse]",
+            '404': None,
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_connection_run_logs_connection_run_logs_connection_id_runs_get_without_preload_content(
+        self,
+        connection_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get Connection Run Logs
+
+        Get all runs for a given connection id
+
+        :param connection_id: (required)
+        :type connection_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_connection_run_logs_connection_run_logs_connection_id_runs_get_serialize(
+            connection_id=connection_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[ConnectionRunLogResponse]",
+            '404': None,
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_connection_run_logs_connection_run_logs_connection_id_runs_get_serialize(
+        self,
+        connection_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if connection_id is not None:
+            _path_params['connection_id'] = connection_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/connection-run-logs/{connection_id}/runs',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_connection_runs_by_run_id_connection_run_logs_runs_run_id_get(
+        self,
+        run_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[ConnectionRunLogResponse]:
+        """Get Connection Runs By Run Id
+
+        Get run logs for a particular run id
+
+        :param run_id: (required)
+        :type run_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_connection_runs_by_run_id_connection_run_logs_runs_run_id_get_serialize(
+            run_id=run_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[ConnectionRunLogResponse]",
+            '404': None,
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_connection_runs_by_run_id_connection_run_logs_runs_run_id_get_with_http_info(
+        self,
+        run_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[ConnectionRunLogResponse]]:
+        """Get Connection Runs By Run Id
+
+        Get run logs for a particular run id
+
+        :param run_id: (required)
+        :type run_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_connection_runs_by_run_id_connection_run_logs_runs_run_id_get_serialize(
+            run_id=run_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[ConnectionRunLogResponse]",
+            '404': None,
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_connection_runs_by_run_id_connection_run_logs_runs_run_id_get_without_preload_content(
+        self,
+        run_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get Connection Runs By Run Id
+
+        Get run logs for a particular run id
+
+        :param run_id: (required)
+        :type run_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_connection_runs_by_run_id_connection_run_logs_runs_run_id_get_serialize(
+            run_id=run_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[ConnectionRunLogResponse]",
+            '404': None,
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_connection_runs_by_run_id_connection_run_logs_runs_run_id_get_serialize(
+        self,
+        run_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if run_id is not None:
+            _path_params['run_id'] = run_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/connection-run-logs/runs/{run_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

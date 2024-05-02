@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **configuration** | [**Configuration**](Configuration.md) |  | [optional] 
 **schedule** | [**ConnectionOrchestraResponseSchedule**](ConnectionOrchestraResponseSchedule.md) |  | [optional] 
 **schedule_type** | [**ScheduleType**](ScheduleType.md) |  | [optional] 
-**status** | [**Status**](Status.md) |  | [optional] 
+**status** | [**Status1**](Status1.md) |  | [optional] 
 
 ## Example
 
@@ -36,7 +36,7 @@ print(ConnectionOrchestraResponse.to_json())
 # convert the object into a dict
 connection_orchestra_response_dict = connection_orchestra_response_instance.to_dict()
 # create an instance of ConnectionOrchestraResponse from a dict
-connection_orchestra_response_form_dict = connection_orchestra_response.from_dict(connection_orchestra_response_dict)
+connection_orchestra_response_from_dict = ConnectionOrchestraResponse.from_dict(connection_orchestra_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -22,7 +22,7 @@ print(AdvancedOutput.to_json())
 # convert the object into a dict
 advanced_output_dict = advanced_output_instance.to_dict()
 # create an instance of AdvancedOutput from a dict
-advanced_output_form_dict = advanced_output.from_dict(advanced_output_dict)
+advanced_output_from_dict = AdvancedOutput.from_dict(advanced_output_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

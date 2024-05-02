@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**document_streams** | **List** |  | 
+**document_streams** | [**List[DatDocumentStreamOutput]**](DatDocumentStreamOutput.md) |  | 
 
 ## Example
 
@@ -22,7 +22,7 @@ print(ConnectionOrchestraResponseCatalog.to_json())
 # convert the object into a dict
 connection_orchestra_response_catalog_dict = connection_orchestra_response_catalog_instance.to_dict()
 # create an instance of ConnectionOrchestraResponseCatalog from a dict
-connection_orchestra_response_catalog_form_dict = connection_orchestra_response_catalog.from_dict(connection_orchestra_response_catalog_dict)
+connection_orchestra_response_catalog_from_dict = ConnectionOrchestraResponseCatalog.from_dict(connection_orchestra_response_catalog_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

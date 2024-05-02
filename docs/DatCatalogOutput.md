@@ -22,7 +22,7 @@ print(DatCatalogOutput.to_json())
 # convert the object into a dict
 dat_catalog_output_dict = dat_catalog_output_instance.to_dict()
 # create an instance of DatCatalogOutput from a dict
-dat_catalog_output_form_dict = dat_catalog_output.from_dict(dat_catalog_output_dict)
+dat_catalog_output_from_dict = DatCatalogOutput.from_dict(dat_catalog_output_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

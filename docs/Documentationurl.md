@@ -21,7 +21,7 @@ print(DocumentationUrl.to_json())
 # convert the object into a dict
 documentation_url_dict = documentation_url_instance.to_dict()
 # create an instance of DocumentationUrl from a dict
-documentation_url_form_dict = documentation_url.from_dict(documentation_url_dict)
+documentation_url_from_dict = DocumentationUrl.from_dict(documentation_url_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

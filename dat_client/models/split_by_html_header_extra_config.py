@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,7 +26,7 @@ class SplitByHtmlHeaderExtraConfig(BaseModel):
     """
     SplitByHtmlHeaderExtraConfig
     """ # noqa: E501
-    headers_to_split_on: Optional[Any] = None
+    headers_to_split_on: Optional[List[StrictStr]] = None
     __properties: ClassVar[List[str]] = ["headers_to_split_on"]
 
     model_config = ConfigDict(

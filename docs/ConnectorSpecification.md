@@ -25,7 +25,7 @@ print(ConnectorSpecification.to_json())
 # convert the object into a dict
 connector_specification_dict = connector_specification_instance.to_dict()
 # create an instance of ConnectorSpecification from a dict
-connector_specification_form_dict = connector_specification.from_dict(connector_specification_dict)
+connector_specification_from_dict = ConnectorSpecification.from_dict(connector_specification_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

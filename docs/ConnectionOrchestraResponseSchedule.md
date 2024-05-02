@@ -22,7 +22,7 @@ print(ConnectionOrchestraResponseSchedule.to_json())
 # convert the object into a dict
 connection_orchestra_response_schedule_dict = connection_orchestra_response_schedule_instance.to_dict()
 # create an instance of ConnectionOrchestraResponseSchedule from a dict
-connection_orchestra_response_schedule_form_dict = connection_orchestra_response_schedule.from_dict(connection_orchestra_response_schedule_dict)
+connection_orchestra_response_schedule_from_dict = ConnectionOrchestraResponseSchedule.from_dict(connection_orchestra_response_schedule_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

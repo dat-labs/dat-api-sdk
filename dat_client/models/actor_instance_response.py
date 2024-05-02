@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from dat_client.models.actor_response import ActorResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,10 +32,11 @@ class ActorInstanceResponse(BaseModel):
     user_id: StrictStr
     name: StrictStr
     actor_type: StrictStr
-    status: StrictStr
+    status: Optional[StrictStr] = 'active'
     configuration: Optional[Dict[str, Any]] = None
     id: StrictStr
-    __properties: ClassVar[List[str]] = ["workspace_id", "actor_id", "user_id", "name", "actor_type", "status", "configuration", "id"]
+    actor: Optional[ActorResponse] = None
+    __properties: ClassVar[List[str]] = ["workspace_id", "actor_id", "user_id", "name", "actor_type", "status", "configuration", "id", "actor"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,6 +77,9 @@ class ActorInstanceResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of actor
+        if self.actor:
+            _dict['actor'] = self.actor.to_dict()
         return _dict
 
     @classmethod
@@ -92,9 +97,10 @@ class ActorInstanceResponse(BaseModel):
             "user_id": obj.get("user_id"),
             "name": obj.get("name"),
             "actor_type": obj.get("actor_type"),
-            "status": obj.get("status"),
+            "status": obj.get("status") if obj.get("status") is not None else 'active',
             "configuration": obj.get("configuration"),
-            "id": obj.get("id")
+            "id": obj.get("id"),
+            "actor": ActorResponse.from_dict(obj["actor"]) if obj.get("actor") is not None else None
         })
         return _obj
 

@@ -31,7 +31,7 @@ class ActorInstancePostRequest(BaseModel):
     user_id: StrictStr
     name: StrictStr
     actor_type: StrictStr
-    status: StrictStr
+    status: Optional[StrictStr] = 'active'
     configuration: Optional[Dict[str, Any]] = None
     __properties: ClassVar[List[str]] = ["workspace_id", "actor_id", "user_id", "name", "actor_type", "status", "configuration"]
 
@@ -91,7 +91,7 @@ class ActorInstancePostRequest(BaseModel):
             "user_id": obj.get("user_id"),
             "name": obj.get("name"),
             "actor_type": obj.get("actor_type"),
-            "status": obj.get("status"),
+            "status": obj.get("status") if obj.get("status") is not None else 'active',
             "configuration": obj.get("configuration")
         })
         return _obj

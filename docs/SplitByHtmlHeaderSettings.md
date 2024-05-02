@@ -23,7 +23,7 @@ print(SplitByHtmlHeaderSettings.to_json())
 # convert the object into a dict
 split_by_html_header_settings_dict = split_by_html_header_settings_instance.to_dict()
 # create an instance of SplitByHtmlHeaderSettings from a dict
-split_by_html_header_settings_form_dict = split_by_html_header_settings.from_dict(split_by_html_header_settings_dict)
+split_by_html_header_settings_from_dict = SplitByHtmlHeaderSettings.from_dict(split_by_html_header_settings_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
