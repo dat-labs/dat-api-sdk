@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **connection_id** | **str** |  | 
 **message** | **str** |  | 
-**stack_trace** | **str** |  | 
+**stack_trace** | **str** |  | [optional] 
 **created_at** | **datetime** |  | 
 **updated_at** | **datetime** |  | 
 **run_id** | **str** |  | 

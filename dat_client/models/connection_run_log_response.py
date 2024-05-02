@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class ConnectionRunLogResponse(BaseModel):
     """ # noqa: E501
     connection_id: StrictStr
     message: StrictStr
-    stack_trace: StrictStr
+    stack_trace: Optional[StrictStr] = None
     created_at: datetime
     updated_at: datetime
     run_id: StrictStr
@@ -75,6 +75,11 @@ class ConnectionRunLogResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if stack_trace (nullable) is None
+        # and model_fields_set contains the field
+        if self.stack_trace is None and "stack_trace" in self.model_fields_set:
+            _dict['stack_trace'] = None
+
         return _dict
 
     @classmethod
