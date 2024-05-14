@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | **object** | the state data | 
-**stream_status** | [**StreamStateStreamStatus**](StreamStateStreamStatus.md) |  | [optional] 
+**stream_status** | [**StreamStatus**](StreamStatus.md) |  | [optional] 
 
 ## Example
 

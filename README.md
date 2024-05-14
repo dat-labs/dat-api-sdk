@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 *ActorsApi* | [**read_actor_actors_actor_id_get**](docs/ActorsApi.md#read_actor_actors_actor_id_get) | **GET** /actors/{actor_id} | Read Actor
 *ActorsApi* | [**update_actor_actors_actor_id_put**](docs/ActorsApi.md#update_actor_actors_actor_id_put) | **PUT** /actors/{actor_id} | Update Actor
 *ConnectionRunLogsApi* | [**add_connection_run_log_connection_run_logs_post**](docs/ConnectionRunLogsApi.md#add_connection_run_log_connection_run_logs_post) | **POST** /connection-run-logs/ | Add Connection Run Log
+*ConnectionRunLogsApi* | [**get_combined_stream_states_connection_run_logs_connection_id_stream_states_get**](docs/ConnectionRunLogsApi.md#get_combined_stream_states_connection_run_logs_connection_id_stream_states_get) | **GET** /connection-run-logs/{connection_id}/stream-states | Get Combined Stream States
 *ConnectionRunLogsApi* | [**get_connection_run_logs_connection_run_logs_connection_id_runs_get**](docs/ConnectionRunLogsApi.md#get_connection_run_logs_connection_run_logs_connection_id_runs_get) | **GET** /connection-run-logs/{connection_id}/runs | Get Connection Run Logs
 *ConnectionRunLogsApi* | [**get_connection_runs_by_run_id_connection_run_logs_runs_run_id_get**](docs/ConnectionRunLogsApi.md#get_connection_runs_by_run_id_connection_run_logs_runs_run_id_get) | **GET** /connection-run-logs/runs/{run_id} | Get Connection Runs By Run Id
 *ConnectionsApi* | [**connection_trigger_run_connections_connection_id_run_post**](docs/ConnectionsApi.md#connection_trigger_run_connections_connection_id_run_post) | **POST** /connections/{connection_id}/run | Connection Trigger Run
@@ -193,7 +194,6 @@ Class | Method | HTTP request | Description
  - [Status1](docs/Status1.md)
  - [StreamMetadata](docs/StreamMetadata.md)
  - [StreamState](docs/StreamState.md)
- - [StreamStateStreamStatus](docs/StreamStateStreamStatus.md)
  - [StreamStatus](docs/StreamStatus.md)
  - [Type](docs/Type.md)
  - [UserRequestModel](docs/UserRequestModel.md)

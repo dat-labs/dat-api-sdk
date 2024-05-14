@@ -90,7 +90,6 @@ dat_client/models/status.py
 dat_client/models/status1.py
 dat_client/models/stream_metadata.py
 dat_client/models/stream_state.py
-dat_client/models/stream_state_stream_status.py
 dat_client/models/stream_status.py
 dat_client/models/type.py
 dat_client/models/user_request_model.py
@@ -181,7 +180,6 @@ docs/Status.md
 docs/Status1.md
 docs/StreamMetadata.md
 docs/StreamState.md
-docs/StreamStateStreamStatus.md
 docs/StreamStatus.md
 docs/Type.md
 docs/UserRequestModel.md

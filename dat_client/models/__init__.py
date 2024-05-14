@@ -87,7 +87,6 @@ from dat_client.models.status import Status
 from dat_client.models.status1 import Status1
 from dat_client.models.stream_metadata import StreamMetadata
 from dat_client.models.stream_state import StreamState
-from dat_client.models.stream_state_stream_status import StreamStateStreamStatus
 from dat_client.models.stream_status import StreamStatus
 from dat_client.models.type import Type
 from dat_client.models.user_request_model import UserRequestModel
