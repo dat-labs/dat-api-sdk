@@ -14,7 +14,7 @@
 
 import unittest
 
-from dat_api_sdk.api.actors_api import ActorsApi
+from dat_client.api.actors_api import ActorsApi
 
 
 class TestActorsApi(unittest.TestCase):
@@ -26,6 +26,20 @@ class TestActorsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_create_actor_actors_post(self) -> None:
+        """Test case for create_actor_actors_post
+
+        Create Actor
+        """
+        pass
+
+    def test_delete_actor_actors_actor_id_delete(self) -> None:
+        """Test case for delete_actor_actors_actor_id_delete
+
+        Delete Actor
+        """
+        pass
+
     def test_fetch_available_actors_actors_actor_type_list_get(self) -> None:
         """Test case for fetch_available_actors_actors_actor_type_list_get
 
@@ -33,10 +47,38 @@ class TestActorsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_actor_specs_actors_actor_uuid_specs_get(self) -> None:
-        """Test case for get_actor_specs_actors_actor_uuid_specs_get
+    def test_get_actor_documentaion_actors_doc_get(self) -> None:
+        """Test case for get_actor_documentaion_actors_doc_get
+
+        Get Actor Documentaion
+        """
+        pass
+
+    def test_get_actor_specs_actors_actor_id_spec_get(self) -> None:
+        """Test case for get_actor_specs_actors_actor_id_spec_get
 
         Get Actor Specs
+        """
+        pass
+
+    def test_mark_actor_inactive_actors_actor_id_mark_inactive_delete(self) -> None:
+        """Test case for mark_actor_inactive_actors_actor_id_mark_inactive_delete
+
+        Mark Actor Inactive
+        """
+        pass
+
+    def test_read_actor_actors_actor_id_get(self) -> None:
+        """Test case for read_actor_actors_actor_id_get
+
+        Read Actor
+        """
+        pass
+
+    def test_update_actor_actors_actor_id_put(self) -> None:
+        """Test case for update_actor_actors_actor_id_put
+
+        Update Actor
         """
         pass
 

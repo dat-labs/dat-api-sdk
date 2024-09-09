@@ -18,8 +18,9 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from dat_client.models.dat_document_stream_input import DatDocumentStreamInput
+from dat_client.models.emitted_at import EmittedAt
 from dat_client.models.stream_state import StreamState
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,8 +31,9 @@ class DatStateMessage(BaseModel):
     """ # noqa: E501
     stream: DatDocumentStreamInput
     stream_state: StreamState
+    emitted_at: Optional[EmittedAt] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["stream", "stream_state"]
+    __properties: ClassVar[List[str]] = ["stream", "stream_state", "emitted_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,6 +82,9 @@ class DatStateMessage(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of stream_state
         if self.stream_state:
             _dict['stream_state'] = self.stream_state.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of emitted_at
+        if self.emitted_at:
+            _dict['emitted_at'] = self.emitted_at.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -98,7 +103,8 @@ class DatStateMessage(BaseModel):
 
         _obj = cls.model_validate({
             "stream": DatDocumentStreamInput.from_dict(obj["stream"]) if obj.get("stream") is not None else None,
-            "stream_state": StreamState.from_dict(obj["stream_state"]) if obj.get("stream_state") is not None else None
+            "stream_state": StreamState.from_dict(obj["stream_state"]) if obj.get("stream_state") is not None else None,
+            "emitted_at": EmittedAt.from_dict(obj["emitted_at"]) if obj.get("emitted_at") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

@@ -36,25 +36,17 @@ class TestDatCatalogOutput(unittest.TestCase):
         if include_optional:
             return DatCatalogOutput(
                 document_streams = [
-                    dat_client.models.dat_document_stream.DatDocumentStream(
-                        name = '', 
-                        namespace = '', 
-                        json_schema = dat_client.models.json_schema.json_schema(), 
-                        read_sync_mode = 'FULL_REFRESH', 
-                        write_sync_mode = 'APPEND', 
-                        cursor_field = '', )
+                    {
+                        'key' : null
+                        }
                     ]
             )
         else:
             return DatCatalogOutput(
                 document_streams = [
-                    dat_client.models.dat_document_stream.DatDocumentStream(
-                        name = '', 
-                        namespace = '', 
-                        json_schema = dat_client.models.json_schema.json_schema(), 
-                        read_sync_mode = 'FULL_REFRESH', 
-                        write_sync_mode = 'APPEND', 
-                        cursor_field = '', )
+                    {
+                        'key' : null
+                        }
                     ],
         )
         """

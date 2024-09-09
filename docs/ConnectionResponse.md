@@ -5,10 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**source_instance** | [**ActorInstanceResponse**](ActorInstanceResponse.md) |  | 
+**generator_instance** | [**ActorInstanceResponse**](ActorInstanceResponse.md) |  | 
+**destination_instance** | [**ActorInstanceResponse**](ActorInstanceResponse.md) |  | 
 **source_instance_id** | **str** |  | 
 **generator_instance_id** | **str** |  | 
 **destination_instance_id** | **str** |  | 
-**workspace_id** | **str** |  | 
 **name** | **str** |  | 
 **namespace_format** | **str** |  | [optional] [default to '${SOURCE_NAMESPACE}']
 **prefix** | **str** |  | [optional] 
@@ -18,6 +20,7 @@ Name | Type | Description | Notes
 **schedule_type** | **str** |  | [optional] 
 **status** | **str** |  | [optional] 
 **id** | **str** |  | 
+**workspace_id** | **str** |  | 
 
 ## Example
 

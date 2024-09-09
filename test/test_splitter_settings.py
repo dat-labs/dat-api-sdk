@@ -35,9 +35,14 @@ class TestSplitterSettings(unittest.TestCase):
         model = SplitterSettings()
         if include_optional:
             return SplitterSettings(
-                strategy = '',
-                config = dat_client.models.split_by_character_recursiverly_config.SplitByCharacterRecursiverlyConfig(
-                    separators = null, )
+                splitter_settings = '',
+                headers_to_split_on = [
+                    null
+                    ],
+                separator = '',
+                separators = [
+                    null
+                    ]
             )
         else:
             return SplitterSettings(

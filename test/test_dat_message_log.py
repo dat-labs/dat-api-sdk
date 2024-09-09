@@ -37,7 +37,8 @@ class TestDatMessageLog(unittest.TestCase):
             return DatMessageLog(
                 level = 'FATAL',
                 message = None,
-                stack_trace = None
+                stack_trace = None,
+                emitted_at = None
             )
         else:
             return DatMessageLog(

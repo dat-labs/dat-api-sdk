@@ -14,7 +14,7 @@
 
 import unittest
 
-from dat_api_sdk.models.json_schema import JsonSchema
+from dat_client.models.json_schema import JsonSchema
 
 class TestJsonSchema(unittest.TestCase):
     """JsonSchema unit test stubs"""

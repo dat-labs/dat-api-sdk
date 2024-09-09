@@ -35,11 +35,19 @@ class TestConnectionOrchestraResponseCatalog(unittest.TestCase):
         model = ConnectionOrchestraResponseCatalog()
         if include_optional:
             return ConnectionOrchestraResponseCatalog(
-                document_streams = None
+                document_streams = [
+                    {
+                        'key' : null
+                        }
+                    ]
             )
         else:
             return ConnectionOrchestraResponseCatalog(
-                document_streams = None,
+                document_streams = [
+                    {
+                        'key' : null
+                        }
+                    ],
         )
         """
 

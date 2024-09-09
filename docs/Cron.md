@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cron_expression** | **str** |  | 
 **timezone** | **str** |  | [optional] 
+**advanced_scheduling** | **str** |  | [optional] 
 
 ## Example
 

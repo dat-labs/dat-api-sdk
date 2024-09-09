@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**strategy** | **str** |  | [optional] 
-**config** | [**SplitByCharacterExtraConfig**](SplitByCharacterExtraConfig.md) |  | [optional] 
+**splitter_settings** | **str** |  | [optional] 
+**separator** | **str** |  | [optional] 
 
 ## Example
 

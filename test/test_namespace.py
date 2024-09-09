@@ -14,7 +14,7 @@
 
 import unittest
 
-from dat_api_sdk.models.namespace import Namespace
+from dat_client.models.namespace import Namespace
 
 class TestNamespace(unittest.TestCase):
     """Namespace unit test stubs"""

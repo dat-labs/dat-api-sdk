@@ -35,9 +35,10 @@ class TestSplitCodeSettings(unittest.TestCase):
         model = SplitCodeSettings()
         if include_optional:
             return SplitCodeSettings(
-                strategy = '',
-                config = dat_client.models.split_code_extra_config.SplitCodeExtraConfig(
-                    separators = null, )
+                splitter_settings = '',
+                separators = [
+                    null
+                    ]
             )
         else:
             return SplitCodeSettings(

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **stream** | [**DatDocumentStreamInput**](DatDocumentStreamInput.md) |  | 
 **stream_state** | [**StreamState**](StreamState.md) |  | 
+**emitted_at** | [**EmittedAt**](EmittedAt.md) |  | [optional] 
 
 ## Example
 

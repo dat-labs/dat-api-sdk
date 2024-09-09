@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
-from typing import List
+from typing import Any, List
 from typing_extensions import Annotated
 from dat_client.models.connection_orchestra_response import ConnectionOrchestraResponse
 from dat_client.models.connection_post_request import ConnectionPostRequest
@@ -46,6 +46,7 @@ class ConnectionsApi:
     def connection_trigger_run_connections_connection_id_run_post(
         self,
         connection_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -65,6 +66,8 @@ class ConnectionsApi:
 
         :param connection_id: (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -89,6 +92,7 @@ class ConnectionsApi:
 
         _param = self._connection_trigger_run_connections_connection_id_run_post_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -115,6 +119,7 @@ class ConnectionsApi:
     def connection_trigger_run_connections_connection_id_run_post_with_http_info(
         self,
         connection_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -134,6 +139,8 @@ class ConnectionsApi:
 
         :param connection_id: (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -158,6 +165,7 @@ class ConnectionsApi:
 
         _param = self._connection_trigger_run_connections_connection_id_run_post_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -184,6 +192,7 @@ class ConnectionsApi:
     def connection_trigger_run_connections_connection_id_run_post_without_preload_content(
         self,
         connection_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -203,6 +212,8 @@ class ConnectionsApi:
 
         :param connection_id: (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -227,6 +238,7 @@ class ConnectionsApi:
 
         _param = self._connection_trigger_run_connections_connection_id_run_post_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -248,6 +260,7 @@ class ConnectionsApi:
     def _connection_trigger_run_connections_connection_id_run_post_serialize(
         self,
         connection_id,
+        workspace_id,
         _request_auth,
         _content_type,
         _headers,
@@ -270,6 +283,10 @@ class ConnectionsApi:
         if connection_id is not None:
             _path_params['connection_id'] = connection_id
         # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -308,6 +325,7 @@ class ConnectionsApi:
     @validate_call
     def create_connection_connections_post(
         self,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         connection_post_request: ConnectionPostRequest,
         _request_timeout: Union[
             None,
@@ -324,8 +342,10 @@ class ConnectionsApi:
     ) -> ConnectionResponse:
         """Create Connection
 
-        Creates a new connection.  Args:     payload: The request payload containing the connection details.  Returns:     The created connection.  Raises:     HTTPException: If the operation is forbidden or an error occurs.
+        Creates a new connection within a specific workspace.  Args:     payload (ConnectionPostRequest): The request payload containing the connection details.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection will belong.  Returns:     ConnectionResponse: The created connection.  Raises:     HTTPException: If the operation is forbidden or an error occurs.
 
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param connection_post_request: (required)
         :type connection_post_request: ConnectionPostRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -351,6 +371,7 @@ class ConnectionsApi:
         """ # noqa: E501
 
         _param = self._create_connection_connections_post_serialize(
+            workspace_id=workspace_id,
             connection_post_request=connection_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -378,6 +399,7 @@ class ConnectionsApi:
     @validate_call
     def create_connection_connections_post_with_http_info(
         self,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         connection_post_request: ConnectionPostRequest,
         _request_timeout: Union[
             None,
@@ -394,8 +416,10 @@ class ConnectionsApi:
     ) -> ApiResponse[ConnectionResponse]:
         """Create Connection
 
-        Creates a new connection.  Args:     payload: The request payload containing the connection details.  Returns:     The created connection.  Raises:     HTTPException: If the operation is forbidden or an error occurs.
+        Creates a new connection within a specific workspace.  Args:     payload (ConnectionPostRequest): The request payload containing the connection details.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection will belong.  Returns:     ConnectionResponse: The created connection.  Raises:     HTTPException: If the operation is forbidden or an error occurs.
 
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param connection_post_request: (required)
         :type connection_post_request: ConnectionPostRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -421,6 +445,7 @@ class ConnectionsApi:
         """ # noqa: E501
 
         _param = self._create_connection_connections_post_serialize(
+            workspace_id=workspace_id,
             connection_post_request=connection_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -448,6 +473,7 @@ class ConnectionsApi:
     @validate_call
     def create_connection_connections_post_without_preload_content(
         self,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         connection_post_request: ConnectionPostRequest,
         _request_timeout: Union[
             None,
@@ -464,8 +490,10 @@ class ConnectionsApi:
     ) -> RESTResponseType:
         """Create Connection
 
-        Creates a new connection.  Args:     payload: The request payload containing the connection details.  Returns:     The created connection.  Raises:     HTTPException: If the operation is forbidden or an error occurs.
+        Creates a new connection within a specific workspace.  Args:     payload (ConnectionPostRequest): The request payload containing the connection details.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection will belong.  Returns:     ConnectionResponse: The created connection.  Raises:     HTTPException: If the operation is forbidden or an error occurs.
 
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param connection_post_request: (required)
         :type connection_post_request: ConnectionPostRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -491,6 +519,7 @@ class ConnectionsApi:
         """ # noqa: E501
 
         _param = self._create_connection_connections_post_serialize(
+            workspace_id=workspace_id,
             connection_post_request=connection_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -513,6 +542,7 @@ class ConnectionsApi:
 
     def _create_connection_connections_post_serialize(
         self,
+        workspace_id,
         connection_post_request,
         _request_auth,
         _content_type,
@@ -534,6 +564,10 @@ class ConnectionsApi:
 
         # process the path parameters
         # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -588,6 +622,7 @@ class ConnectionsApi:
     def delete_connection_connections_connection_id_delete(
         self,
         connection_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -603,10 +638,12 @@ class ConnectionsApi:
     ) -> None:
         """Delete Connection
 
-        Deletes a connection.  Args:     connection_id: The ID of the connection to delete.  Raises:     HTTPException: If the connection is not found or an error occurs.
+        Deletes a connection within a specific workspace.  Args:     connection_id (str): The ID of the connection to delete.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection belongs.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -631,6 +668,7 @@ class ConnectionsApi:
 
         _param = self._delete_connection_connections_connection_id_delete_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -657,6 +695,7 @@ class ConnectionsApi:
     def delete_connection_connections_connection_id_delete_with_http_info(
         self,
         connection_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -672,10 +711,12 @@ class ConnectionsApi:
     ) -> ApiResponse[None]:
         """Delete Connection
 
-        Deletes a connection.  Args:     connection_id: The ID of the connection to delete.  Raises:     HTTPException: If the connection is not found or an error occurs.
+        Deletes a connection within a specific workspace.  Args:     connection_id (str): The ID of the connection to delete.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection belongs.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -700,6 +741,7 @@ class ConnectionsApi:
 
         _param = self._delete_connection_connections_connection_id_delete_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -726,6 +768,7 @@ class ConnectionsApi:
     def delete_connection_connections_connection_id_delete_without_preload_content(
         self,
         connection_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -741,10 +784,12 @@ class ConnectionsApi:
     ) -> RESTResponseType:
         """Delete Connection
 
-        Deletes a connection.  Args:     connection_id: The ID of the connection to delete.  Raises:     HTTPException: If the connection is not found or an error occurs.
+        Deletes a connection within a specific workspace.  Args:     connection_id (str): The ID of the connection to delete.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection belongs.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -769,6 +814,7 @@ class ConnectionsApi:
 
         _param = self._delete_connection_connections_connection_id_delete_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -790,6 +836,7 @@ class ConnectionsApi:
     def _delete_connection_connections_connection_id_delete_serialize(
         self,
         connection_id,
+        workspace_id,
         _request_auth,
         _content_type,
         _headers,
@@ -812,6 +859,10 @@ class ConnectionsApi:
         if connection_id is not None:
             _path_params['connection_id'] = connection_id
         # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -850,6 +901,7 @@ class ConnectionsApi:
     @validate_call
     def fetch_available_connections_connections_list_get(
         self,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -867,6 +919,8 @@ class ConnectionsApi:
 
         Fetch all active connections
 
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -890,6 +944,7 @@ class ConnectionsApi:
         """ # noqa: E501
 
         _param = self._fetch_available_connections_connections_list_get_serialize(
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -899,6 +954,7 @@ class ConnectionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ConnectionResponse]",
             '404': None,
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -914,6 +970,7 @@ class ConnectionsApi:
     @validate_call
     def fetch_available_connections_connections_list_get_with_http_info(
         self,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -931,6 +988,8 @@ class ConnectionsApi:
 
         Fetch all active connections
 
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -954,6 +1013,7 @@ class ConnectionsApi:
         """ # noqa: E501
 
         _param = self._fetch_available_connections_connections_list_get_serialize(
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -963,6 +1023,7 @@ class ConnectionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ConnectionResponse]",
             '404': None,
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -978,6 +1039,7 @@ class ConnectionsApi:
     @validate_call
     def fetch_available_connections_connections_list_get_without_preload_content(
         self,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -995,6 +1057,8 @@ class ConnectionsApi:
 
         Fetch all active connections
 
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1018,6 +1082,7 @@ class ConnectionsApi:
         """ # noqa: E501
 
         _param = self._fetch_available_connections_connections_list_get_serialize(
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1027,6 +1092,7 @@ class ConnectionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ConnectionResponse]",
             '404': None,
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1037,6 +1103,7 @@ class ConnectionsApi:
 
     def _fetch_available_connections_connections_list_get_serialize(
         self,
+        workspace_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1057,6 +1124,10 @@ class ConnectionsApi:
 
         # process the path parameters
         # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1096,6 +1167,7 @@ class ConnectionsApi:
     def fetch_connection_config_internal_connections_connection_id_get(
         self,
         connection_id: Annotated[StrictStr, Field(description="The ID of the connection to fetch")],
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID of the connection")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1115,6 +1187,8 @@ class ConnectionsApi:
 
         :param connection_id: The ID of the connection to fetch (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID of the connection (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1139,6 +1213,7 @@ class ConnectionsApi:
 
         _param = self._fetch_connection_config_internal_connections_connection_id_get_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1165,6 +1240,7 @@ class ConnectionsApi:
     def fetch_connection_config_internal_connections_connection_id_get_with_http_info(
         self,
         connection_id: Annotated[StrictStr, Field(description="The ID of the connection to fetch")],
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID of the connection")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1184,6 +1260,8 @@ class ConnectionsApi:
 
         :param connection_id: The ID of the connection to fetch (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID of the connection (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1208,6 +1286,7 @@ class ConnectionsApi:
 
         _param = self._fetch_connection_config_internal_connections_connection_id_get_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1234,6 +1313,7 @@ class ConnectionsApi:
     def fetch_connection_config_internal_connections_connection_id_get_without_preload_content(
         self,
         connection_id: Annotated[StrictStr, Field(description="The ID of the connection to fetch")],
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID of the connection")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1253,6 +1333,8 @@ class ConnectionsApi:
 
         :param connection_id: The ID of the connection to fetch (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID of the connection (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1277,6 +1359,7 @@ class ConnectionsApi:
 
         _param = self._fetch_connection_config_internal_connections_connection_id_get_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1298,6 +1381,7 @@ class ConnectionsApi:
     def _fetch_connection_config_internal_connections_connection_id_get_serialize(
         self,
         connection_id,
+        workspace_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1320,6 +1404,10 @@ class ConnectionsApi:
         if connection_id is not None:
             _path_params['connection_id'] = connection_id
         # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1359,6 +1447,7 @@ class ConnectionsApi:
     def read_connection_connections_connection_id_get(
         self,
         connection_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1374,10 +1463,12 @@ class ConnectionsApi:
     ) -> ConnectionResponse:
         """Read Connection
 
-        Retrieves a connection by its ID.  Args:     connection_id: The ID of the connection.  Returns:     The connection with the specified ID.  Raises:     HTTPException: If the connection is not found.
+        Retrieves a connection by its ID within a specific workspace.  Args:     connection_id (str): The ID of the connection.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection belongs.  Returns:     ConnectionResponse: The connection with the specified ID.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1402,6 +1493,7 @@ class ConnectionsApi:
 
         _param = self._read_connection_connections_connection_id_get_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1428,6 +1520,7 @@ class ConnectionsApi:
     def read_connection_connections_connection_id_get_with_http_info(
         self,
         connection_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1443,10 +1536,12 @@ class ConnectionsApi:
     ) -> ApiResponse[ConnectionResponse]:
         """Read Connection
 
-        Retrieves a connection by its ID.  Args:     connection_id: The ID of the connection.  Returns:     The connection with the specified ID.  Raises:     HTTPException: If the connection is not found.
+        Retrieves a connection by its ID within a specific workspace.  Args:     connection_id (str): The ID of the connection.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection belongs.  Returns:     ConnectionResponse: The connection with the specified ID.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1471,6 +1566,7 @@ class ConnectionsApi:
 
         _param = self._read_connection_connections_connection_id_get_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1497,6 +1593,7 @@ class ConnectionsApi:
     def read_connection_connections_connection_id_get_without_preload_content(
         self,
         connection_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1512,10 +1609,12 @@ class ConnectionsApi:
     ) -> RESTResponseType:
         """Read Connection
 
-        Retrieves a connection by its ID.  Args:     connection_id: The ID of the connection.  Returns:     The connection with the specified ID.  Raises:     HTTPException: If the connection is not found.
+        Retrieves a connection by its ID within a specific workspace.  Args:     connection_id (str): The ID of the connection.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection belongs.  Returns:     ConnectionResponse: The connection with the specified ID.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1540,6 +1639,7 @@ class ConnectionsApi:
 
         _param = self._read_connection_connections_connection_id_get_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1561,6 +1661,7 @@ class ConnectionsApi:
     def _read_connection_connections_connection_id_get_serialize(
         self,
         connection_id,
+        workspace_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1583,6 +1684,10 @@ class ConnectionsApi:
         if connection_id is not None:
             _path_params['connection_id'] = connection_id
         # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1622,6 +1727,7 @@ class ConnectionsApi:
     def update_connection_connections_connection_id_put(
         self,
         connection_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         connection_put_request: ConnectionPutRequest,
         _request_timeout: Union[
             None,
@@ -1635,13 +1741,15 @@ class ConnectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ConnectionResponse:
+    ) -> object:
         """Update Connection
 
-        Updates an existing connection.  Args:     connection_id: The ID of the connection to update.     payload: The request payload containing the updated connection details.  Returns:     The updated connection.  Raises:     HTTPException: If the connection is not found or an error occurs.
+        Updates an existing connection within a specific workspace.  Args:     connection_id (str): The ID of the connection to update.     payload (ConnectionPutRequest): The request payload containing the updated connection details.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection belongs.  Returns:     The updated connection.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param connection_put_request: (required)
         :type connection_put_request: ConnectionPutRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1668,6 +1776,7 @@ class ConnectionsApi:
 
         _param = self._update_connection_connections_connection_id_put_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             connection_put_request=connection_put_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1676,7 +1785,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectionResponse",
+            '200': "object",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -1696,6 +1805,7 @@ class ConnectionsApi:
     def update_connection_connections_connection_id_put_with_http_info(
         self,
         connection_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         connection_put_request: ConnectionPutRequest,
         _request_timeout: Union[
             None,
@@ -1709,13 +1819,15 @@ class ConnectionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ConnectionResponse]:
+    ) -> ApiResponse[object]:
         """Update Connection
 
-        Updates an existing connection.  Args:     connection_id: The ID of the connection to update.     payload: The request payload containing the updated connection details.  Returns:     The updated connection.  Raises:     HTTPException: If the connection is not found or an error occurs.
+        Updates an existing connection within a specific workspace.  Args:     connection_id (str): The ID of the connection to update.     payload (ConnectionPutRequest): The request payload containing the updated connection details.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection belongs.  Returns:     The updated connection.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param connection_put_request: (required)
         :type connection_put_request: ConnectionPutRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1742,6 +1854,7 @@ class ConnectionsApi:
 
         _param = self._update_connection_connections_connection_id_put_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             connection_put_request=connection_put_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1750,7 +1863,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectionResponse",
+            '200': "object",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -1770,6 +1883,7 @@ class ConnectionsApi:
     def update_connection_connections_connection_id_put_without_preload_content(
         self,
         connection_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         connection_put_request: ConnectionPutRequest,
         _request_timeout: Union[
             None,
@@ -1786,10 +1900,12 @@ class ConnectionsApi:
     ) -> RESTResponseType:
         """Update Connection
 
-        Updates an existing connection.  Args:     connection_id: The ID of the connection to update.     payload: The request payload containing the updated connection details.  Returns:     The updated connection.  Raises:     HTTPException: If the connection is not found or an error occurs.
+        Updates an existing connection within a specific workspace.  Args:     connection_id (str): The ID of the connection to update.     payload (ConnectionPutRequest): The request payload containing the updated connection details.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection belongs.  Returns:     The updated connection.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
         :param connection_id: (required)
         :type connection_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param connection_put_request: (required)
         :type connection_put_request: ConnectionPutRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1816,6 +1932,7 @@ class ConnectionsApi:
 
         _param = self._update_connection_connections_connection_id_put_serialize(
             connection_id=connection_id,
+            workspace_id=workspace_id,
             connection_put_request=connection_put_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1824,7 +1941,7 @@ class ConnectionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectionResponse",
+            '200': "object",
             '404': None,
             '403': None,
             '422': "HTTPValidationError",
@@ -1839,6 +1956,7 @@ class ConnectionsApi:
     def _update_connection_connections_connection_id_put_serialize(
         self,
         connection_id,
+        workspace_id,
         connection_put_request,
         _request_auth,
         _content_type,
@@ -1862,6 +1980,10 @@ class ConnectionsApi:
         if connection_id is not None:
             _path_params['connection_id'] = connection_id
         # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

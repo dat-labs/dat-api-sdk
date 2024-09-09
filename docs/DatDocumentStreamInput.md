@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **object** | The name of the document stream. | 
-**namespace** | [**Namespace1**](Namespace1.md) |  | [optional] 
 **json_schema** | [**JsonSchema**](JsonSchema.md) |  | [optional] 
+**namespace** | [**Namespace1**](Namespace1.md) |  | [optional] 
 **read_sync_mode** | [**DatDocumentStreamInputReadSyncMode**](DatDocumentStreamInputReadSyncMode.md) |  | [optional] 
 **write_sync_mode** | [**DatDocumentStreamInputWriteSyncMode**](DatDocumentStreamInputWriteSyncMode.md) |  | [optional] 
 **cursor_field** | [**CursorField**](CursorField.md) |  | [optional] 

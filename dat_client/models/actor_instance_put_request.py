@@ -26,14 +26,13 @@ class ActorInstancePutRequest(BaseModel):
     """
     ActorInstancePutRequest
     """ # noqa: E501
-    workspace_id: Optional[StrictStr] = None
     actor_id: Optional[StrictStr] = None
     user_id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     actor_type: Optional[StrictStr] = None
     status: Optional[StrictStr] = None
     configuration: Optional[Dict[str, Any]] = None
-    __properties: ClassVar[List[str]] = ["workspace_id", "actor_id", "user_id", "name", "actor_type", "status", "configuration"]
+    __properties: ClassVar[List[str]] = ["actor_id", "user_id", "name", "actor_type", "status", "configuration"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,11 +73,6 @@ class ActorInstancePutRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if workspace_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.workspace_id is None and "workspace_id" in self.model_fields_set:
-            _dict['workspace_id'] = None
-
         # set to None if actor_id (nullable) is None
         # and model_fields_set contains the field
         if self.actor_id is None and "actor_id" in self.model_fields_set:
@@ -121,7 +115,6 @@ class ActorInstancePutRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "workspace_id": obj.get("workspace_id"),
             "actor_id": obj.get("actor_id"),
             "user_id": obj.get("user_id"),
             "name": obj.get("name"),

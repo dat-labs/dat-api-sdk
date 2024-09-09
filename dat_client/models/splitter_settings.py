@@ -34,7 +34,7 @@ SPLITTERSETTINGS_ANY_OF_SCHEMAS = ["SplitByCharacterRecursiverlySettings", "Spli
 
 class SplitterSettings(BaseModel):
     """
-    SplitterSettings
+    Splitter settings.
     """
 
     # data type: SplitByHtmlHeaderSettings

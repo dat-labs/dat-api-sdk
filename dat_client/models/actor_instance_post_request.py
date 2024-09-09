@@ -26,14 +26,13 @@ class ActorInstancePostRequest(BaseModel):
     """
     ActorInstancePostRequest
     """ # noqa: E501
-    workspace_id: StrictStr
     actor_id: StrictStr
     user_id: StrictStr
     name: StrictStr
     actor_type: StrictStr
     status: Optional[StrictStr] = 'active'
     configuration: Optional[Dict[str, Any]] = None
-    __properties: ClassVar[List[str]] = ["workspace_id", "actor_id", "user_id", "name", "actor_type", "status", "configuration"]
+    __properties: ClassVar[List[str]] = ["actor_id", "user_id", "name", "actor_type", "status", "configuration"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,7 +85,6 @@ class ActorInstancePostRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "workspace_id": obj.get("workspace_id"),
             "actor_id": obj.get("actor_id"),
             "user_id": obj.get("user_id"),
             "name": obj.get("name"),

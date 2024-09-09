@@ -35,9 +35,8 @@ class TestSplitByCharacterSettings(unittest.TestCase):
         model = SplitByCharacterSettings()
         if include_optional:
             return SplitByCharacterSettings(
-                strategy = '',
-                config = dat_client.models.split_by_character_extra_config.SplitByCharacterExtraConfig(
-                    separator = '', )
+                splitter_settings = '',
+                separator = ''
             )
         else:
             return SplitByCharacterSettings(

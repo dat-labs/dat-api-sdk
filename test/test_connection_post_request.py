@@ -38,25 +38,21 @@ class TestConnectionPostRequest(unittest.TestCase):
                 source_instance_id = '',
                 generator_instance_id = '',
                 destination_instance_id = '',
-                workspace_id = '',
                 name = '',
                 namespace_format = '${SOURCE_NAMESPACE}',
                 prefix = '',
                 configuration = None,
                 catalog = dat_client.models.dat_catalog.DatCatalog(
                     document_streams = [
-                        dat_client.models.dat_document_stream.DatDocumentStream(
-                            name = '', 
-                            namespace = '', 
-                            json_schema = dat_client.models.json_schema.json_schema(), 
-                            read_sync_mode = 'FULL_REFRESH', 
-                            write_sync_mode = 'APPEND', 
-                            cursor_field = '', )
+                        {
+                            'key' : null
+                            }
                         ], ),
                 schedule = dat_client.models.schedule.Schedule(
                     cron = dat_client.models.cron.Cron(
                         cron_expression = '', 
-                        timezone = '', ), ),
+                        timezone = '', 
+                        advanced_scheduling = '', ), ),
                 schedule_type = '',
                 status = ''
             )
@@ -65,7 +61,6 @@ class TestConnectionPostRequest(unittest.TestCase):
                 source_instance_id = '',
                 generator_instance_id = '',
                 destination_instance_id = '',
-                workspace_id = '',
                 name = '',
         )
         """

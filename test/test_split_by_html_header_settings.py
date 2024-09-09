@@ -35,9 +35,10 @@ class TestSplitByHtmlHeaderSettings(unittest.TestCase):
         model = SplitByHtmlHeaderSettings()
         if include_optional:
             return SplitByHtmlHeaderSettings(
-                strategy = '',
-                config = dat_client.models.split_by_html_header_extra_config.SplitByHtmlHeaderExtraConfig(
-                    headers_to_split_on = null, )
+                splitter_settings = '',
+                headers_to_split_on = [
+                    ''
+                    ]
             )
         else:
             return SplitByHtmlHeaderSettings(

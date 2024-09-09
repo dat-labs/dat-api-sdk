@@ -26,9 +26,8 @@ class SplitByMarkdownSettings(BaseModel):
     """
     SplitByMarkdownSettings
     """ # noqa: E501
-    strategy: Optional[StrictStr] = None
-    config: Optional[Dict[str, Any]] = None
-    __properties: ClassVar[List[str]] = ["strategy", "config"]
+    splitter_settings: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["splitter_settings"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,15 +68,10 @@ class SplitByMarkdownSettings(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if strategy (nullable) is None
+        # set to None if splitter_settings (nullable) is None
         # and model_fields_set contains the field
-        if self.strategy is None and "strategy" in self.model_fields_set:
-            _dict['strategy'] = None
-
-        # set to None if config (nullable) is None
-        # and model_fields_set contains the field
-        if self.config is None and "config" in self.model_fields_set:
-            _dict['config'] = None
+        if self.splitter_settings is None and "splitter_settings" in self.model_fields_set:
+            _dict['splitter_settings'] = None
 
         return _dict
 
@@ -91,8 +85,7 @@ class SplitByMarkdownSettings(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "strategy": obj.get("strategy"),
-            "config": obj.get("config")
+            "splitter_settings": obj.get("splitter_settings")
         })
         return _obj
 

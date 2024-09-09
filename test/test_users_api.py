@@ -14,7 +14,7 @@
 
 import unittest
 
-from dat_api_sdk.api.users_api import UsersApi
+from dat_client.api.users_api import UsersApi
 
 
 class TestUsersApi(unittest.TestCase):
@@ -24,6 +24,27 @@ class TestUsersApi(unittest.TestCase):
         self.api = UsersApi()
 
     def tearDown(self) -> None:
+        pass
+
+    def test_create_user_users_post(self) -> None:
+        """Test case for create_user_users_post
+
+        Create User
+        """
+        pass
+
+    def test_fetch_users_users_list_get(self) -> None:
+        """Test case for fetch_users_users_list_get
+
+        Fetch Users
+        """
+        pass
+
+    def test_update_user_users_user_id_patch(self) -> None:
+        """Test case for update_user_users_user_id_patch
+
+        Update User
+        """
         pass
 
     def test_verify_user_users_verify_post(self) -> None:

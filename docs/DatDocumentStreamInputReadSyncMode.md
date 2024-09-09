@@ -1,6 +1,6 @@
 # DatDocumentStreamInputReadSyncMode
 
-A list of supported sync modes for the stream while reading.
+An list of supported sync modes for the stream while reading.
 
 ## Properties
 

@@ -51,7 +51,6 @@ class TestConnectionOrchestraResponse(unittest.TestCase):
                 source_instance_id = None,
                 generator_instance_id = None,
                 destination_instance_id = None,
-                workspace_id = None,
                 configuration = None,
                 schedule = None,
                 schedule_type = None,
@@ -72,7 +71,6 @@ class TestConnectionOrchestraResponse(unittest.TestCase):
                 source_instance_id = None,
                 generator_instance_id = None,
                 destination_instance_id = None,
-                workspace_id = None,
         )
         """
 

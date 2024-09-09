@@ -1,12 +1,15 @@
 # SplitterSettings
 
+Splitter settings.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**strategy** | **str** |  | [optional] 
-**config** | [**SplitByCharacterRecursiverlyConfig**](SplitByCharacterRecursiverlyConfig.md) |  | [optional] 
+**splitter_settings** | **str** |  | [optional] 
+**headers_to_split_on** | **List[object]** |  | [optional] 
+**separator** | **str** |  | [optional] 
+**separators** | **List[object]** |  | [optional] 
 
 ## Example
 

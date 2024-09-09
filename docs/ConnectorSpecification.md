@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **documentation_url** | [**DocumentationUrl**](DocumentationUrl.md) |  | [optional] 
 **name** | **object** | The name of the specific connector to which this ConnectorSpecification belongs. | 
 **module_name** | **object** | Name of the python module for this connector | 
-**connection_specification** | **object** | ConnectorDefinition specific blob. Must be a valid JSON string. | 
+**connection_specification** | [**ConnectionSpecification**](ConnectionSpecification.md) |  | 
 
 ## Example
 

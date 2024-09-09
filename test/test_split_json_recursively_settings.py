@@ -35,8 +35,7 @@ class TestSplitJsonRecursivelySettings(unittest.TestCase):
         model = SplitJsonRecursivelySettings()
         if include_optional:
             return SplitJsonRecursivelySettings(
-                strategy = '',
-                config = None
+                splitter_settings = ''
             )
         else:
             return SplitJsonRecursivelySettings(

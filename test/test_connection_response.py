@@ -35,40 +35,115 @@ class TestConnectionResponse(unittest.TestCase):
         model = ConnectionResponse()
         if include_optional:
             return ConnectionResponse(
+                source_instance = dat_client.models.actor_instance_response.ActorInstanceResponse(
+                    actor_id = '', 
+                    user_id = '', 
+                    name = '', 
+                    actor_type = '', 
+                    status = 'active', 
+                    configuration = dat_client.models.configuration.Configuration(), 
+                    id = '', 
+                    workspace_id = '', 
+                    actor = null, 
+                    connected_connections = [
+                        null
+                        ], ),
+                generator_instance = dat_client.models.actor_instance_response.ActorInstanceResponse(
+                    actor_id = '', 
+                    user_id = '', 
+                    name = '', 
+                    actor_type = '', 
+                    status = 'active', 
+                    configuration = dat_client.models.configuration.Configuration(), 
+                    id = '', 
+                    workspace_id = '', 
+                    actor = null, 
+                    connected_connections = [
+                        null
+                        ], ),
+                destination_instance = dat_client.models.actor_instance_response.ActorInstanceResponse(
+                    actor_id = '', 
+                    user_id = '', 
+                    name = '', 
+                    actor_type = '', 
+                    status = 'active', 
+                    configuration = dat_client.models.configuration.Configuration(), 
+                    id = '', 
+                    workspace_id = '', 
+                    actor = null, 
+                    connected_connections = [
+                        null
+                        ], ),
                 source_instance_id = '',
                 generator_instance_id = '',
                 destination_instance_id = '',
-                workspace_id = '',
                 name = '',
                 namespace_format = '${SOURCE_NAMESPACE}',
                 prefix = '',
                 configuration = None,
                 catalog = dat_client.models.dat_catalog.DatCatalog(
                     document_streams = [
-                        dat_client.models.dat_document_stream.DatDocumentStream(
-                            name = '', 
-                            namespace = '', 
-                            json_schema = dat_client.models.json_schema.json_schema(), 
-                            read_sync_mode = 'FULL_REFRESH', 
-                            write_sync_mode = 'APPEND', 
-                            cursor_field = '', )
+                        {
+                            'key' : null
+                            }
                         ], ),
                 schedule = dat_client.models.schedule.Schedule(
                     cron = dat_client.models.cron.Cron(
                         cron_expression = '', 
-                        timezone = '', ), ),
+                        timezone = '', 
+                        advanced_scheduling = '', ), ),
                 schedule_type = '',
                 status = '',
-                id = ''
+                id = '',
+                workspace_id = ''
             )
         else:
             return ConnectionResponse(
+                source_instance = dat_client.models.actor_instance_response.ActorInstanceResponse(
+                    actor_id = '', 
+                    user_id = '', 
+                    name = '', 
+                    actor_type = '', 
+                    status = 'active', 
+                    configuration = dat_client.models.configuration.Configuration(), 
+                    id = '', 
+                    workspace_id = '', 
+                    actor = null, 
+                    connected_connections = [
+                        null
+                        ], ),
+                generator_instance = dat_client.models.actor_instance_response.ActorInstanceResponse(
+                    actor_id = '', 
+                    user_id = '', 
+                    name = '', 
+                    actor_type = '', 
+                    status = 'active', 
+                    configuration = dat_client.models.configuration.Configuration(), 
+                    id = '', 
+                    workspace_id = '', 
+                    actor = null, 
+                    connected_connections = [
+                        null
+                        ], ),
+                destination_instance = dat_client.models.actor_instance_response.ActorInstanceResponse(
+                    actor_id = '', 
+                    user_id = '', 
+                    name = '', 
+                    actor_type = '', 
+                    status = 'active', 
+                    configuration = dat_client.models.configuration.Configuration(), 
+                    id = '', 
+                    workspace_id = '', 
+                    actor = null, 
+                    connected_connections = [
+                        null
+                        ], ),
                 source_instance_id = '',
                 generator_instance_id = '',
                 destination_instance_id = '',
-                workspace_id = '',
                 name = '',
                 id = '',
+                workspace_id = '',
         )
         """
 

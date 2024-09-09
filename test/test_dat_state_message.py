@@ -38,18 +38,19 @@ class TestDatStateMessage(unittest.TestCase):
                 stream = {
                     'key' : null
                     },
-                stream_state = {
-                    'key' : null
-                    }
+                stream_state = dat_client.models.stream_state.StreamState(
+                    data = dat_client.models.data.Data(), 
+                    stream_status = 'STARTED', ),
+                emitted_at = None
             )
         else:
             return DatStateMessage(
                 stream = {
                     'key' : null
                     },
-                stream_state = {
-                    'key' : null
-                    },
+                stream_state = dat_client.models.stream_state.StreamState(
+                    data = dat_client.models.data.Data(), 
+                    stream_status = 'STARTED', ),
         )
         """
 

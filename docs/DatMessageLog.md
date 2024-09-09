@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **level** | [**Level**](Level.md) | log level of the log message | 
 **message** | **object** | log message | 
 **stack_trace** | [**StackTrace**](StackTrace.md) |  | [optional] 
+**emitted_at** | [**EmittedAt**](EmittedAt.md) |  | [optional] 
 
 ## Example
 

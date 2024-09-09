@@ -14,7 +14,7 @@
 
 import unittest
 
-from dat_api_sdk.api.connections_api import ConnectionsApi
+from dat_client.api.connections_api import ConnectionsApi
 
 
 class TestConnectionsApi(unittest.TestCase):
@@ -24,6 +24,13 @@ class TestConnectionsApi(unittest.TestCase):
         self.api = ConnectionsApi()
 
     def tearDown(self) -> None:
+        pass
+
+    def test_connection_trigger_run_connections_connection_id_run_post(self) -> None:
+        """Test case for connection_trigger_run_connections_connection_id_run_post
+
+        Connection Trigger Run
+        """
         pass
 
     def test_create_connection_connections_post(self) -> None:
@@ -44,6 +51,13 @@ class TestConnectionsApi(unittest.TestCase):
         """Test case for fetch_available_connections_connections_list_get
 
         Fetch Available Connections
+        """
+        pass
+
+    def test_fetch_connection_config_internal_connections_connection_id_get(self) -> None:
+        """Test case for fetch_connection_config_internal_connections_connection_id_get
+
+        Fetch Connection Config
         """
         pass
 

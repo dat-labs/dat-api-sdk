@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**source_instance_id** | **str** |  | 
 **name** | **str** |  | [optional] 
 **namespace_format** | **str** |  | [optional] 
 **prefix** | **str** |  | [optional] 

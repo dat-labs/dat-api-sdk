@@ -14,7 +14,7 @@
 
 import unittest
 
-from dat_api_sdk.models.configuration import Configuration
+from dat_client.models.configuration import Configuration
 
 class TestConfiguration(unittest.TestCase):
     """Configuration unit test stubs"""

@@ -49,7 +49,6 @@ class TestDatDocumentMessage(unittest.TestCase):
                 data = {
                     'key' : null
                     },
-                emitted_at = None,
         )
         """
 

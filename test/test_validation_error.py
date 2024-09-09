@@ -14,7 +14,7 @@
 
 import unittest
 
-from dat_api_sdk.models.validation_error import ValidationError
+from dat_client.models.validation_error import ValidationError
 
 class TestValidationError(unittest.TestCase):
     """ValidationError unit test stubs"""

@@ -37,7 +37,8 @@ class TestConnectionOrchestraResponseSchedule(unittest.TestCase):
             return ConnectionOrchestraResponseSchedule(
                 cron = dat_client.models.cron.Cron(
                     cron_expression = '', 
-                    timezone = '', )
+                    timezone = '', 
+                    advanced_scheduling = '', )
             )
         else:
             return ConnectionOrchestraResponseSchedule(

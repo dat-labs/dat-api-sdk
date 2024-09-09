@@ -14,7 +14,7 @@
 
 import unittest
 
-from dat_api_sdk.models.dat_log_message import DatLogMessage
+from dat_client.models.dat_log_message import DatLogMessage
 
 class TestDatLogMessage(unittest.TestCase):
     """DatLogMessage unit test stubs"""
@@ -35,12 +35,15 @@ class TestDatLogMessage(unittest.TestCase):
         model = DatLogMessage()
         if include_optional:
             return DatLogMessage(
-                level = None,
+                level = 'FATAL',
                 message = None,
-                stack_trace = None
+                stack_trace = None,
+                emitted_at = None
             )
         else:
             return DatLogMessage(
+                level = 'FATAL',
+                message = None,
         )
         """
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**create_actor_actors_post**](ActorsApi.md#create_actor_actors_post) | **POST** /actors | Create Actor
 [**delete_actor_actors_actor_id_delete**](ActorsApi.md#delete_actor_actors_actor_id_delete) | **DELETE** /actors/{actor_id} | Delete Actor
 [**fetch_available_actors_actors_actor_type_list_get**](ActorsApi.md#fetch_available_actors_actors_actor_type_list_get) | **GET** /actors/{actor_type}/list | Fetch Available Actors
+[**get_actor_documentaion_actors_doc_get**](ActorsApi.md#get_actor_documentaion_actors_doc_get) | **GET** /actors/doc/ | Get Actor Documentaion
 [**get_actor_specs_actors_actor_id_spec_get**](ActorsApi.md#get_actor_specs_actors_actor_id_spec_get) | **GET** /actors/{actor_id}/spec | Get Actor Specs
 [**mark_actor_inactive_actors_actor_id_mark_inactive_delete**](ActorsApi.md#mark_actor_inactive_actors_actor_id_mark_inactive_delete) | **DELETE** /actors/{actor_id}/mark_inactive | Mark Actor Inactive
 [**read_actor_actors_actor_id_get**](ActorsApi.md#read_actor_actors_actor_id_get) | **GET** /actors/{actor_id} | Read Actor
@@ -203,6 +204,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List[ActorResponse]**](ActorResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**404** | Not found |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_actor_documentaion_actors_doc_get**
+> str get_actor_documentaion_actors_doc_get(path)
+
+Get Actor Documentaion
+
+Retrieves the documentation for an actor.  Args:     path (str): The path to the actor documentation.  Returns:     str: The documentation for the actor.
+
+### Example
+
+
+```python
+import dat_client
+from dat_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = dat_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with dat_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = dat_client.ActorsApi(api_client)
+    path = 'path_example' # str | 
+
+    try:
+        # Get Actor Documentaion
+        api_response = api_instance.get_actor_documentaion_actors_doc_get(path)
+        print("The response of ActorsApi->get_actor_documentaion_actors_doc_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ActorsApi->get_actor_documentaion_actors_doc_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **str**|  | 
+
+### Return type
+
+**str**
 
 ### Authorization
 

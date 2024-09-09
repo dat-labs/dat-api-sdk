@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **source_instance_id** | **str** |  | 
 **generator_instance_id** | **str** |  | 
 **destination_instance_id** | **str** |  | 
-**workspace_id** | **str** |  | 
 **name** | **str** |  | 
 **namespace_format** | **str** |  | [optional] [default to '${SOURCE_NAMESPACE}']
 **prefix** | **str** |  | [optional] 

@@ -19,27 +19,27 @@ import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, Optional
-from dat_client.models.advanced_input import AdvancedInput
+from dat_client.models.advanced import Advanced
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-DATDOCUMENTSTREAMINPUTADVANCED_ANY_OF_SCHEMAS = ["AdvancedInput", "object"]
+DATDOCUMENTSTREAMINPUTADVANCED_ANY_OF_SCHEMAS = ["Advanced", "object"]
 
 class DatDocumentStreamInputAdvanced(BaseModel):
     """
     Additional optional settings
     """
 
-    # data type: AdvancedInput
-    anyof_schema_1_validator: Optional[AdvancedInput] = None
+    # data type: Advanced
+    anyof_schema_1_validator: Optional[Advanced] = None
     # data type: object
     anyof_schema_2_validator: Optional[Any] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[AdvancedInput, object]] = None
+        actual_instance: Optional[Union[Advanced, object]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "AdvancedInput", "object" }
+    any_of_schemas: Set[str] = { "Advanced", "object" }
 
     model_config = {
         "validate_assignment": True,
@@ -60,9 +60,9 @@ class DatDocumentStreamInputAdvanced(BaseModel):
     def actual_instance_must_validate_anyof(cls, v):
         instance = DatDocumentStreamInputAdvanced.model_construct()
         error_messages = []
-        # validate data type: AdvancedInput
-        if not isinstance(v, AdvancedInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `AdvancedInput`")
+        # validate data type: Advanced
+        if not isinstance(v, Advanced):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `Advanced`")
         else:
             return v
 
@@ -74,7 +74,7 @@ class DatDocumentStreamInputAdvanced(BaseModel):
             error_messages.append(str(e))
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in DatDocumentStreamInputAdvanced with anyOf schemas: AdvancedInput, object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in DatDocumentStreamInputAdvanced with anyOf schemas: Advanced, object. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -87,9 +87,9 @@ class DatDocumentStreamInputAdvanced(BaseModel):
         """Returns the object represented by the json string"""
         instance = cls.model_construct()
         error_messages = []
-        # anyof_schema_1_validator: Optional[AdvancedInput] = None
+        # anyof_schema_1_validator: Optional[Advanced] = None
         try:
-            instance.actual_instance = AdvancedInput.from_json(json_str)
+            instance.actual_instance = Advanced.from_json(json_str)
             return instance
         except (ValidationError, ValueError) as e:
              error_messages.append(str(e))
@@ -105,7 +105,7 @@ class DatDocumentStreamInputAdvanced(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into DatDocumentStreamInputAdvanced with anyOf schemas: AdvancedInput, object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into DatDocumentStreamInputAdvanced with anyOf schemas: Advanced, object. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -119,7 +119,7 @@ class DatDocumentStreamInputAdvanced(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], AdvancedInput, object]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], Advanced, object]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None
