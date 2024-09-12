@@ -229,7 +229,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **fetch_available_connections_connections_list_get**
-> List[ConnectionResponse] fetch_available_connections_connections_list_get(workspace_id)
+> List[ConnectionResponse] fetch_available_connections_connections_list_get(workspace_id=workspace_id)
 
 Fetch Available Connections
 
@@ -255,11 +255,11 @@ configuration = dat_client.Configuration(
 with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ConnectionsApi(api_client)
-    workspace_id = 'workspace_id_example' # str | The workspace ID to scope the request
+    workspace_id = 'workspace_id_example' # str | The workspace ID to scope the request (optional)
 
     try:
         # Fetch Available Connections
-        api_response = api_instance.fetch_available_connections_connections_list_get(workspace_id)
+        api_response = api_instance.fetch_available_connections_connections_list_get(workspace_id=workspace_id)
         print("The response of ConnectionsApi->fetch_available_connections_connections_list_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -273,7 +273,7 @@ with dat_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workspace_id** | **str**| The workspace ID to scope the request | 
+ **workspace_id** | **str**| The workspace ID to scope the request | [optional] 
 
 ### Return type
 

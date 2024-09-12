@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
-from typing import Any, List
+from typing import Any, List, Optional
 from typing_extensions import Annotated
 from dat_client.models.connection_orchestra_response import ConnectionOrchestraResponse
 from dat_client.models.connection_post_request import ConnectionPostRequest
@@ -901,7 +901,7 @@ class ConnectionsApi:
     @validate_call
     def fetch_available_connections_connections_list_get(
         self,
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
+        workspace_id: Annotated[Optional[StrictStr], Field(description="The workspace ID to scope the request")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -919,7 +919,7 @@ class ConnectionsApi:
 
         Fetch all active connections
 
-        :param workspace_id: The workspace ID to scope the request (required)
+        :param workspace_id: The workspace ID to scope the request
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -970,7 +970,7 @@ class ConnectionsApi:
     @validate_call
     def fetch_available_connections_connections_list_get_with_http_info(
         self,
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
+        workspace_id: Annotated[Optional[StrictStr], Field(description="The workspace ID to scope the request")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -988,7 +988,7 @@ class ConnectionsApi:
 
         Fetch all active connections
 
-        :param workspace_id: The workspace ID to scope the request (required)
+        :param workspace_id: The workspace ID to scope the request
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1039,7 +1039,7 @@ class ConnectionsApi:
     @validate_call
     def fetch_available_connections_connections_list_get_without_preload_content(
         self,
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
+        workspace_id: Annotated[Optional[StrictStr], Field(description="The workspace ID to scope the request")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1057,7 +1057,7 @@ class ConnectionsApi:
 
         Fetch all active connections
 
-        :param workspace_id: The workspace ID to scope the request (required)
+        :param workspace_id: The workspace ID to scope the request
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
