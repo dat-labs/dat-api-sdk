@@ -24,17 +24,6 @@
               "title": "Connection Id"
             },
             "description": "The ID of the connection to fetch"
-          },
-          {
-            "name": "workspace_id",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The workspace ID of the connection",
-              "title": "Workspace Id"
-            },
-            "description": "The workspace ID of the connection"
           }
         ],
         "responses": {
@@ -378,9 +367,16 @@
           {
             "name": "workspace_id",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
-              "type": "string",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "description": "The workspace ID to scope the request",
               "title": "Workspace Id"
             },

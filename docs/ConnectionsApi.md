@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **connection_trigger_run_connections_connection_id_run_post**
-> ConnectionOrchestraResponse connection_trigger_run_connections_connection_id_run_post(connection_id, workspace_id)
+> ConnectionOrchestraResponse connection_trigger_run_connections_connection_id_run_post(connection_id, workspace_id=workspace_id)
 
 Connection Trigger Run
 
@@ -41,11 +41,11 @@ with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ConnectionsApi(api_client)
     connection_id = 'connection_id_example' # str | 
-    workspace_id = 'workspace_id_example' # str | The workspace ID to scope the request
+    workspace_id = 'workspace_id_example' # str | The workspace ID to scope the request (optional)
 
     try:
         # Connection Trigger Run
-        api_response = api_instance.connection_trigger_run_connections_connection_id_run_post(connection_id, workspace_id)
+        api_response = api_instance.connection_trigger_run_connections_connection_id_run_post(connection_id, workspace_id=workspace_id)
         print("The response of ConnectionsApi->connection_trigger_run_connections_connection_id_run_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -60,7 +60,7 @@ with dat_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connection_id** | **str**|  | 
- **workspace_id** | **str**| The workspace ID to scope the request | 
+ **workspace_id** | **str**| The workspace ID to scope the request | [optional] 
 
 ### Return type
 
@@ -299,7 +299,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **fetch_connection_config_internal_connections_connection_id_get**
-> ConnectionOrchestraResponse fetch_connection_config_internal_connections_connection_id_get(connection_id, workspace_id)
+> ConnectionOrchestraResponse fetch_connection_config_internal_connections_connection_id_get(connection_id)
 
 Fetch Connection Config
 
@@ -326,11 +326,10 @@ with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ConnectionsApi(api_client)
     connection_id = 'connection_id_example' # str | The ID of the connection to fetch
-    workspace_id = 'workspace_id_example' # str | The workspace ID of the connection
 
     try:
         # Fetch Connection Config
-        api_response = api_instance.fetch_connection_config_internal_connections_connection_id_get(connection_id, workspace_id)
+        api_response = api_instance.fetch_connection_config_internal_connections_connection_id_get(connection_id)
         print("The response of ConnectionsApi->fetch_connection_config_internal_connections_connection_id_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -345,7 +344,6 @@ with dat_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connection_id** | **str**| The ID of the connection to fetch | 
- **workspace_id** | **str**| The workspace ID of the connection | 
 
 ### Return type
 

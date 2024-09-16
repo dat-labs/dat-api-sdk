@@ -46,7 +46,7 @@ class ConnectionsApi:
     def connection_trigger_run_connections_connection_id_run_post(
         self,
         connection_id: StrictStr,
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
+        workspace_id: Annotated[Optional[StrictStr], Field(description="The workspace ID to scope the request")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -66,7 +66,7 @@ class ConnectionsApi:
 
         :param connection_id: (required)
         :type connection_id: str
-        :param workspace_id: The workspace ID to scope the request (required)
+        :param workspace_id: The workspace ID to scope the request
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -119,7 +119,7 @@ class ConnectionsApi:
     def connection_trigger_run_connections_connection_id_run_post_with_http_info(
         self,
         connection_id: StrictStr,
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
+        workspace_id: Annotated[Optional[StrictStr], Field(description="The workspace ID to scope the request")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -139,7 +139,7 @@ class ConnectionsApi:
 
         :param connection_id: (required)
         :type connection_id: str
-        :param workspace_id: The workspace ID to scope the request (required)
+        :param workspace_id: The workspace ID to scope the request
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -192,7 +192,7 @@ class ConnectionsApi:
     def connection_trigger_run_connections_connection_id_run_post_without_preload_content(
         self,
         connection_id: StrictStr,
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
+        workspace_id: Annotated[Optional[StrictStr], Field(description="The workspace ID to scope the request")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -212,7 +212,7 @@ class ConnectionsApi:
 
         :param connection_id: (required)
         :type connection_id: str
-        :param workspace_id: The workspace ID to scope the request (required)
+        :param workspace_id: The workspace ID to scope the request
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1167,7 +1167,6 @@ class ConnectionsApi:
     def fetch_connection_config_internal_connections_connection_id_get(
         self,
         connection_id: Annotated[StrictStr, Field(description="The ID of the connection to fetch")],
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID of the connection")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1187,8 +1186,6 @@ class ConnectionsApi:
 
         :param connection_id: The ID of the connection to fetch (required)
         :type connection_id: str
-        :param workspace_id: The workspace ID of the connection (required)
-        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1213,7 +1210,6 @@ class ConnectionsApi:
 
         _param = self._fetch_connection_config_internal_connections_connection_id_get_serialize(
             connection_id=connection_id,
-            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1240,7 +1236,6 @@ class ConnectionsApi:
     def fetch_connection_config_internal_connections_connection_id_get_with_http_info(
         self,
         connection_id: Annotated[StrictStr, Field(description="The ID of the connection to fetch")],
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID of the connection")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1260,8 +1255,6 @@ class ConnectionsApi:
 
         :param connection_id: The ID of the connection to fetch (required)
         :type connection_id: str
-        :param workspace_id: The workspace ID of the connection (required)
-        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1286,7 +1279,6 @@ class ConnectionsApi:
 
         _param = self._fetch_connection_config_internal_connections_connection_id_get_serialize(
             connection_id=connection_id,
-            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1313,7 +1305,6 @@ class ConnectionsApi:
     def fetch_connection_config_internal_connections_connection_id_get_without_preload_content(
         self,
         connection_id: Annotated[StrictStr, Field(description="The ID of the connection to fetch")],
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID of the connection")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1333,8 +1324,6 @@ class ConnectionsApi:
 
         :param connection_id: The ID of the connection to fetch (required)
         :type connection_id: str
-        :param workspace_id: The workspace ID of the connection (required)
-        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1359,7 +1348,6 @@ class ConnectionsApi:
 
         _param = self._fetch_connection_config_internal_connections_connection_id_get_serialize(
             connection_id=connection_id,
-            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1381,7 +1369,6 @@ class ConnectionsApi:
     def _fetch_connection_config_internal_connections_connection_id_get_serialize(
         self,
         connection_id,
-        workspace_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1404,10 +1391,6 @@ class ConnectionsApi:
         if connection_id is not None:
             _path_params['connection_id'] = connection_id
         # process the query parameters
-        if workspace_id is not None:
-            
-            _query_params.append(('workspace_id', workspace_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
