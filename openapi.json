@@ -1212,7 +1212,7 @@
           "connection_run_logs"
         ],
         "summary": "Add Connection Run Log",
-        "description": "Endpoint for adding a connection run log.\n\nArgs:\n    connection_id (str): The ID of the connection for which the log is being added.\n    workspace_id (str): The ID of the workspace for scoping the connection.\n    dat_message (DatMessage): The DatMessage object containing the log information.\n    run_id (str): The ID of the run for which the log is being added.\n\nReturns:\n    ConnectionRunLogResponse: The response containing the added connection run log.",
+        "description": "Endpoint for adding a connection run log.\n\nArgs:\n    connection_id (str): The ID of the connection for which the log is being added.\n    dat_message (DatMessage): The DatMessage object containing the log information.\n    run_id (str): The ID of the run for which the log is being added.\n\nReturns:\n    ConnectionRunLogResponse: The response containing the added connection run log.",
         "operationId": "add_connection_run_log_connection_run_logs__post",
         "parameters": [
           {
@@ -1232,17 +1232,6 @@
               "type": "string",
               "title": "Run Id"
             }
-          },
-          {
-            "name": "workspace_id",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The workspace ID for scoping the connection",
-              "title": "Workspace Id"
-            },
-            "description": "The workspace ID for scoping the connection"
           }
         ],
         "requestBody": {
@@ -2402,11 +2391,7 @@
             "title": "Workspace Id"
           },
           "actor": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ActorResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ActorResponse"
           },
           "connected_connections": {
             "items": {
@@ -2638,27 +2623,15 @@
             ]
           },
           "source": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ConnectorSpecification"
-              }
-            ],
+            "$ref": "#/components/schemas/ConnectorSpecification",
             "description": "The source connector specification."
           },
           "generator": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ConnectorSpecification"
-              }
-            ],
+            "$ref": "#/components/schemas/ConnectorSpecification",
             "description": "The generator connector specification."
           },
           "destination": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ConnectorSpecification"
-              }
-            ],
+            "$ref": "#/components/schemas/ConnectorSpecification",
             "description": "The destination connector specification."
           },
           "source_instance_id": {
@@ -3260,19 +3233,11 @@
             "description": "namespace the data is associated with"
           },
           "stream": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/DatDocumentStream-Input"
-              }
-            ],
+            "$ref": "#/components/schemas/DatDocumentStream-Input",
             "description": "stream the data is associated with"
           },
           "data": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Data"
-              }
-            ],
+            "$ref": "#/components/schemas/Data",
             "description": "record data"
           },
           "emitted_at": {
@@ -3501,11 +3466,7 @@
       "DatLogMessage": {
         "properties": {
           "level": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Level"
-              }
-            ],
+            "$ref": "#/components/schemas/Level",
             "description": "log level of the log message"
           },
           "message": {
@@ -3549,11 +3510,7 @@
       "DatMessage": {
         "properties": {
           "type": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Type"
-              }
-            ],
+            "$ref": "#/components/schemas/Type",
             "description": "Message type"
           },
           "log": {

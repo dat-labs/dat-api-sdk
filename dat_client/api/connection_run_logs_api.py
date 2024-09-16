@@ -46,7 +46,6 @@ class ConnectionRunLogsApi:
         self,
         connection_id: StrictStr,
         run_id: StrictStr,
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID for scoping the connection")],
         dat_message: DatMessage,
         _request_timeout: Union[
             None,
@@ -63,14 +62,12 @@ class ConnectionRunLogsApi:
     ) -> ConnectionRunLogResponse:
         """Add Connection Run Log
 
-        Endpoint for adding a connection run log.  Args:     connection_id (str): The ID of the connection for which the log is being added.     workspace_id (str): The ID of the workspace for scoping the connection.     dat_message (DatMessage): The DatMessage object containing the log information.     run_id (str): The ID of the run for which the log is being added.  Returns:     ConnectionRunLogResponse: The response containing the added connection run log.
+        Endpoint for adding a connection run log.  Args:     connection_id (str): The ID of the connection for which the log is being added.     dat_message (DatMessage): The DatMessage object containing the log information.     run_id (str): The ID of the run for which the log is being added.  Returns:     ConnectionRunLogResponse: The response containing the added connection run log.
 
         :param connection_id: (required)
         :type connection_id: str
         :param run_id: (required)
         :type run_id: str
-        :param workspace_id: The workspace ID for scoping the connection (required)
-        :type workspace_id: str
         :param dat_message: (required)
         :type dat_message: DatMessage
         :param _request_timeout: timeout setting for this request. If one
@@ -98,7 +95,6 @@ class ConnectionRunLogsApi:
         _param = self._add_connection_run_log_connection_run_logs_post_serialize(
             connection_id=connection_id,
             run_id=run_id,
-            workspace_id=workspace_id,
             dat_message=dat_message,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -128,7 +124,6 @@ class ConnectionRunLogsApi:
         self,
         connection_id: StrictStr,
         run_id: StrictStr,
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID for scoping the connection")],
         dat_message: DatMessage,
         _request_timeout: Union[
             None,
@@ -145,14 +140,12 @@ class ConnectionRunLogsApi:
     ) -> ApiResponse[ConnectionRunLogResponse]:
         """Add Connection Run Log
 
-        Endpoint for adding a connection run log.  Args:     connection_id (str): The ID of the connection for which the log is being added.     workspace_id (str): The ID of the workspace for scoping the connection.     dat_message (DatMessage): The DatMessage object containing the log information.     run_id (str): The ID of the run for which the log is being added.  Returns:     ConnectionRunLogResponse: The response containing the added connection run log.
+        Endpoint for adding a connection run log.  Args:     connection_id (str): The ID of the connection for which the log is being added.     dat_message (DatMessage): The DatMessage object containing the log information.     run_id (str): The ID of the run for which the log is being added.  Returns:     ConnectionRunLogResponse: The response containing the added connection run log.
 
         :param connection_id: (required)
         :type connection_id: str
         :param run_id: (required)
         :type run_id: str
-        :param workspace_id: The workspace ID for scoping the connection (required)
-        :type workspace_id: str
         :param dat_message: (required)
         :type dat_message: DatMessage
         :param _request_timeout: timeout setting for this request. If one
@@ -180,7 +173,6 @@ class ConnectionRunLogsApi:
         _param = self._add_connection_run_log_connection_run_logs_post_serialize(
             connection_id=connection_id,
             run_id=run_id,
-            workspace_id=workspace_id,
             dat_message=dat_message,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -210,7 +202,6 @@ class ConnectionRunLogsApi:
         self,
         connection_id: StrictStr,
         run_id: StrictStr,
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID for scoping the connection")],
         dat_message: DatMessage,
         _request_timeout: Union[
             None,
@@ -227,14 +218,12 @@ class ConnectionRunLogsApi:
     ) -> RESTResponseType:
         """Add Connection Run Log
 
-        Endpoint for adding a connection run log.  Args:     connection_id (str): The ID of the connection for which the log is being added.     workspace_id (str): The ID of the workspace for scoping the connection.     dat_message (DatMessage): The DatMessage object containing the log information.     run_id (str): The ID of the run for which the log is being added.  Returns:     ConnectionRunLogResponse: The response containing the added connection run log.
+        Endpoint for adding a connection run log.  Args:     connection_id (str): The ID of the connection for which the log is being added.     dat_message (DatMessage): The DatMessage object containing the log information.     run_id (str): The ID of the run for which the log is being added.  Returns:     ConnectionRunLogResponse: The response containing the added connection run log.
 
         :param connection_id: (required)
         :type connection_id: str
         :param run_id: (required)
         :type run_id: str
-        :param workspace_id: The workspace ID for scoping the connection (required)
-        :type workspace_id: str
         :param dat_message: (required)
         :type dat_message: DatMessage
         :param _request_timeout: timeout setting for this request. If one
@@ -262,7 +251,6 @@ class ConnectionRunLogsApi:
         _param = self._add_connection_run_log_connection_run_logs_post_serialize(
             connection_id=connection_id,
             run_id=run_id,
-            workspace_id=workspace_id,
             dat_message=dat_message,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -287,7 +275,6 @@ class ConnectionRunLogsApi:
         self,
         connection_id,
         run_id,
-        workspace_id,
         dat_message,
         _request_auth,
         _content_type,
@@ -316,10 +303,6 @@ class ConnectionRunLogsApi:
         if run_id is not None:
             
             _query_params.append(('run_id', run_id))
-            
-        if workspace_id is not None:
-            
-            _query_params.append(('workspace_id', workspace_id))
             
         # process the header parameters
         # process the form parameters

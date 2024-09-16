@@ -12,11 +12,11 @@ Method | HTTP request | Description
 
 
 # **add_connection_run_log_connection_run_logs_post**
-> ConnectionRunLogResponse add_connection_run_log_connection_run_logs_post(connection_id, run_id, workspace_id, dat_message)
+> ConnectionRunLogResponse add_connection_run_log_connection_run_logs_post(connection_id, run_id, dat_message)
 
 Add Connection Run Log
 
-Endpoint for adding a connection run log.  Args:     connection_id (str): The ID of the connection for which the log is being added.     workspace_id (str): The ID of the workspace for scoping the connection.     dat_message (DatMessage): The DatMessage object containing the log information.     run_id (str): The ID of the run for which the log is being added.  Returns:     ConnectionRunLogResponse: The response containing the added connection run log.
+Endpoint for adding a connection run log.  Args:     connection_id (str): The ID of the connection for which the log is being added.     dat_message (DatMessage): The DatMessage object containing the log information.     run_id (str): The ID of the run for which the log is being added.  Returns:     ConnectionRunLogResponse: The response containing the added connection run log.
 
 ### Example
 
@@ -41,12 +41,11 @@ with dat_client.ApiClient(configuration) as api_client:
     api_instance = dat_client.ConnectionRunLogsApi(api_client)
     connection_id = 'connection_id_example' # str | 
     run_id = 'run_id_example' # str | 
-    workspace_id = 'workspace_id_example' # str | The workspace ID for scoping the connection
     dat_message = dat_client.DatMessage() # DatMessage | 
 
     try:
         # Add Connection Run Log
-        api_response = api_instance.add_connection_run_log_connection_run_logs_post(connection_id, run_id, workspace_id, dat_message)
+        api_response = api_instance.add_connection_run_log_connection_run_logs_post(connection_id, run_id, dat_message)
         print("The response of ConnectionRunLogsApi->add_connection_run_log_connection_run_logs_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -62,7 +61,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connection_id** | **str**|  | 
  **run_id** | **str**|  | 
- **workspace_id** | **str**| The workspace ID for scoping the connection | 
  **dat_message** | [**DatMessage**](DatMessage.md)|  | 
 
 ### Return type

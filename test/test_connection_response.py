@@ -44,7 +44,13 @@ class TestConnectionResponse(unittest.TestCase):
                     configuration = dat_client.models.configuration.Configuration(), 
                     id = '', 
                     workspace_id = '', 
-                    actor = null, 
+                    actor = dat_client.models.actor_response.ActorResponse(
+                        name = '', 
+                        module_name = '', 
+                        icon = '', 
+                        actor_type = '', 
+                        status = 'active', 
+                        id = '', ), 
                     connected_connections = [
                         null
                         ], ),
@@ -57,7 +63,13 @@ class TestConnectionResponse(unittest.TestCase):
                     configuration = dat_client.models.configuration.Configuration(), 
                     id = '', 
                     workspace_id = '', 
-                    actor = null, 
+                    actor = dat_client.models.actor_response.ActorResponse(
+                        name = '', 
+                        module_name = '', 
+                        icon = '', 
+                        actor_type = '', 
+                        status = 'active', 
+                        id = '', ), 
                     connected_connections = [
                         null
                         ], ),
@@ -70,7 +82,13 @@ class TestConnectionResponse(unittest.TestCase):
                     configuration = dat_client.models.configuration.Configuration(), 
                     id = '', 
                     workspace_id = '', 
-                    actor = null, 
+                    actor = dat_client.models.actor_response.ActorResponse(
+                        name = '', 
+                        module_name = '', 
+                        icon = '', 
+                        actor_type = '', 
+                        status = 'active', 
+                        id = '', ), 
                     connected_connections = [
                         null
                         ], ),
@@ -108,7 +126,13 @@ class TestConnectionResponse(unittest.TestCase):
                     configuration = dat_client.models.configuration.Configuration(), 
                     id = '', 
                     workspace_id = '', 
-                    actor = null, 
+                    actor = dat_client.models.actor_response.ActorResponse(
+                        name = '', 
+                        module_name = '', 
+                        icon = '', 
+                        actor_type = '', 
+                        status = 'active', 
+                        id = '', ), 
                     connected_connections = [
                         null
                         ], ),
@@ -121,7 +145,13 @@ class TestConnectionResponse(unittest.TestCase):
                     configuration = dat_client.models.configuration.Configuration(), 
                     id = '', 
                     workspace_id = '', 
-                    actor = null, 
+                    actor = dat_client.models.actor_response.ActorResponse(
+                        name = '', 
+                        module_name = '', 
+                        icon = '', 
+                        actor_type = '', 
+                        status = 'active', 
+                        id = '', ), 
                     connected_connections = [
                         null
                         ], ),
@@ -134,7 +164,13 @@ class TestConnectionResponse(unittest.TestCase):
                     configuration = dat_client.models.configuration.Configuration(), 
                     id = '', 
                     workspace_id = '', 
-                    actor = null, 
+                    actor = dat_client.models.actor_response.ActorResponse(
+                        name = '', 
+                        module_name = '', 
+                        icon = '', 
+                        actor_type = '', 
+                        status = 'active', 
+                        id = '', ), 
                     connected_connections = [
                         null
                         ], ),
