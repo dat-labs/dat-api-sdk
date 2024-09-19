@@ -157,7 +157,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_combined_stream_states_connection_run_logs_connection_id_stream_states_get**
-> Dict[str, StreamState] get_combined_stream_states_connection_run_logs_connection_id_stream_states_get(connection_id, workspace_id)
+> Dict[str, StreamState] get_combined_stream_states_connection_run_logs_connection_id_stream_states_get(connection_id, workspace_id=workspace_id)
 
 Get Combined Stream States
 
@@ -184,11 +184,11 @@ with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ConnectionRunLogsApi(api_client)
     connection_id = 'connection_id_example' # str | 
-    workspace_id = 'workspace_id_example' # str | The workspace ID for scoping the connection
+    workspace_id = 'workspace_id_example' # str | The workspace ID for scoping the connection (optional)
 
     try:
         # Get Combined Stream States
-        api_response = api_instance.get_combined_stream_states_connection_run_logs_connection_id_stream_states_get(connection_id, workspace_id)
+        api_response = api_instance.get_combined_stream_states_connection_run_logs_connection_id_stream_states_get(connection_id, workspace_id=workspace_id)
         print("The response of ConnectionRunLogsApi->get_combined_stream_states_connection_run_logs_connection_id_stream_states_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -203,7 +203,7 @@ with dat_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connection_id** | **str**|  | 
- **workspace_id** | **str**| The workspace ID for scoping the connection | 
+ **workspace_id** | **str**| The workspace ID for scoping the connection | [optional] 
 
 ### Return type
 

@@ -1417,9 +1417,16 @@
           {
             "name": "workspace_id",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
-              "type": "string",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
               "description": "The workspace ID for scoping the connection",
               "title": "Workspace Id"
             },

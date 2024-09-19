@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 from typing_extensions import Annotated
 from dat_client.models.connection_run_log_response import ConnectionRunLogResponse
 from dat_client.models.dat_message import DatMessage
@@ -635,7 +635,7 @@ class ConnectionRunLogsApi:
     def get_combined_stream_states_connection_run_logs_connection_id_stream_states_get(
         self,
         connection_id: StrictStr,
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID for scoping the connection")],
+        workspace_id: Annotated[Optional[StrictStr], Field(description="The workspace ID for scoping the connection")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -655,7 +655,7 @@ class ConnectionRunLogsApi:
 
         :param connection_id: (required)
         :type connection_id: str
-        :param workspace_id: The workspace ID for scoping the connection (required)
+        :param workspace_id: The workspace ID for scoping the connection
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -708,7 +708,7 @@ class ConnectionRunLogsApi:
     def get_combined_stream_states_connection_run_logs_connection_id_stream_states_get_with_http_info(
         self,
         connection_id: StrictStr,
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID for scoping the connection")],
+        workspace_id: Annotated[Optional[StrictStr], Field(description="The workspace ID for scoping the connection")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -728,7 +728,7 @@ class ConnectionRunLogsApi:
 
         :param connection_id: (required)
         :type connection_id: str
-        :param workspace_id: The workspace ID for scoping the connection (required)
+        :param workspace_id: The workspace ID for scoping the connection
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -781,7 +781,7 @@ class ConnectionRunLogsApi:
     def get_combined_stream_states_connection_run_logs_connection_id_stream_states_get_without_preload_content(
         self,
         connection_id: StrictStr,
-        workspace_id: Annotated[StrictStr, Field(description="The workspace ID for scoping the connection")],
+        workspace_id: Annotated[Optional[StrictStr], Field(description="The workspace ID for scoping the connection")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -801,7 +801,7 @@ class ConnectionRunLogsApi:
 
         :param connection_id: (required)
         :type connection_id: str
-        :param workspace_id: The workspace ID for scoping the connection (required)
+        :param workspace_id: The workspace ID for scoping the connection
         :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
