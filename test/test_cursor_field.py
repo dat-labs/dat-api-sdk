@@ -14,7 +14,7 @@
 
 import unittest
 
-from dat_api_sdk.models.cursor_field import CursorField
+from dat_client.models.cursor_field import CursorField
 
 class TestCursorField(unittest.TestCase):
     """CursorField unit test stubs"""

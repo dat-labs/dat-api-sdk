@@ -14,7 +14,7 @@
 
 import unittest
 
-from dat_api_sdk.api.default_api import DefaultApi
+from dat_client.api.default_api import DefaultApi
 
 
 class TestDefaultApi(unittest.TestCase):

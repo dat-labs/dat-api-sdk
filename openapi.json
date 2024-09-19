@@ -1,1 +1,4380 @@
-{"openapi":"3.1.0","info":{"title":"FastAPI","version":"0.1.0"},"paths":{"/connections/list":{"get":{"tags":["connections"],"summary":"Fetch Available Connections","description":"Fetch all active connections","operationId":"fetch_available_connections_connections_list_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"items":{"$ref":"#/components/schemas/ConnectionResponse"},"type":"array","title":"Response Fetch Available Connections Connections List Get"}}}},"404":{"description":"Not found"}}}},"/connections/{connection_id}":{"get":{"tags":["connections"],"summary":"Read Connection","operationId":"read_connection_connections__connection_id__get","parameters":[{"name":"connection_id","in":"path","required":true,"schema":{"type":"string","title":"Connection Id"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConnectionResponse"}}}},"404":{"description":"Not found"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}},"put":{"tags":["connections"],"summary":"Update Connection","operationId":"update_connection_connections__connection_id__put","parameters":[{"name":"connection_id","in":"path","required":true,"schema":{"type":"string","title":"Connection Id"}}],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConnectionPutRequest"}}}},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConnectionResponse"}}}},"404":{"description":"Not found"},"403":{"description":"Operation forbidden"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}},"delete":{"tags":["connections"],"summary":"Delete Connection","operationId":"delete_connection_connections__connection_id__delete","parameters":[{"name":"connection_id","in":"path","required":true,"schema":{"type":"string","title":"Connection Id"}}],"responses":{"204":{"description":"Successful Response"},"404":{"description":"Connection not found"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/connections":{"post":{"tags":["connections"],"summary":"Create Connection","operationId":"create_connection_connections_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConnectionPostRequest"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConnectionResponse"}}}},"404":{"description":"Not found"},"403":{"description":"Operation forbidden"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/connections/{connection_id}/run":{"post":{"tags":["connections"],"summary":"Connection Trigger Run","operationId":"connection_trigger_run_connections__connection_id__run_post","parameters":[{"name":"connection_id","in":"path","required":true,"schema":{"type":"string","title":"Connection Id"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"404":{"description":"Not found"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/actors/{actor_type}/list":{"get":{"tags":["actors"],"summary":"Fetch Available Actors","operationId":"fetch_available_actors_actors__actor_type__list_get","parameters":[{"name":"actor_type","in":"path","required":true,"schema":{"type":"string","title":"Actor Type"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{},"title":"Response Fetch Available Actors Actors  Actor Type  List Get"}}}},"404":{"description":"Not found"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/actors/{actor_uuid}/specs":{"get":{"tags":["actors"],"summary":"Get Actor Specs","description":"Initialize actor obj from verified-actors repo and call spec() on it and return","operationId":"get_actor_specs_actors__actor_uuid__specs_get","parameters":[{"name":"actor_uuid","in":"path","required":true,"schema":{"type":"string","title":"Actor Uuid"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"404":{"description":"Not found"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/actor_instances/{actor_type}/list":{"get":{"tags":["actor_instances"],"summary":"Fetch Available Actor Instances","operationId":"fetch_available_actor_instances_actor_instances__actor_type__list_get","parameters":[{"name":"actor_type","in":"path","required":true,"schema":{"type":"string","title":"Actor Type"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/ActorInstance"},"title":"Response Fetch Available Actor Instances Actor Instances  Actor Type  List Get"}}}},"404":{"description":"Not found"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/actor_instances/{actor_instance_uuid}":{"get":{"tags":["actor_instances"],"summary":"Read Actor Instance","operationId":"read_actor_instance_actor_instances__actor_instance_uuid__get","parameters":[{"name":"actor_instance_uuid","in":"path","required":true,"schema":{"type":"string","title":"Actor Instance Uuid"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ActorInstance"}}}},"404":{"description":"Not found"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}},"put":{"tags":["actor_instances"],"summary":"Update Actor Instance","operationId":"update_actor_instance_actor_instances__actor_instance_uuid__put","parameters":[{"name":"actor_instance_uuid","in":"path","required":true,"schema":{"type":"string","title":"Actor Instance Uuid"}}],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/Body_update_actor_instance_actor_instances__actor_instance_uuid__put"}}}},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/ActorInstance"},"title":"Response Update Actor Instance Actor Instances  Actor Instance Uuid  Put"}}}},"404":{"description":"Not found"},"403":{"description":"Operation forbidden"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}},"delete":{"tags":["actor_instances"],"summary":"Delete Actor Instance","operationId":"delete_actor_instance_actor_instances__actor_instance_uuid__delete","parameters":[{"name":"actor_instance_uuid","in":"path","required":true,"schema":{"type":"string","title":"Actor Instance Uuid"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"object","title":"Response Delete Actor Instance Actor Instances  Actor Instance Uuid  Delete"}}}},"404":{"description":"Not found"},"403":{"description":"Operation forbidden"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/actor_instances/":{"post":{"tags":["actor_instances"],"summary":"Create Actor Instance","operationId":"create_actor_instance_actor_instances__post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ActorInstance"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ActorInstance"}}}},"404":{"description":"Not found"},"403":{"description":"Operation forbidden"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/actor_instances/{actor_instance_uuid}/discover":{"get":{"tags":["actor_instances"],"summary":"Call Actor Instance Discover","description":"Initialize actor obj from verified-actors repo and call discover() on it and return\n\ncurl -X 'GET'     'http://localhost:8000/actor_instances/c6713b9d-0b97-4903-8982-4c80132f4a21/discover'     -H 'accept: application/json'     -H 'Content-Type: application/json'","operationId":"call_actor_instance_discover_actor_instances__actor_instance_uuid__discover_get","parameters":[{"name":"actor_instance_uuid","in":"path","required":true,"schema":{"type":"string","title":"Actor Instance Uuid"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"404":{"description":"Not found"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/connection-run-logs/":{"post":{"tags":["connection_run_logs"],"summary":"Add Connection Run Log","operationId":"add_connection_run_log_connection_run_logs__post","parameters":[{"name":"connection_id","in":"query","required":true,"schema":{"type":"string","title":"Connection Id"}}],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DatLogMessage"}}}},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DatLogMessage"}}}},"404":{"description":"Not found"},"403":{"description":"Operation forbidden"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/users/verify":{"post":{"tags":["Users"],"summary":"Verify User","description":"Verify user credentials.\n\nParameters:\n- user (UserRequestModel): User request model containing email and password.\n- service (Users): Instance of the Users service.\n\nReturns:\n- dict or None: Dictionary containing user information if credentials are valid.","operationId":"verify_user_users_verify_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UserRequestModel"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/admin/":{"post":{"summary":"Update Admin","operationId":"update_admin_admin__post","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/internal/connections/{connection_id}":{"get":{"tags":["connections"],"summary":"Fetch Connection Config","description":"Fetch connection configuration for orchestra","operationId":"fetch_connection_config_internal_connections__connection_id__get","parameters":[{"name":"connection_id","in":"path","required":true,"schema":{"type":"string","description":"The ID of the connection to fetch","title":"Connection Id"},"description":"The ID of the connection to fetch"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConnectionOrchestraResponse"}}}},"404":{"description":"Not found"},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/":{"get":{"summary":"Root","operationId":"root__get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}}},"components":{"schemas":{"ActorInstance":{"properties":{"name":{"type":"string","title":"Name"},"workspace_id":{"type":"string","title":"Workspace Id","default":"wkspc-uuid"},"actor_id":{"type":"string","title":"Actor Id","default":"gdrive-uuid"},"user_id":{"type":"string","title":"User Id","default":"09922bd9-7872-4664-99d0-08eae42fb554"},"configuration":{"$ref":"#/components/schemas/ConnectorSpecification"}},"type":"object","required":["name","configuration"],"title":"ActorInstance"},"Body_update_actor_instance_actor_instances__actor_instance_uuid__put":{"properties":{"conn_spec":{"$ref":"#/components/schemas/ConnectorSpecification"},"configured_document_stream":{"$ref":"#/components/schemas/ConfiguredDocumentStream"}},"type":"object","required":["conn_spec","configured_document_stream"],"title":"Body_update_actor_instance_actor_instances__actor_instance_uuid__put"},"ConfiguredDocumentStream":{"properties":{"stream":{"$ref":"#/components/schemas/DatDocumentStream-Input"},"read_sync_mode":{"$ref":"#/components/schemas/ReadSyncMode"},"write_sync_mode":{"$ref":"#/components/schemas/dat_core__pydantic_models__configured_document_stream__WriteSyncMode"},"cursor_field":{"anyOf":[{"items":{"type":"string"},"type":"array"},{"type":"null"}],"title":"Cursor Field","description":"Path to the field that will be used to determine if a record is new or modified since the last sync. This field is REQUIRED if `read_sync_mode` is `incremental`. Otherwise it is ignored."},"primary_key":{"anyOf":[{"items":{"items":{"type":"string"},"type":"array"},"type":"array"},{"type":"null"}],"title":"Primary Key","description":"Paths to the fields that will be used as primary key. This field is REQUIRED if `write_sync_mode` is `*_dedup`. Otherwise it is ignored."}},"additionalProperties":true,"type":"object","required":["stream","read_sync_mode","write_sync_mode"],"title":"ConfiguredDocumentStream"},"ConnectionOrchestraResponse":{"properties":{"name":{"type":"string","title":"Name"},"namespace_format":{"type":"string","title":"Namespace Format","default":"${SOURCE_NAMESPACE}"},"prefix":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Prefix"},"catalog":{"anyOf":[{"$ref":"#/components/schemas/DatCatalog-Output"},{"type":"null"}]},"source":{"allOf":[{"$ref":"#/components/schemas/ConnectorSpecification"}],"description":"The source connector specification."},"generator":{"allOf":[{"$ref":"#/components/schemas/ConnectorSpecification"}],"description":"The generator connector specification."},"destination":{"allOf":[{"$ref":"#/components/schemas/ConnectorSpecification"}],"description":"The destination connector specification."},"source_instance_id":{"type":"string","title":"Source Instance Id"},"generator_instance_id":{"type":"string","title":"Generator Instance Id"},"destination_instance_id":{"type":"string","title":"Destination Instance Id"},"workspace_id":{"type":"string","title":"Workspace Id"},"configuration":{"anyOf":[{"type":"object"},{"type":"null"}],"title":"Configuration"},"schedule":{"anyOf":[{"$ref":"#/components/schemas/Schedule"},{"type":"null"}]},"schedule_type":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Schedule Type","default":"manual"},"status":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Status","default":"active"}},"additionalProperties":true,"type":"object","required":["name","source","generator","destination","source_instance_id","generator_instance_id","destination_instance_id","workspace_id"],"title":"ConnectionOrchestraResponse"},"ConnectionPostRequest":{"properties":{"source_instance_id":{"type":"string","title":"Source Instance Id"},"generator_instance_id":{"type":"string","title":"Generator Instance Id"},"destination_instance_id":{"type":"string","title":"Destination Instance Id"},"workspace_id":{"type":"string","title":"Workspace Id"},"name":{"type":"string","title":"Name"},"namespace_format":{"type":"string","title":"Namespace Format","default":"${SOURCE_NAMESPACE}"},"prefix":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Prefix"},"configuration":{"anyOf":[{"type":"object"},{"type":"null"}],"title":"Configuration"},"catalog":{"anyOf":[{"$ref":"#/components/schemas/DatCatalog-Input"},{"type":"null"}]},"schedule":{"anyOf":[{"$ref":"#/components/schemas/Schedule"},{"type":"null"}]},"schedule_type":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Schedule Type","default":"manual"},"status":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Status","default":"active"}},"type":"object","required":["source_instance_id","generator_instance_id","destination_instance_id","workspace_id","name"],"title":"ConnectionPostRequest"},"ConnectionPutRequest":{"properties":{"name":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Name"},"namespace_format":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Namespace Format"},"prefix":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Prefix"},"configuration":{"anyOf":[{"type":"object"},{"type":"null"}],"title":"Configuration"},"catalog":{"anyOf":[{"$ref":"#/components/schemas/DatCatalog-Input"},{"type":"null"}]},"schedule":{"anyOf":[{"$ref":"#/components/schemas/Schedule"},{"type":"null"}]},"schedule_type":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Schedule Type","default":"manual"},"status":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Status","default":"active"}},"type":"object","title":"ConnectionPutRequest"},"ConnectionResponse":{"properties":{"source_instance_id":{"type":"string","title":"Source Instance Id"},"generator_instance_id":{"type":"string","title":"Generator Instance Id"},"destination_instance_id":{"type":"string","title":"Destination Instance Id"},"workspace_id":{"type":"string","title":"Workspace Id"},"name":{"type":"string","title":"Name"},"namespace_format":{"type":"string","title":"Namespace Format","default":"${SOURCE_NAMESPACE}"},"prefix":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Prefix"},"configuration":{"anyOf":[{"type":"object"},{"type":"null"}],"title":"Configuration"},"catalog":{"anyOf":[{"$ref":"#/components/schemas/DatCatalog-Output"},{"type":"null"}]},"schedule":{"anyOf":[{"$ref":"#/components/schemas/Schedule"},{"type":"null"}]},"schedule_type":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Schedule Type","default":"manual"},"status":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Status","default":"active"},"id":{"type":"string","title":"Id"}},"type":"object","required":["source_instance_id","generator_instance_id","destination_instance_id","workspace_id","name","id"],"title":"ConnectionResponse"},"ConnectorSpecification":{"properties":{"documentation_url":{"anyOf":[{"type":"string","minLength":1,"format":"uri"},{"type":"null"}],"title":"Documentation Url"},"name":{"type":"string","title":"Name","description":"The name of the specific connector to which this ConnectorSpecification belongs."},"module_name":{"type":"string","title":"Module Name","description":"Name of the python module for this connector"},"connection_specification":{"type":"object","title":"Connection Specification","description":"ConnectorDefinition specific blob. Must be a valid JSON string."}},"additionalProperties":true,"type":"object","required":["name","module_name","connection_specification"],"title":"ConnectorSpecification"},"Cron":{"properties":{"cron_expression":{"type":"string","title":"Cron Expression"},"timezone":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Timezone"}},"type":"object","required":["cron_expression"],"title":"Cron"},"DatCatalog-Input":{"properties":{"document_streams":{"items":{"$ref":"#/components/schemas/DatDocumentStream-Input"},"type":"array","title":"Document Streams"}},"type":"object","required":["document_streams"],"title":"DatCatalog"},"DatCatalog-Output":{"properties":{"document_streams":{"items":{"$ref":"#/components/schemas/DatDocumentStream-Output"},"type":"array","title":"Document Streams"}},"type":"object","required":["document_streams"],"title":"DatCatalog"},"DatDocumentStream-Input":{"properties":{"name":{"type":"string","title":"Name","description":"The name of the document stream."},"namespace":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Namespace","description":"The namespace the data is associated with."},"json_schema":{"anyOf":[{"type":"object"},{"type":"null"}],"title":"Json Schema","description":"The JSON schema for the document stream."},"read_sync_mode":{"anyOf":[{"$ref":"#/components/schemas/ReadSyncMode"},{"type":"null"}],"description":"A list of supported sync modes for the stream while reading.","default":"INCREMENTAL"},"write_sync_mode":{"anyOf":[{"$ref":"#/components/schemas/dat_core__pydantic_models__dat_document_stream__WriteSyncMode"},{"type":"null"}],"description":"A list of supported sync modes for the stream while writing.","default":"APPEND"},"cursor_field":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Cursor Field","description":"The path to the field used to determine if a record is new or modified.\nREQUIRED for incremental sync mode."}},"type":"object","required":["name"],"title":"DatDocumentStream"},"DatDocumentStream-Output":{"properties":{"name":{"type":"string","title":"Name","description":"The name of the document stream."},"namespace":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Namespace","description":"The namespace the data is associated with."},"json_schema":{"anyOf":[{"type":"object"},{"type":"null"}],"title":"Json Schema","description":"The JSON schema for the document stream."},"read_sync_mode":{"anyOf":[{"$ref":"#/components/schemas/ReadSyncMode"},{"type":"null"}],"description":"A list of supported sync modes for the stream while reading.","default":"INCREMENTAL"},"write_sync_mode":{"anyOf":[{"$ref":"#/components/schemas/WriteSyncMode-Output"},{"type":"null"}],"description":"A list of supported sync modes for the stream while writing.","default":"APPEND"},"cursor_field":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Cursor Field","description":"The path to the field used to determine if a record is new or modified.\nREQUIRED for incremental sync mode."}},"type":"object","required":["name"],"title":"DatDocumentStream"},"DatLogMessage":{"properties":{"level":{"anyOf":[{"$ref":"#/components/schemas/Level"},{"type":"null"}],"description":"log level of the log message"},"message":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Message","description":"log message"},"stack_trace":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Stack Trace","description":"an optional stack trace if the log message corresponds to an exception"}},"additionalProperties":true,"type":"object","title":"DatLogMessage"},"HTTPValidationError":{"properties":{"detail":{"items":{"$ref":"#/components/schemas/ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"},"Level":{"type":"string","enum":["FATAL","ERROR","WARN","INFO","DEBUG","TRACE"],"title":"Level"},"ReadSyncMode":{"type":"string","enum":["FULL_REFRESH","INCREMENTAL"],"title":"ReadSyncMode"},"Schedule":{"properties":{"cron":{"anyOf":[{"$ref":"#/components/schemas/Cron"},{"type":"null"}]}},"type":"object","title":"Schedule"},"UserRequestModel":{"properties":{"email":{"type":"string","title":"Email"},"password":{"type":"string","title":"Password"}},"type":"object","required":["email","password"],"title":"UserRequestModel"},"ValidationError":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"WriteSyncMode-Output":{"type":"string","enum":["APPEND","UPSERT","REPLACE"],"title":"WriteSyncMode"},"dat_core__pydantic_models__configured_document_stream__WriteSyncMode":{"type":"string","enum":["upsert","append","replace"],"title":"WriteSyncMode"},"dat_core__pydantic_models__dat_document_stream__WriteSyncMode":{"type":"string","enum":["APPEND","UPSERT","REPLACE"],"title":"WriteSyncMode"}}}}
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "FastAPI",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/internal/connections/{connection_id}": {
+      "get": {
+        "tags": [
+          "connections"
+        ],
+        "summary": "Fetch Connection Config",
+        "description": "Fetch connection configuration for orchestra",
+        "operationId": "fetch_connection_config_internal_connections__connection_id__get",
+        "parameters": [
+          {
+            "name": "connection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the connection to fetch",
+              "title": "Connection Id"
+            },
+            "description": "The ID of the connection to fetch"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConnectionOrchestraResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connections/list": {
+      "get": {
+        "tags": [
+          "connections"
+        ],
+        "summary": "Fetch Available Connections",
+        "description": "Fetch all active connections",
+        "operationId": "fetch_available_connections_connections_list_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The workspace ID to scope the request",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID to scope the request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ConnectionResponse"
+                  },
+                  "title": "Response Fetch Available Connections Connections List Get"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connections/{connection_id}": {
+      "get": {
+        "tags": [
+          "connections"
+        ],
+        "summary": "Read Connection",
+        "description": "Retrieves a connection by its ID within a specific workspace.\n\nArgs:\n    connection_id (str): The ID of the connection.\n    db (Session): The database session.\n    workspace_id (str): The ID of the workspace to which the connection belongs.\n\nReturns:\n    ConnectionResponse: The connection with the specified ID.\n\nRaises:\n    HTTPException: If the connection is not found or an error occurs.",
+        "operationId": "read_connection_connections__connection_id__get",
+        "parameters": [
+          {
+            "name": "connection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Connection Id"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID to scope the request",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID to scope the request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConnectionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "connections"
+        ],
+        "summary": "Update Connection",
+        "description": "Updates an existing connection within a specific workspace.\n\nArgs:\n    connection_id (str): The ID of the connection to update.\n    payload (ConnectionPutRequest): The request payload containing the updated connection details.\n    db (Session): The database session.\n    workspace_id (str): The ID of the workspace to which the connection belongs.\n\nReturns:\n    The updated connection.\n\nRaises:\n    HTTPException: If the connection is not found or an error occurs.",
+        "operationId": "update_connection_connections__connection_id__put",
+        "parameters": [
+          {
+            "name": "connection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Connection Id"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID to scope the request",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID to scope the request"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConnectionPutRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Operation forbidden"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "connections"
+        ],
+        "summary": "Delete Connection",
+        "description": "Deletes a connection within a specific workspace.\n\nArgs:\n    connection_id (str): The ID of the connection to delete.\n    db (Session): The database session.\n    workspace_id (str): The ID of the workspace to which the connection belongs.\n\nRaises:\n    HTTPException: If the connection is not found or an error occurs.",
+        "operationId": "delete_connection_connections__connection_id__delete",
+        "parameters": [
+          {
+            "name": "connection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Connection Id"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID to scope the request",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID to scope the request"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "404": {
+            "description": "Connection not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connections": {
+      "post": {
+        "tags": [
+          "connections"
+        ],
+        "summary": "Create Connection",
+        "description": "Creates a new connection within a specific workspace.\n\nArgs:\n    payload (ConnectionPostRequest): The request payload containing the connection details.\n    db (Session): The database session.\n    workspace_id (str): The ID of the workspace to which the connection will belong.\n\nReturns:\n    ConnectionResponse: The created connection.\n\nRaises:\n    HTTPException: If the operation is forbidden or an error occurs.",
+        "operationId": "create_connection_connections_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID to scope the request",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID to scope the request"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConnectionPostRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConnectionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Operation forbidden"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connections/{connection_id}/run": {
+      "post": {
+        "tags": [
+          "connections"
+        ],
+        "summary": "Connection Trigger Run",
+        "description": "Trigger the run for the connection",
+        "operationId": "connection_trigger_run_connections__connection_id__run_post",
+        "parameters": [
+          {
+            "name": "connection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Connection Id"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The workspace ID to scope the request",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID to scope the request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConnectionOrchestraResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actors/{actor_type}/list": {
+      "get": {
+        "tags": [
+          "actors"
+        ],
+        "summary": "Fetch Available Actors",
+        "description": "Fetch all active actors",
+        "operationId": "fetch_available_actors_actors__actor_type__list_get",
+        "parameters": [
+          {
+            "name": "actor_type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Actor Type"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ActorResponse"
+                  },
+                  "title": "Response Fetch Available Actors Actors  Actor Type  List Get"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actors/{actor_id}": {
+      "get": {
+        "tags": [
+          "actors"
+        ],
+        "summary": "Read Actor",
+        "description": "Reads an actor based on its ID.\n\nArgs:\n    actor_id (str): The ID of the actor to read.\n\nReturns:\n    ActorResponse: The ActorResponse object representing the actor.\n\nRaises:\n    HTTPException: If the actor with the specified ID is not found.",
+        "operationId": "read_actor_actors__actor_id__get",
+        "parameters": [
+          {
+            "name": "actor_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Actor Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "actors"
+        ],
+        "summary": "Update Actor",
+        "description": "Updates an existing actor.\n\nArgs:\n    actor_id (str): The ID of the actor to update.\n    payload (ActorPutRequest): The payload containing the updated data for the actor.\n\nReturns:\n    ActorResponse: The ActorResponse object representing the updated actor.\n\nRaises:\n    HTTPException: If there is an error updating the actor.",
+        "operationId": "update_actor_actors__actor_id__put",
+        "parameters": [
+          {
+            "name": "actor_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Actor Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActorPutRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "actors"
+        ],
+        "summary": "Delete Actor",
+        "description": "Deletes an actor.\n\nArgs:\n    actor_id (str): The ID of the actor to delete.\n\nRaises:\n    HTTPException: If there is an error deleting the actor.",
+        "operationId": "delete_actor_actors__actor_id__delete",
+        "parameters": [
+          {
+            "name": "actor_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Actor Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actors": {
+      "post": {
+        "tags": [
+          "actors"
+        ],
+        "summary": "Create Actor",
+        "description": "Creates a new actor.\n\nArgs:\n    payload (ActorPostRequest): The payload containing the data for the new actor.\n\nReturns:\n    ActorResponse: The ActorResponse object representing the created actor.\n\nRaises:\n    HTTPException: If there is an error creating the actor.",
+        "operationId": "create_actor_actors_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActorPostRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actors/{actor_id}/mark_inactive": {
+      "delete": {
+        "tags": [
+          "actors"
+        ],
+        "summary": "Mark Actor Inactive",
+        "description": "Marks an actor as inactive.\n\nArgs:\n    actor_id (str): The ID of the actor to mark as inactive.\n\nRaises:\n    HTTPException: If there is an error marking the actor as inactive.",
+        "operationId": "mark_actor_inactive_actors__actor_id__mark_inactive_delete",
+        "parameters": [
+          {
+            "name": "actor_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Actor Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actors/{actor_id}/spec": {
+      "get": {
+        "tags": [
+          "actors"
+        ],
+        "summary": "Get Actor Specs",
+        "description": "Retrieves the specifications of an actor.\n\nArgs:\n    actor_id (str): The ID of the actor.\n\nReturns:\n    dict: The specifications of the actor.\n\nRaises:\n    HTTPException: If the actor with the specified UUID is not found.",
+        "operationId": "get_actor_specs_actors__actor_id__spec_get",
+        "parameters": [
+          {
+            "name": "actor_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Actor Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actors/doc/": {
+      "get": {
+        "tags": [
+          "actors"
+        ],
+        "summary": "Get Actor Documentaion",
+        "description": "Retrieves the documentation for an actor.\n\nArgs:\n    path (str): The path to the actor documentation.\n\nReturns:\n    str: The documentation for the actor.",
+        "operationId": "get_actor_documentaion_actors_doc__get",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Path"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "title": "Response Get Actor Documentaion Actors Doc  Get"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actor_instances/{actor_type}/list": {
+      "get": {
+        "tags": [
+          "actor_instances"
+        ],
+        "summary": "Fetch Available Actor Instances",
+        "description": "Fetch all active actors in the workspace",
+        "operationId": "fetch_available_actor_instances_actor_instances__actor_type__list_get",
+        "parameters": [
+          {
+            "name": "actor_type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Actor Type"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID to scope the request",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID to scope the request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ActorInstanceResponse"
+                  },
+                  "title": "Response Fetch Available Actor Instances Actor Instances  Actor Type  List Get"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actor_instances/{actor_instance_id}": {
+      "get": {
+        "tags": [
+          "actor_instances"
+        ],
+        "summary": "Read Actor Instance",
+        "operationId": "read_actor_instance_actor_instances__actor_instance_id__get",
+        "parameters": [
+          {
+            "name": "actor_instance_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Actor Instance Id"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID to scope the request",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID to scope the request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActorInstanceResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "actor_instances"
+        ],
+        "summary": "Update Actor Instance",
+        "description": "Update an existing actor instance within a specific workspace after testing the connection.\n\nArgs:\n    actor_instance_id (str): The ID of the actor instance to update.\n    payload (ActorInstancePutRequest): The updated data for the actor instance.\n    db (Session): The database session.\n    workspace_id (str): The ID of the workspace to which the actor instance belongs.\n\nReturns:\n    ActorInstanceResponse: The updated actor instance.\n\nRaises:\n    HTTPException: If the actor instance is not found, or if a validation error or exception occurs.",
+        "operationId": "update_actor_instance_actor_instances__actor_instance_id__patch",
+        "parameters": [
+          {
+            "name": "actor_instance_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Actor Instance Id"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID to scope the request",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID to scope the request"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActorInstancePutRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActorInstanceResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Actor instance not found"
+          },
+          "403": {
+            "description": "Operation forbidden"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "actor_instances"
+        ],
+        "summary": "Delete Actor Instance",
+        "description": "Delete an existing actor instance within a specific workspace.\n\nArgs:\n    actor_instance_id (str): The ID of the actor instance to delete.\n    db (Session): The database session.\n    workspace_id (str): The ID of the workspace to which the actor instance belongs.\n\nRaises:\n    HTTPException: If the actor instance is not found or an exception occurs.",
+        "operationId": "delete_actor_instance_actor_instances__actor_instance_id__delete",
+        "parameters": [
+          {
+            "name": "actor_instance_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Actor Instance Id"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID to scope the request",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID to scope the request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Actor instance not found"
+          },
+          "403": {
+            "description": "Operation forbidden"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actor_instances": {
+      "post": {
+        "tags": [
+          "actor_instances"
+        ],
+        "summary": "Create Actor Instance",
+        "description": "Create a new actor instance after testing the connection.\n\nArgs:\n    payload (ActorInstancePostRequest): The data for the actor instance.\n    workspace_id (str): The ID of the workspace.\n    db (Session): The database session.\n\nReturns:\n    ActorInstanceResponse: The created actor instance.",
+        "operationId": "create_actor_instance_actor_instances_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID to scope the request",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID to scope the request"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActorInstancePostRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActorInstanceResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Operation forbidden"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actor_instances/{actor_instance_uuid}/discover": {
+      "get": {
+        "tags": [
+          "actor_instances"
+        ],
+        "summary": "Call Actor Instance Discover",
+        "description": "Discover available data or schema for an actor instance within a specific workspace.\n\nArgs:\n    actor_instance_uuid (str): The UUID of the actor instance to discover.\n    db (Session): The database session.\n    workspace_id (str): The ID of the workspace to which the actor instance belongs.\n\nReturns:\n    The discovered catalog or data schema for the actor instance.",
+        "operationId": "call_actor_instance_discover_actor_instances__actor_instance_uuid__discover_get",
+        "parameters": [
+          {
+            "name": "actor_instance_uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Actor Instance Uuid"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID to scope the request",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID to scope the request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actor_instances/{actor_instance_id}/check": {
+      "get": {
+        "tags": [
+          "actor_instances"
+        ],
+        "summary": "Call Actor Instance Check",
+        "description": "Check the connection for an actor instance within a specific workspace.\n\nArgs:\n    actor_instance_id (str): The ID of the actor instance to check.\n    db (Session): The database session.\n    workspace_id (str): The ID of the workspace to which the actor instance belongs.\n\nReturns:\n    The connection status for the actor instance.",
+        "operationId": "call_actor_instance_check_actor_instances__actor_instance_id__check_get",
+        "parameters": [
+          {
+            "name": "actor_instance_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Actor Instance Id"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID to scope the request",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID to scope the request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connection-run-logs/": {
+      "post": {
+        "tags": [
+          "connection_run_logs"
+        ],
+        "summary": "Add Connection Run Log",
+        "description": "Endpoint for adding a connection run log.\n\nArgs:\n    connection_id (str): The ID of the connection for which the log is being added.\n    dat_message (DatMessage): The DatMessage object containing the log information.\n    run_id (str): The ID of the run for which the log is being added.\n\nReturns:\n    ConnectionRunLogResponse: The response containing the added connection run log.",
+        "operationId": "add_connection_run_log_connection_run_logs__post",
+        "parameters": [
+          {
+            "name": "connection_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Connection Id"
+            }
+          },
+          {
+            "name": "run_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Run Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConnectionRunLogResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Operation forbidden"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connection-run-logs/{connection_id}/runs": {
+      "get": {
+        "tags": [
+          "connection_run_logs"
+        ],
+        "summary": "Get Connection Run Logs",
+        "description": "Get all runs for a given connection ID",
+        "operationId": "get_connection_run_logs_connection_run_logs__connection_id__runs_get",
+        "parameters": [
+          {
+            "name": "connection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Connection Id"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID for scoping the connection",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID for scoping the connection"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ConnectionRunLogResponse"
+                  },
+                  "title": "Response Get Connection Run Logs Connection Run Logs  Connection Id  Runs Get"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connection-run-logs/runs/{run_id}": {
+      "get": {
+        "tags": [
+          "connection_run_logs"
+        ],
+        "summary": "Get Connection Runs By Run Id",
+        "description": "Get run logs for a particular run ID",
+        "operationId": "get_connection_runs_by_run_id_connection_run_logs_runs__run_id__get",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID for scoping the connection",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID for scoping the connection"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ConnectionRunLogResponse"
+                  },
+                  "title": "Response Get Connection Runs By Run Id Connection Run Logs Runs  Run Id  Get"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connection-run-logs/{connection_id}/stream-states": {
+      "get": {
+        "tags": [
+          "connection_run_logs"
+        ],
+        "summary": "Get Combined Stream States",
+        "description": "Get the latest stream states for a connection",
+        "operationId": "get_combined_stream_states_connection_run_logs__connection_id__stream_states_get",
+        "parameters": [
+          {
+            "name": "connection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Connection Id"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The workspace ID for scoping the connection",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID for scoping the connection"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/StreamState"
+                  },
+                  "title": "Response Get Combined Stream States Connection Run Logs  Connection Id  Stream States Get"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connection-run-logs/{connection_id}/agg-run-logs": {
+      "get": {
+        "tags": [
+          "connection_run_logs"
+        ],
+        "summary": "Get Agg Run Logs",
+        "operationId": "get_agg_run_logs_connection_run_logs__connection_id__agg_run_logs_get",
+        "parameters": [
+          {
+            "name": "connection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Connection Id"
+            }
+          },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The workspace ID for scoping the connection",
+              "title": "Workspace Id"
+            },
+            "description": "The workspace ID for scoping the connection"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/verify": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Verify User",
+        "description": "Verify user credentials.\n\nParameters:\n- user (UserRequestModel): User request model containing email and password.\n- service (Users): Instance of the Users service.\n\nReturns:\n- dict or None: Dictionary containing user information if credentials are valid.",
+        "operationId": "verify_user_users_verify_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/list": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Fetch Users",
+        "description": "Fetch all users.\n\nParameters:\n- service (Users): Instance of the Users service.\n\nReturns:\n- list: List of all users.",
+        "operationId": "fetch_users_users_list_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create User",
+        "description": "Create a new user",
+        "operationId": "create_user_users_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRequestModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{user_id}": {
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update User",
+        "description": "Update a user",
+        "operationId": "update_user_users__user_id__patch",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "User Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/workspaces/list": {
+      "get": {
+        "tags": [
+          "workspaces"
+        ],
+        "summary": "Fetch Available Workspaces",
+        "description": "Fetch all available workspaces",
+        "operationId": "fetch_available_workspaces_workspaces_list_get",
+        "parameters": [
+          {
+            "name": "org_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the organization",
+              "title": "Org Id"
+            },
+            "description": "The ID of the organization"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkspaceResponse"
+                  },
+                  "title": "Response Fetch Available Workspaces Workspaces List Get"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/workspaces/{workspace_id}": {
+      "get": {
+        "tags": [
+          "workspaces"
+        ],
+        "summary": "Read Workspace",
+        "description": "Retrieves a workspace by its ID.\n\nArgs:\n    workspace_id: The ID of the workspace.\n\nReturns:\n    The workspace with the specified ID.\n\nRaises:\n    HTTPException: If the workspace is not found.",
+        "operationId": "read_workspace_workspaces__workspace_id__get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "workspaces"
+        ],
+        "summary": "Update Workspace",
+        "description": "Update a workspace.",
+        "operationId": "update_workspace_workspaces__workspace_id__put",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkspacePutRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "workspaces"
+        ],
+        "summary": "Delete Workspace",
+        "description": "Delete a workspace.",
+        "operationId": "delete_workspace_workspaces__workspace_id__delete",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/workspaces": {
+      "post": {
+        "tags": [
+          "workspaces"
+        ],
+        "summary": "Create Workspace",
+        "description": "Creates a new workspace.",
+        "operationId": "create_workspace_workspaces_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkspacePostRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organization_id}": {
+      "get": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Read Organization",
+        "description": "Retrieves an organization by its ID.\n\nArgs:\n    organization_id: The ID of the organization.\n\nReturns:\n    The organization with the specified ID.\n\nRaises:\n    HTTPException: If the organization is not found.",
+        "operationId": "read_organization_organizations__organization_id__get",
+        "parameters": [
+          {
+            "name": "organization_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Organization Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Update Organization",
+        "description": "Updates an organization.\n\nArgs:\n    organization_id: The ID of the organization to update.\n    organization: The updated organization.\n\nReturns:\n    The updated organization.\n\nRaises:\n    HTTPException: If the organization cannot be updated.",
+        "operationId": "update_organization_organizations__organization_id__put",
+        "parameters": [
+          {
+            "name": "organization_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Organization Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrganizationPutRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Delete Organization",
+        "description": "Deletes an organization.\n\nArgs:\n    organization_id: The ID of the organization to delete.\n\nReturns:\n    The deleted organization.\n\nRaises:\n    HTTPException: If the organization cannot be deleted.",
+        "operationId": "delete_organization_organizations__organization_id__delete",
+        "parameters": [
+          {
+            "name": "organization_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Organization Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/organizations": {
+      "post": {
+        "tags": [
+          "organizations"
+        ],
+        "summary": "Create Organization",
+        "description": "Creates a new organization.\n\nArgs:\n    organization: The organization to create.\n\nReturns:\n    The created organization.\n\nRaises:\n    HTTPException: If the organization cannot be created.",
+        "operationId": "create_organization_organizations_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrganizationPostRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/workspace_users/{workspace_id}/list": {
+      "get": {
+        "tags": [
+          "workspace_users"
+        ],
+        "summary": "Fetch Available Workspace Users",
+        "description": "Fetch all available workspace users",
+        "operationId": "fetch_available_workspace_users_workspace_users__workspace_id__list_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkspaceUserResponse"
+                  },
+                  "title": "Response Fetch Available Workspace Users Workspace Users  Workspace Id  List Get"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/workspace_users/": {
+      "post": {
+        "tags": [
+          "workspace_users"
+        ],
+        "summary": "Create Workspace User",
+        "description": "Create a new workspace user",
+        "operationId": "create_workspace_user_workspace_users__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkspaceUserPostRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceUserResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/": {
+      "post": {
+        "summary": "Update Admin",
+        "operationId": "update_admin_admin__post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "Root",
+        "operationId": "root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActorInstancePostRequest": {
+        "properties": {
+          "actor_id": {
+            "type": "string",
+            "title": "Actor Id"
+          },
+          "user_id": {
+            "type": "string",
+            "title": "User Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "actor_type": {
+            "type": "string",
+            "title": "Actor Type"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "active"
+          },
+          "configuration": {
+            "type": "object",
+            "title": "Configuration",
+            "default": {
+
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "actor_id",
+          "user_id",
+          "name",
+          "actor_type"
+        ],
+        "title": "ActorInstancePostRequest"
+      },
+      "ActorInstancePutRequest": {
+        "properties": {
+          "actor_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actor Id"
+          },
+          "user_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Id"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "actor_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actor Type"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status",
+            "default": "active"
+          },
+          "configuration": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration",
+            "default": {
+
+            }
+          }
+        },
+        "type": "object",
+        "title": "ActorInstancePutRequest"
+      },
+      "ActorInstanceResponse": {
+        "properties": {
+          "actor_id": {
+            "type": "string",
+            "title": "Actor Id"
+          },
+          "user_id": {
+            "type": "string",
+            "title": "User Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "actor_type": {
+            "type": "string",
+            "title": "Actor Type"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "active"
+          },
+          "configuration": {
+            "type": "object",
+            "title": "Configuration",
+            "default": {
+
+            }
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/ActorResponse"
+          },
+          "connected_connections": {
+            "items": {
+
+            },
+            "type": "array",
+            "title": "Connected Connections",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "actor_id",
+          "user_id",
+          "name",
+          "actor_type",
+          "id",
+          "workspace_id"
+        ],
+        "title": "ActorInstanceResponse"
+      },
+      "ActorPostRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "module_name": {
+            "type": "string",
+            "title": "Module Name"
+          },
+          "icon": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Icon"
+          },
+          "actor_type": {
+            "type": "string",
+            "title": "Actor Type"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "active"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "module_name",
+          "actor_type"
+        ],
+        "title": "ActorPostRequest"
+      },
+      "ActorPutRequest": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "module_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Module Name"
+          },
+          "icon": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Icon"
+          },
+          "actor_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actor Type"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "active"
+          }
+        },
+        "type": "object",
+        "title": "ActorPutRequest"
+      },
+      "ActorResponse": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "module_name": {
+            "type": "string",
+            "title": "Module Name"
+          },
+          "icon": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Icon"
+          },
+          "actor_type": {
+            "type": "string",
+            "title": "Actor Type"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "active"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "module_name",
+          "actor_type",
+          "id"
+        ],
+        "title": "ActorResponse"
+      },
+      "Advanced": {
+        "properties": {
+          "splitter_settings": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SplitByHtmlHeaderSettings"
+              },
+              {
+                "$ref": "#/components/schemas/SplitByCharacterSettings"
+              },
+              {
+                "$ref": "#/components/schemas/SplitCodeSettings"
+              },
+              {
+                "$ref": "#/components/schemas/SplitByMarkdownSettings"
+              },
+              {
+                "$ref": "#/components/schemas/SplitJsonRecursivelySettings"
+              },
+              {
+                "$ref": "#/components/schemas/SplitByCharacterRecursiverlySettings"
+              },
+              {
+                "$ref": "#/components/schemas/SplitByTokensSettings"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Splitter Settings",
+            "description": "Splitter settings.",
+            "ui-opts": {
+              "widget": "singleDropdown"
+            }
+          }
+        },
+        "type": "object",
+        "title": "Advanced"
+      },
+      "ConnectionOrchestraResponse": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "namespace_format": {
+            "type": "string",
+            "title": "Namespace Format",
+            "default": "${SOURCE_NAMESPACE}"
+          },
+          "prefix": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prefix"
+          },
+          "catalog": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DatCatalog-Output"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source": {
+            "$ref": "#/components/schemas/ConnectorSpecification",
+            "description": "The source connector specification."
+          },
+          "generator": {
+            "$ref": "#/components/schemas/ConnectorSpecification",
+            "description": "The generator connector specification."
+          },
+          "destination": {
+            "$ref": "#/components/schemas/ConnectorSpecification",
+            "description": "The destination connector specification."
+          },
+          "source_instance_id": {
+            "type": "string",
+            "title": "Source Instance Id"
+          },
+          "generator_instance_id": {
+            "type": "string",
+            "title": "Generator Instance Id"
+          },
+          "destination_instance_id": {
+            "type": "string",
+            "title": "Destination Instance Id"
+          },
+          "configuration": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration"
+          },
+          "schedule": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Schedule"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "schedule_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Schedule Type",
+            "default": "manual"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status",
+            "default": "active"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "name",
+          "source",
+          "generator",
+          "destination",
+          "source_instance_id",
+          "generator_instance_id",
+          "destination_instance_id"
+        ],
+        "title": "ConnectionOrchestraResponse"
+      },
+      "ConnectionPostRequest": {
+        "properties": {
+          "source_instance_id": {
+            "type": "string",
+            "title": "Source Instance Id"
+          },
+          "generator_instance_id": {
+            "type": "string",
+            "title": "Generator Instance Id"
+          },
+          "destination_instance_id": {
+            "type": "string",
+            "title": "Destination Instance Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "namespace_format": {
+            "type": "string",
+            "title": "Namespace Format",
+            "default": "${SOURCE_NAMESPACE}"
+          },
+          "prefix": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prefix"
+          },
+          "configuration": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration"
+          },
+          "catalog": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DatCatalog-Input"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "schedule": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Schedule"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "schedule_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Schedule Type",
+            "default": "manual"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status",
+            "default": "active"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_instance_id",
+          "generator_instance_id",
+          "destination_instance_id",
+          "name"
+        ],
+        "title": "ConnectionPostRequest"
+      },
+      "ConnectionPutRequest": {
+        "properties": {
+          "source_instance_id": {
+            "type": "string",
+            "title": "Source Instance Id"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "namespace_format": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Namespace Format"
+          },
+          "prefix": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prefix"
+          },
+          "configuration": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration"
+          },
+          "catalog": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DatCatalog-Input"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "schedule": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Schedule"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "schedule_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Schedule Type",
+            "default": "manual"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status",
+            "default": "active"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_instance_id"
+        ],
+        "title": "ConnectionPutRequest"
+      },
+      "ConnectionResponse": {
+        "properties": {
+          "source_instance": {
+            "$ref": "#/components/schemas/ActorInstanceResponse"
+          },
+          "generator_instance": {
+            "$ref": "#/components/schemas/ActorInstanceResponse"
+          },
+          "destination_instance": {
+            "$ref": "#/components/schemas/ActorInstanceResponse"
+          },
+          "source_instance_id": {
+            "type": "string",
+            "title": "Source Instance Id"
+          },
+          "generator_instance_id": {
+            "type": "string",
+            "title": "Generator Instance Id"
+          },
+          "destination_instance_id": {
+            "type": "string",
+            "title": "Destination Instance Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "namespace_format": {
+            "type": "string",
+            "title": "Namespace Format",
+            "default": "${SOURCE_NAMESPACE}"
+          },
+          "prefix": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prefix"
+          },
+          "configuration": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration"
+          },
+          "catalog": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DatCatalog-Output"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "schedule": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Schedule"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "schedule_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Schedule Type",
+            "default": "manual"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status",
+            "default": "active"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_instance",
+          "generator_instance",
+          "destination_instance",
+          "source_instance_id",
+          "generator_instance_id",
+          "destination_instance_id",
+          "name",
+          "id",
+          "workspace_id"
+        ],
+        "title": "ConnectionResponse"
+      },
+      "ConnectionRunLogResponse": {
+        "properties": {
+          "connection_id": {
+            "type": "string",
+            "title": "Connection Id"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "stack_trace": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stack Trace"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          },
+          "run_id": {
+            "type": "string",
+            "title": "Run Id"
+          },
+          "message_type": {
+            "type": "string",
+            "title": "Message Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "connection_id",
+          "message",
+          "created_at",
+          "updated_at",
+          "run_id",
+          "message_type"
+        ],
+        "title": "ConnectionRunLogResponse"
+      },
+      "ConnectionSpecification": {
+        "properties": {
+          "dat_name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name of the actor instance."
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "title": "ConnectionSpecification"
+      },
+      "ConnectorSpecification": {
+        "properties": {
+          "documentation_url": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "format": "uri"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Documentation Url"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the specific connector to which this ConnectorSpecification belongs."
+          },
+          "module_name": {
+            "type": "string",
+            "title": "Module Name",
+            "description": "Name of the python module for this connector"
+          },
+          "connection_specification": {
+            "$ref": "#/components/schemas/ConnectionSpecification"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "name",
+          "module_name",
+          "connection_specification"
+        ],
+        "title": "ConnectorSpecification"
+      },
+      "Cron": {
+        "properties": {
+          "cron_expression": {
+            "type": "string",
+            "title": "Cron Expression"
+          },
+          "timezone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timezone"
+          },
+          "advanced_scheduling": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Advanced Scheduling"
+          }
+        },
+        "type": "object",
+        "required": [
+          "cron_expression"
+        ],
+        "title": "Cron"
+      },
+      "DatCatalog-Input": {
+        "properties": {
+          "document_streams": {
+            "items": {
+              "$ref": "#/components/schemas/DatDocumentStream-Input"
+            },
+            "type": "array",
+            "title": "Document Streams"
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_streams"
+        ],
+        "title": "DatCatalog"
+      },
+      "DatCatalog-Output": {
+        "properties": {
+          "document_streams": {
+            "items": {
+              "$ref": "#/components/schemas/DatDocumentStream-Output"
+            },
+            "type": "array",
+            "title": "Document Streams"
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_streams"
+        ],
+        "title": "DatCatalog"
+      },
+      "DatConnectionStatus": {
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "DatConnectionStatus"
+      },
+      "DatDocumentMessage": {
+        "properties": {
+          "namespace": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Namespace",
+            "description": "namespace the data is associated with"
+          },
+          "stream": {
+            "$ref": "#/components/schemas/DatDocumentStream-Input",
+            "description": "stream the data is associated with"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data",
+            "description": "record data"
+          },
+          "emitted_at": {
+            "type": "number",
+            "title": "Emitted At",
+            "description": "when the data was emitted from the source. epoch in millisecond."
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "DatDocumentMessage"
+      },
+      "DatDocumentStream-Input": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the document stream.",
+            "ui-opts": {
+              "hidden": true
+            }
+          },
+          "json_schema": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Json Schema",
+            "description": "Stream schema using Json schema specification.",
+            "ui-opts": {
+              "hidden": true
+            }
+          },
+          "namespace": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Namespace",
+            "description": "The namespace the data is associated with."
+          },
+          "read_sync_mode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReadSyncMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An list of supported sync modes for the stream while reading.",
+            "default": "INCREMENTAL",
+            "ui-opts": {
+              "widget": "radioButton"
+            }
+          },
+          "write_sync_mode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WriteSyncMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A list of supported sync modes for the stream while writing.",
+            "default": "APPEND",
+            "ui-opts": {
+              "widget": "radioButton"
+            }
+          },
+          "cursor_field": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cursor Field",
+            "description": "The path to the field used to determine if a record is new or modified.\nREQUIRED for INCREMENTAL sync mode.",
+            "ui-opts": {
+              "hidden": true
+            }
+          },
+          "advanced": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Advanced"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Additional optional settings",
+            "ui-opts": {
+              "collapsible": true,
+              "widget": "group"
+            }
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "DatDocumentStream"
+      },
+      "DatDocumentStream-Output": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the document stream.",
+            "ui-opts": {
+              "hidden": true
+            }
+          },
+          "json_schema": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Json Schema",
+            "description": "Stream schema using Json schema specification.",
+            "ui-opts": {
+              "hidden": true
+            }
+          },
+          "namespace": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Namespace",
+            "description": "The namespace the data is associated with."
+          },
+          "read_sync_mode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReadSyncMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An list of supported sync modes for the stream while reading.",
+            "default": "INCREMENTAL",
+            "ui-opts": {
+              "widget": "radioButton"
+            }
+          },
+          "write_sync_mode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WriteSyncMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A list of supported sync modes for the stream while writing.",
+            "default": "APPEND",
+            "ui-opts": {
+              "widget": "radioButton"
+            }
+          },
+          "cursor_field": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cursor Field",
+            "description": "The path to the field used to determine if a record is new or modified.\nREQUIRED for INCREMENTAL sync mode.",
+            "ui-opts": {
+              "hidden": true
+            }
+          },
+          "advanced": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Advanced"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Additional optional settings",
+            "ui-opts": {
+              "collapsible": true,
+              "widget": "group"
+            }
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "DatDocumentStream"
+      },
+      "DatLogMessage": {
+        "properties": {
+          "level": {
+            "$ref": "#/components/schemas/Level",
+            "description": "log level of the log message"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "description": "log message"
+          },
+          "stack_trace": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stack Trace",
+            "description": "an optional stack trace if the log message corresponds to an exception"
+          },
+          "emitted_at": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Emitted At",
+            "description": "when the data was emitted from the source. epoch in millisecond."
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "level",
+          "message"
+        ],
+        "title": "DatLogMessage"
+      },
+      "DatMessage": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/Type",
+            "description": "Message type"
+          },
+          "log": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DatLogMessage"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "log message: any kind of logging you want the platform to know about."
+          },
+          "spec": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConnectorSpecification"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "connectionStatus": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DatConnectionStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "catalog": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DatCatalog-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "catalog message: the catalog"
+          },
+          "record": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DatDocumentMessage"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "record message: the record"
+          },
+          "state": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DatStateMessage"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "schema message: the state. Must be the last message produced. The platform uses this information"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "title": "DatMessage"
+      },
+      "DatStateMessage": {
+        "properties": {
+          "stream": {
+            "$ref": "#/components/schemas/DatDocumentStream-Input"
+          },
+          "stream_state": {
+            "$ref": "#/components/schemas/StreamState"
+          },
+          "emitted_at": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Emitted At",
+            "description": "when the data was emitted from the source. epoch in millisecond."
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "stream",
+          "stream_state"
+        ],
+        "title": "DatStateMessage"
+      },
+      "Data": {
+        "properties": {
+          "document_chunk": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Document Chunk",
+            "description": "document chunks emitted by source"
+          },
+          "vectors": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vectors",
+            "description": "vectors generated by a Generator"
+          },
+          "metadata": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StreamMetadata"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "metadata generated by a Source, to be passed through Generator and loaded to Destination"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "title": "Data"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Level": {
+        "type": "string",
+        "enum": [
+          "FATAL",
+          "ERROR",
+          "WARN",
+          "INFO",
+          "DEBUG",
+          "TRACE"
+        ],
+        "title": "Level"
+      },
+      "OrganizationPostRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "status"
+        ],
+        "title": "OrganizationPostRequest"
+      },
+      "OrganizationPutRequest": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "title": "OrganizationPutRequest"
+      },
+      "OrganizationResponse": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "status",
+          "id",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "OrganizationResponse"
+      },
+      "ReadSyncMode": {
+        "type": "string",
+        "enum": [
+          "FULL_REFRESH",
+          "INCREMENTAL"
+        ],
+        "title": "ReadSyncMode"
+      },
+      "Schedule": {
+        "properties": {
+          "cron": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Cron"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "Schedule"
+      },
+      "SplitByCharacterRecursiverlySettings": {
+        "properties": {
+          "splitter_settings": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Splitter Settings",
+            "default": "SPLIT_BY_CHARACTER_RECURSIVELY",
+            "ui-opts": {
+              "hidden": true
+            }
+          },
+          "separators": {
+            "anyOf": [
+              {
+                "items": {
+
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Separators",
+            "default": [
+              "\n\n",
+              "\n",
+              " ",
+              ""
+            ]
+          }
+        },
+        "type": "object",
+        "title": "SplitByCharacterRecursiverlySettings"
+      },
+      "SplitByCharacterSettings": {
+        "properties": {
+          "splitter_settings": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Splitter Settings",
+            "default": "SPLIT_BY_CHARACTER",
+            "ui-opts": {
+              "hidden": true
+            }
+          },
+          "separator": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Separator",
+            "default": "\\n\\n"
+          }
+        },
+        "type": "object",
+        "title": "SplitByCharacterSettings"
+      },
+      "SplitByHtmlHeaderSettings": {
+        "properties": {
+          "splitter_settings": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Splitter Settings",
+            "default": "SPLIT_BY_HTML_HEADER",
+            "ui-opts": {
+              "hidden": true
+            }
+          },
+          "headers_to_split_on": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Headers To Split On",
+            "description": "list of headers we want to track mapped to (arbitrary) keys for metadata. Allowed header values: h1, h2, h3, h4, h5, h6",
+            "default": [
+              "h2",
+              "h3"
+            ],
+            "ui-opts": {
+              "widget": "textboxDelimiterSeparatedChip"
+            }
+          }
+        },
+        "type": "object",
+        "title": "SplitByHtmlHeaderSettings"
+      },
+      "SplitByMarkdownSettings": {
+        "properties": {
+          "splitter_settings": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Splitter Settings",
+            "default": "SPLIT_BY_MARKDOWN",
+            "ui-opts": {
+              "hidden": true
+            }
+          }
+        },
+        "type": "object",
+        "title": "SplitByMarkdownSettings"
+      },
+      "SplitByTokensSettings": {
+        "properties": {
+          "splitter_settings": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Splitter Settings",
+            "default": "SPLIT_BY_TOKENS",
+            "ui-opts": {
+              "hidden": true
+            }
+          },
+          "separators": {
+            "anyOf": [
+              {
+                "items": {
+
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Separators",
+            "default": [
+              "\n\n",
+              "\n",
+              " ",
+              ""
+            ]
+          }
+        },
+        "type": "object",
+        "title": "SplitByTokensSettings"
+      },
+      "SplitCodeSettings": {
+        "properties": {
+          "splitter_settings": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Splitter Settings",
+            "default": "SPLIT_CODE",
+            "ui-opts": {
+              "hidden": true
+            }
+          },
+          "separators": {
+            "anyOf": [
+              {
+                "items": {
+
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Separators",
+            "default": [
+              "\\nclass ",
+              "\\ndef "
+            ],
+            "ui-opts": {
+              "widget": "textboxDelimiterSeparatedChip"
+            }
+          }
+        },
+        "type": "object",
+        "title": "SplitCodeSettings"
+      },
+      "SplitJsonRecursivelySettings": {
+        "properties": {
+          "splitter_settings": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Splitter Settings",
+            "default": "SPLIT_JSON_RECURSIVELY",
+            "ui-opts": {
+              "hidden": true
+            }
+          }
+        },
+        "type": "object",
+        "title": "SplitJsonRecursivelySettings"
+      },
+      "Status": {
+        "type": "string",
+        "enum": [
+          "SUCCEEDED",
+          "FAILED"
+        ],
+        "title": "Status"
+      },
+      "StreamMetadata": {
+        "properties": {
+          "dat_source": {
+            "type": "string",
+            "title": "Dat Source"
+          },
+          "dat_stream": {
+            "type": "string",
+            "title": "Dat Stream"
+          },
+          "dat_document_entity": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dat Document Entity"
+          },
+          "dat_last_modified": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dat Last Modified"
+          },
+          "dat_document_chunk": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dat Document Chunk"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "dat_source",
+          "dat_stream"
+        ],
+        "title": "StreamMetadata"
+      },
+      "StreamState": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "title": "Data",
+            "description": "the state data"
+          },
+          "stream_status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StreamStatus"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "the stream status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "StreamState"
+      },
+      "StreamStatus": {
+        "type": "string",
+        "enum": [
+          "STARTED",
+          "RUNNING",
+          "COMPLETED"
+        ],
+        "title": "StreamStatus"
+      },
+      "Type": {
+        "type": "string",
+        "enum": [
+          "RECORD",
+          "STATE",
+          "LOG",
+          "SPEC",
+          "CONNECTION_STATUS",
+          "CATALOG",
+          "TRACE"
+        ],
+        "title": "Type"
+      },
+      "UserRequestModel": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "title": "Email"
+          },
+          "password": {
+            "type": "string",
+            "title": "Password"
+          }
+        },
+        "type": "object",
+        "required": [
+          "email",
+          "password"
+        ],
+        "title": "UserRequestModel"
+      },
+      "UserResponse": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "title": "Email"
+          },
+          "password_hash": {
+            "type": "string",
+            "title": "Password Hash"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "email",
+          "password_hash",
+          "created_at",
+          "updated_at",
+          "id"
+        ],
+        "title": "UserResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "WorkspacePostRequest": {
+        "properties": {
+          "organization_id": {
+            "type": "string",
+            "title": "Organization Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "organization_id",
+          "name",
+          "status"
+        ],
+        "title": "WorkspacePostRequest"
+      },
+      "WorkspacePutRequest": {
+        "properties": {
+          "organization_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organization Id"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "title": "WorkspacePutRequest"
+      },
+      "WorkspaceResponse": {
+        "properties": {
+          "organization_id": {
+            "type": "string",
+            "title": "Organization Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "organization_id",
+          "name",
+          "status",
+          "id"
+        ],
+        "title": "WorkspaceResponse"
+      },
+      "WorkspaceUserPostRequest": {
+        "properties": {
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          },
+          "user_id": {
+            "type": "string",
+            "title": "User Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "workspace_id",
+          "user_id"
+        ],
+        "title": "WorkspaceUserPostRequest"
+      },
+      "WorkspaceUserResponse": {
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/UserResponse"
+          },
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          },
+          "user_id": {
+            "type": "string",
+            "title": "User Id"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "user",
+          "workspace_id",
+          "user_id",
+          "id"
+        ],
+        "title": "WorkspaceUserResponse"
+      },
+      "WriteSyncMode": {
+        "type": "string",
+        "enum": [
+          "APPEND",
+          "UPSERT",
+          "REPLACE"
+        ],
+        "title": "WriteSyncMode"
+      }
+    }
+  }
+}

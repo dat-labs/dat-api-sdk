@@ -36,7 +36,8 @@ class TestCron(unittest.TestCase):
         if include_optional:
             return Cron(
                 cron_expression = '',
-                timezone = ''
+                timezone = '',
+                advanced_scheduling = ''
             )
         else:
             return Cron(

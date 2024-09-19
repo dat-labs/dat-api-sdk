@@ -35,16 +35,17 @@ class TestDatDocumentStreamInput(unittest.TestCase):
         model = DatDocumentStreamInput()
         if include_optional:
             return DatDocumentStreamInput(
-                name = '',
-                namespace = '',
-                json_schema = dat_client.models.json_schema.json_schema(),
-                read_sync_mode = 'FULL_REFRESH',
-                write_sync_mode = 'APPEND',
-                cursor_field = ''
+                name = None,
+                json_schema = None,
+                namespace = None,
+                read_sync_mode = None,
+                write_sync_mode = None,
+                cursor_field = None,
+                advanced = None
             )
         else:
             return DatDocumentStreamInput(
-                name = '',
+                name = None,
         )
         """
 

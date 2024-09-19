@@ -28,7 +28,8 @@ class Cron(BaseModel):
     """ # noqa: E501
     cron_expression: StrictStr
     timezone: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["cron_expression", "timezone"]
+    advanced_scheduling: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["cron_expression", "timezone", "advanced_scheduling"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +75,11 @@ class Cron(BaseModel):
         if self.timezone is None and "timezone" in self.model_fields_set:
             _dict['timezone'] = None
 
+        # set to None if advanced_scheduling (nullable) is None
+        # and model_fields_set contains the field
+        if self.advanced_scheduling is None and "advanced_scheduling" in self.model_fields_set:
+            _dict['advanced_scheduling'] = None
+
         return _dict
 
     @classmethod
@@ -87,7 +93,8 @@ class Cron(BaseModel):
 
         _obj = cls.model_validate({
             "cron_expression": obj.get("cron_expression"),
-            "timezone": obj.get("timezone")
+            "timezone": obj.get("timezone"),
+            "advanced_scheduling": obj.get("advanced_scheduling")
         })
         return _obj
 

@@ -35,22 +35,19 @@ class TestActorInstancePostRequest(unittest.TestCase):
         model = ActorInstancePostRequest()
         if include_optional:
             return ActorInstancePostRequest(
-                workspace_id = '',
                 actor_id = '',
                 user_id = '',
                 name = '',
                 actor_type = '',
-                status = '',
+                status = 'active',
                 configuration = dat_client.models.configuration.Configuration()
             )
         else:
             return ActorInstancePostRequest(
-                workspace_id = '',
                 actor_id = '',
                 user_id = '',
                 name = '',
                 actor_type = '',
-                status = '',
         )
         """
 

@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from dat_client.models.emitted_at import EmittedAt
 from dat_client.models.level import Level
 from dat_client.models.stack_trace import StackTrace
 from typing import Optional, Set
@@ -31,8 +32,9 @@ class DatLogMessage(BaseModel):
     level: Level = Field(description="log level of the log message")
     message: Optional[Any] = Field(description="log message")
     stack_trace: Optional[StackTrace] = None
+    emitted_at: Optional[EmittedAt] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["level", "message", "stack_trace"]
+    __properties: ClassVar[List[str]] = ["level", "message", "stack_trace", "emitted_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -78,6 +80,9 @@ class DatLogMessage(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of stack_trace
         if self.stack_trace:
             _dict['stack_trace'] = self.stack_trace.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of emitted_at
+        if self.emitted_at:
+            _dict['emitted_at'] = self.emitted_at.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -102,7 +107,8 @@ class DatLogMessage(BaseModel):
         _obj = cls.model_validate({
             "level": obj.get("level"),
             "message": obj.get("message"),
-            "stack_trace": StackTrace.from_dict(obj["stack_trace"]) if obj.get("stack_trace") is not None else None
+            "stack_trace": StackTrace.from_dict(obj["stack_trace"]) if obj.get("stack_trace") is not None else None,
+            "emitted_at": EmittedAt.from_dict(obj["emitted_at"]) if obj.get("emitted_at") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

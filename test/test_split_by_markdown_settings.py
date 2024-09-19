@@ -35,8 +35,7 @@ class TestSplitByMarkdownSettings(unittest.TestCase):
         model = SplitByMarkdownSettings()
         if include_optional:
             return SplitByMarkdownSettings(
-                strategy = '',
-                config = None
+                splitter_settings = ''
             )
         else:
             return SplitByMarkdownSettings(

@@ -28,7 +28,7 @@ DATDOCUMENTSTREAMINPUTREADSYNCMODE_ANY_OF_SCHEMAS = ["ReadSyncMode", "object"]
 
 class DatDocumentStreamInputReadSyncMode(BaseModel):
     """
-    A list of supported sync modes for the stream while reading.
+    An list of supported sync modes for the stream while reading.
     """
 
     # data type: ReadSyncMode

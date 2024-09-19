@@ -33,14 +33,14 @@ class DatDocumentStreamInput(BaseModel):
     DatDocumentStreamInput
     """ # noqa: E501
     name: Optional[Any] = Field(description="The name of the document stream.")
-    namespace: Optional[Namespace1] = None
     json_schema: Optional[JsonSchema] = None
+    namespace: Optional[Namespace1] = None
     read_sync_mode: Optional[DatDocumentStreamInputReadSyncMode] = None
     write_sync_mode: Optional[DatDocumentStreamInputWriteSyncMode] = None
     cursor_field: Optional[CursorField] = None
     advanced: Optional[DatDocumentStreamInputAdvanced] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["name", "namespace", "json_schema", "read_sync_mode", "write_sync_mode", "cursor_field", "advanced"]
+    __properties: ClassVar[List[str]] = ["name", "json_schema", "namespace", "read_sync_mode", "write_sync_mode", "cursor_field", "advanced"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,12 +83,12 @@ class DatDocumentStreamInput(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of namespace
-        if self.namespace:
-            _dict['namespace'] = self.namespace.to_dict()
         # override the default output from pydantic by calling `to_dict()` of json_schema
         if self.json_schema:
             _dict['json_schema'] = self.json_schema.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of namespace
+        if self.namespace:
+            _dict['namespace'] = self.namespace.to_dict()
         # override the default output from pydantic by calling `to_dict()` of read_sync_mode
         if self.read_sync_mode:
             _dict['read_sync_mode'] = self.read_sync_mode.to_dict()
@@ -124,8 +124,8 @@ class DatDocumentStreamInput(BaseModel):
 
         _obj = cls.model_validate({
             "name": obj.get("name"),
-            "namespace": Namespace1.from_dict(obj["namespace"]) if obj.get("namespace") is not None else None,
             "json_schema": JsonSchema.from_dict(obj["json_schema"]) if obj.get("json_schema") is not None else None,
+            "namespace": Namespace1.from_dict(obj["namespace"]) if obj.get("namespace") is not None else None,
             "read_sync_mode": DatDocumentStreamInputReadSyncMode.from_dict(obj["read_sync_mode"]) if obj.get("read_sync_mode") is not None else None,
             "write_sync_mode": DatDocumentStreamInputWriteSyncMode.from_dict(obj["write_sync_mode"]) if obj.get("write_sync_mode") is not None else None,
             "cursor_field": CursorField.from_dict(obj["cursor_field"]) if obj.get("cursor_field") is not None else None,

@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **source_instance_id** | **object** |  | 
 **generator_instance_id** | **object** |  | 
 **destination_instance_id** | **object** |  | 
-**workspace_id** | **object** |  | 
 **configuration** | [**Configuration**](Configuration.md) |  | [optional] 
 **schedule** | [**ConnectionOrchestraResponseSchedule**](ConnectionOrchestraResponseSchedule.md) |  | [optional] 
 **schedule_type** | [**ScheduleType**](ScheduleType.md) |  | [optional] 

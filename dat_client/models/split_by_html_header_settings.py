@@ -19,7 +19,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dat_client.models.split_by_html_header_extra_config import SplitByHtmlHeaderExtraConfig
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +26,9 @@ class SplitByHtmlHeaderSettings(BaseModel):
     """
     SplitByHtmlHeaderSettings
     """ # noqa: E501
-    strategy: Optional[StrictStr] = None
-    config: Optional[SplitByHtmlHeaderExtraConfig] = None
-    __properties: ClassVar[List[str]] = ["strategy", "config"]
+    splitter_settings: Optional[StrictStr] = None
+    headers_to_split_on: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["splitter_settings", "headers_to_split_on"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,18 +69,15 @@ class SplitByHtmlHeaderSettings(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of config
-        if self.config:
-            _dict['config'] = self.config.to_dict()
-        # set to None if strategy (nullable) is None
+        # set to None if splitter_settings (nullable) is None
         # and model_fields_set contains the field
-        if self.strategy is None and "strategy" in self.model_fields_set:
-            _dict['strategy'] = None
+        if self.splitter_settings is None and "splitter_settings" in self.model_fields_set:
+            _dict['splitter_settings'] = None
 
-        # set to None if config (nullable) is None
+        # set to None if headers_to_split_on (nullable) is None
         # and model_fields_set contains the field
-        if self.config is None and "config" in self.model_fields_set:
-            _dict['config'] = None
+        if self.headers_to_split_on is None and "headers_to_split_on" in self.model_fields_set:
+            _dict['headers_to_split_on'] = None
 
         return _dict
 
@@ -95,8 +91,8 @@ class SplitByHtmlHeaderSettings(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "strategy": obj.get("strategy"),
-            "config": SplitByHtmlHeaderExtraConfig.from_dict(obj["config"]) if obj.get("config") is not None else None
+            "splitter_settings": obj.get("splitter_settings"),
+            "headers_to_split_on": obj.get("headers_to_split_on")
         })
         return _obj
 

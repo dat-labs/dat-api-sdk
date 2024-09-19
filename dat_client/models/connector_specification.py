@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from dat_client.models.connection_specification import ConnectionSpecification
 from dat_client.models.documentation_url import DocumentationUrl
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +31,7 @@ class ConnectorSpecification(BaseModel):
     documentation_url: Optional[DocumentationUrl] = None
     name: Optional[Any] = Field(description="The name of the specific connector to which this ConnectorSpecification belongs.")
     module_name: Optional[Any] = Field(description="Name of the python module for this connector")
-    connection_specification: Dict[str, Any] = Field(description="ConnectorDefinition specific blob. Must be a valid JSON string.")
+    connection_specification: ConnectionSpecification
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["documentation_url", "name", "module_name", "connection_specification"]
 
@@ -78,6 +79,9 @@ class ConnectorSpecification(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of documentation_url
         if self.documentation_url:
             _dict['documentation_url'] = self.documentation_url.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of connection_specification
+        if self.connection_specification:
+            _dict['connection_specification'] = self.connection_specification.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -108,7 +112,7 @@ class ConnectorSpecification(BaseModel):
             "documentation_url": DocumentationUrl.from_dict(obj["documentation_url"]) if obj.get("documentation_url") is not None else None,
             "name": obj.get("name"),
             "module_name": obj.get("module_name"),
-            "connection_specification": obj.get("connection_specification")
+            "connection_specification": ConnectionSpecification.from_dict(obj["connection_specification"]) if obj.get("connection_specification") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

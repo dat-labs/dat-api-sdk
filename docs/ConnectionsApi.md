@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **connection_trigger_run_connections_connection_id_run_post**
-> ConnectionOrchestraResponse connection_trigger_run_connections_connection_id_run_post(connection_id)
+> ConnectionOrchestraResponse connection_trigger_run_connections_connection_id_run_post(connection_id, workspace_id=workspace_id)
 
 Connection Trigger Run
 
@@ -41,10 +41,11 @@ with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ConnectionsApi(api_client)
     connection_id = 'connection_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | The workspace ID to scope the request (optional)
 
     try:
         # Connection Trigger Run
-        api_response = api_instance.connection_trigger_run_connections_connection_id_run_post(connection_id)
+        api_response = api_instance.connection_trigger_run_connections_connection_id_run_post(connection_id, workspace_id=workspace_id)
         print("The response of ConnectionsApi->connection_trigger_run_connections_connection_id_run_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -59,6 +60,7 @@ with dat_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connection_id** | **str**|  | 
+ **workspace_id** | **str**| The workspace ID to scope the request | [optional] 
 
 ### Return type
 
@@ -84,11 +86,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_connection_connections_post**
-> ConnectionResponse create_connection_connections_post(connection_post_request)
+> ConnectionResponse create_connection_connections_post(workspace_id, connection_post_request)
 
 Create Connection
 
-Creates a new connection.  Args:     payload: The request payload containing the connection details.  Returns:     The created connection.  Raises:     HTTPException: If the operation is forbidden or an error occurs.
+Creates a new connection within a specific workspace.  Args:     payload (ConnectionPostRequest): The request payload containing the connection details.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection will belong.  Returns:     ConnectionResponse: The created connection.  Raises:     HTTPException: If the operation is forbidden or an error occurs.
 
 ### Example
 
@@ -111,11 +113,12 @@ configuration = dat_client.Configuration(
 with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ConnectionsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | The workspace ID to scope the request
     connection_post_request = dat_client.ConnectionPostRequest() # ConnectionPostRequest | 
 
     try:
         # Create Connection
-        api_response = api_instance.create_connection_connections_post(connection_post_request)
+        api_response = api_instance.create_connection_connections_post(workspace_id, connection_post_request)
         print("The response of ConnectionsApi->create_connection_connections_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -129,6 +132,7 @@ with dat_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**| The workspace ID to scope the request | 
  **connection_post_request** | [**ConnectionPostRequest**](ConnectionPostRequest.md)|  | 
 
 ### Return type
@@ -156,11 +160,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_connection_connections_connection_id_delete**
-> delete_connection_connections_connection_id_delete(connection_id)
+> delete_connection_connections_connection_id_delete(connection_id, workspace_id)
 
 Delete Connection
 
-Deletes a connection.  Args:     connection_id: The ID of the connection to delete.  Raises:     HTTPException: If the connection is not found or an error occurs.
+Deletes a connection within a specific workspace.  Args:     connection_id (str): The ID of the connection to delete.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection belongs.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
 ### Example
 
@@ -182,10 +186,11 @@ with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ConnectionsApi(api_client)
     connection_id = 'connection_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | The workspace ID to scope the request
 
     try:
         # Delete Connection
-        api_instance.delete_connection_connections_connection_id_delete(connection_id)
+        api_instance.delete_connection_connections_connection_id_delete(connection_id, workspace_id)
     except Exception as e:
         print("Exception when calling ConnectionsApi->delete_connection_connections_connection_id_delete: %s\n" % e)
 ```
@@ -198,6 +203,7 @@ with dat_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connection_id** | **str**|  | 
+ **workspace_id** | **str**| The workspace ID to scope the request | 
 
 ### Return type
 
@@ -223,7 +229,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **fetch_available_connections_connections_list_get**
-> List[ConnectionResponse] fetch_available_connections_connections_list_get()
+> List[ConnectionResponse] fetch_available_connections_connections_list_get(workspace_id=workspace_id)
 
 Fetch Available Connections
 
@@ -249,10 +255,11 @@ configuration = dat_client.Configuration(
 with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ConnectionsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | The workspace ID to scope the request (optional)
 
     try:
         # Fetch Available Connections
-        api_response = api_instance.fetch_available_connections_connections_list_get()
+        api_response = api_instance.fetch_available_connections_connections_list_get(workspace_id=workspace_id)
         print("The response of ConnectionsApi->fetch_available_connections_connections_list_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -263,7 +270,10 @@ with dat_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**| The workspace ID to scope the request | [optional] 
 
 ### Return type
 
@@ -284,6 +294,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
 **404** | Not found |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -358,11 +369,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_connection_connections_connection_id_get**
-> ConnectionResponse read_connection_connections_connection_id_get(connection_id)
+> ConnectionResponse read_connection_connections_connection_id_get(connection_id, workspace_id)
 
 Read Connection
 
-Retrieves a connection by its ID.  Args:     connection_id: The ID of the connection.  Returns:     The connection with the specified ID.  Raises:     HTTPException: If the connection is not found.
+Retrieves a connection by its ID within a specific workspace.  Args:     connection_id (str): The ID of the connection.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection belongs.  Returns:     ConnectionResponse: The connection with the specified ID.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
 ### Example
 
@@ -385,10 +396,11 @@ with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ConnectionsApi(api_client)
     connection_id = 'connection_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | The workspace ID to scope the request
 
     try:
         # Read Connection
-        api_response = api_instance.read_connection_connections_connection_id_get(connection_id)
+        api_response = api_instance.read_connection_connections_connection_id_get(connection_id, workspace_id)
         print("The response of ConnectionsApi->read_connection_connections_connection_id_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -403,6 +415,7 @@ with dat_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connection_id** | **str**|  | 
+ **workspace_id** | **str**| The workspace ID to scope the request | 
 
 ### Return type
 
@@ -428,11 +441,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_connection_connections_connection_id_put**
-> ConnectionResponse update_connection_connections_connection_id_put(connection_id, connection_put_request)
+> object update_connection_connections_connection_id_put(connection_id, workspace_id, connection_put_request)
 
 Update Connection
 
-Updates an existing connection.  Args:     connection_id: The ID of the connection to update.     payload: The request payload containing the updated connection details.  Returns:     The updated connection.  Raises:     HTTPException: If the connection is not found or an error occurs.
+Updates an existing connection within a specific workspace.  Args:     connection_id (str): The ID of the connection to update.     payload (ConnectionPutRequest): The request payload containing the updated connection details.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the connection belongs.  Returns:     The updated connection.  Raises:     HTTPException: If the connection is not found or an error occurs.
 
 ### Example
 
@@ -440,7 +453,6 @@ Updates an existing connection.  Args:     connection_id: The ID of the connecti
 ```python
 import dat_client
 from dat_client.models.connection_put_request import ConnectionPutRequest
-from dat_client.models.connection_response import ConnectionResponse
 from dat_client.rest import ApiException
 from pprint import pprint
 
@@ -456,11 +468,12 @@ with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.ConnectionsApi(api_client)
     connection_id = 'connection_id_example' # str | 
+    workspace_id = 'workspace_id_example' # str | The workspace ID to scope the request
     connection_put_request = dat_client.ConnectionPutRequest() # ConnectionPutRequest | 
 
     try:
         # Update Connection
-        api_response = api_instance.update_connection_connections_connection_id_put(connection_id, connection_put_request)
+        api_response = api_instance.update_connection_connections_connection_id_put(connection_id, workspace_id, connection_put_request)
         print("The response of ConnectionsApi->update_connection_connections_connection_id_put:\n")
         pprint(api_response)
     except Exception as e:
@@ -475,11 +488,12 @@ with dat_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connection_id** | **str**|  | 
+ **workspace_id** | **str**| The workspace ID to scope the request | 
  **connection_put_request** | [**ConnectionPutRequest**](ConnectionPutRequest.md)|  | 
 
 ### Return type
 
-[**ConnectionResponse**](ConnectionResponse.md)
+**object**
 
 ### Authorization
 

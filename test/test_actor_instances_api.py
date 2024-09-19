@@ -14,7 +14,7 @@
 
 import unittest
 
-from dat_api_sdk.api.actor_instances_api import ActorInstancesApi
+from dat_client.api.actor_instances_api import ActorInstancesApi
 
 
 class TestActorInstancesApi(unittest.TestCase):
@@ -24,6 +24,13 @@ class TestActorInstancesApi(unittest.TestCase):
         self.api = ActorInstancesApi()
 
     def tearDown(self) -> None:
+        pass
+
+    def test_call_actor_instance_check_actor_instances_actor_instance_id_check_get(self) -> None:
+        """Test case for call_actor_instance_check_actor_instances_actor_instance_id_check_get
+
+        Call Actor Instance Check
+        """
         pass
 
     def test_call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get(self) -> None:
@@ -40,8 +47,8 @@ class TestActorInstancesApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_actor_instance_actor_instances_actor_instance_uuid_delete(self) -> None:
-        """Test case for delete_actor_instance_actor_instances_actor_instance_uuid_delete
+    def test_delete_actor_instance_actor_instances_actor_instance_id_delete(self) -> None:
+        """Test case for delete_actor_instance_actor_instances_actor_instance_id_delete
 
         Delete Actor Instance
         """
@@ -54,15 +61,15 @@ class TestActorInstancesApi(unittest.TestCase):
         """
         pass
 
-    def test_read_actor_instance_actor_instances_actor_instance_uuid_get(self) -> None:
-        """Test case for read_actor_instance_actor_instances_actor_instance_uuid_get
+    def test_read_actor_instance_actor_instances_actor_instance_id_get(self) -> None:
+        """Test case for read_actor_instance_actor_instances_actor_instance_id_get
 
         Read Actor Instance
         """
         pass
 
-    def test_update_actor_instance_actor_instances_actor_instance_uuid_put(self) -> None:
-        """Test case for update_actor_instance_actor_instances_actor_instance_uuid_put
+    def test_update_actor_instance_actor_instances_actor_instance_id_patch(self) -> None:
+        """Test case for update_actor_instance_actor_instances_actor_instance_id_patch
 
         Update Actor Instance
         """

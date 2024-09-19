@@ -16,8 +16,9 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictStr
+from pydantic import Field, StrictStr
 from typing import Any, List
+from typing_extensions import Annotated
 from dat_client.models.workspace_post_request import WorkspacePostRequest
 from dat_client.models.workspace_put_request import WorkspacePutRequest
 from dat_client.models.workspace_response import WorkspaceResponse
@@ -582,6 +583,7 @@ class WorkspacesApi:
     @validate_call
     def fetch_available_workspaces_workspaces_list_get(
         self,
+        org_id: Annotated[StrictStr, Field(description="The ID of the organization")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -599,6 +601,8 @@ class WorkspacesApi:
 
         Fetch all available workspaces
 
+        :param org_id: The ID of the organization (required)
+        :type org_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -622,6 +626,7 @@ class WorkspacesApi:
         """ # noqa: E501
 
         _param = self._fetch_available_workspaces_workspaces_list_get_serialize(
+            org_id=org_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -631,6 +636,7 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[WorkspaceResponse]",
             '404': None,
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -646,6 +652,7 @@ class WorkspacesApi:
     @validate_call
     def fetch_available_workspaces_workspaces_list_get_with_http_info(
         self,
+        org_id: Annotated[StrictStr, Field(description="The ID of the organization")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -663,6 +670,8 @@ class WorkspacesApi:
 
         Fetch all available workspaces
 
+        :param org_id: The ID of the organization (required)
+        :type org_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -686,6 +695,7 @@ class WorkspacesApi:
         """ # noqa: E501
 
         _param = self._fetch_available_workspaces_workspaces_list_get_serialize(
+            org_id=org_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -695,6 +705,7 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[WorkspaceResponse]",
             '404': None,
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -710,6 +721,7 @@ class WorkspacesApi:
     @validate_call
     def fetch_available_workspaces_workspaces_list_get_without_preload_content(
         self,
+        org_id: Annotated[StrictStr, Field(description="The ID of the organization")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -727,6 +739,8 @@ class WorkspacesApi:
 
         Fetch all available workspaces
 
+        :param org_id: The ID of the organization (required)
+        :type org_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -750,6 +764,7 @@ class WorkspacesApi:
         """ # noqa: E501
 
         _param = self._fetch_available_workspaces_workspaces_list_get_serialize(
+            org_id=org_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -759,6 +774,7 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[WorkspaceResponse]",
             '404': None,
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -769,6 +785,7 @@ class WorkspacesApi:
 
     def _fetch_available_workspaces_workspaces_list_get_serialize(
         self,
+        org_id,
         _request_auth,
         _content_type,
         _headers,
@@ -789,6 +806,10 @@ class WorkspacesApi:
 
         # process the path parameters
         # process the query parameters
+        if org_id is not None:
+            
+            _query_params.append(('org_id', org_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

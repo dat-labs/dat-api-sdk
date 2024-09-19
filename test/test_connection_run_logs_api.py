@@ -14,7 +14,7 @@
 
 import unittest
 
-from dat_api_sdk.api.connection_run_logs_api import ConnectionRunLogsApi
+from dat_client.api.connection_run_logs_api import ConnectionRunLogsApi
 
 
 class TestConnectionRunLogsApi(unittest.TestCase):
@@ -30,6 +30,34 @@ class TestConnectionRunLogsApi(unittest.TestCase):
         """Test case for add_connection_run_log_connection_run_logs_post
 
         Add Connection Run Log
+        """
+        pass
+
+    def test_get_agg_run_logs_connection_run_logs_connection_id_agg_run_logs_get(self) -> None:
+        """Test case for get_agg_run_logs_connection_run_logs_connection_id_agg_run_logs_get
+
+        Get Agg Run Logs
+        """
+        pass
+
+    def test_get_combined_stream_states_connection_run_logs_connection_id_stream_states_get(self) -> None:
+        """Test case for get_combined_stream_states_connection_run_logs_connection_id_stream_states_get
+
+        Get Combined Stream States
+        """
+        pass
+
+    def test_get_connection_run_logs_connection_run_logs_connection_id_runs_get(self) -> None:
+        """Test case for get_connection_run_logs_connection_run_logs_connection_id_runs_get
+
+        Get Connection Run Logs
+        """
+        pass
+
+    def test_get_connection_runs_by_run_id_connection_run_logs_runs_run_id_get(self) -> None:
+        """Test case for get_connection_runs_by_run_id_connection_run_logs_runs_run_id_get
+
+        Get Connection Runs By Run Id
         """
         pass
 

@@ -14,7 +14,7 @@
 
 import unittest
 
-from dat_api_sdk.models.connector_specification import ConnectorSpecification
+from dat_client.models.connector_specification import ConnectorSpecification
 
 class TestConnectorSpecification(unittest.TestCase):
     """ConnectorSpecification unit test stubs"""
@@ -35,18 +35,20 @@ class TestConnectorSpecification(unittest.TestCase):
         model = ConnectorSpecification()
         if include_optional:
             return ConnectorSpecification(
-                protocol_version = None,
                 documentation_url = None,
-                changelog_url = None,
                 name = None,
-                connection_specification = None,
-                supports_incremental = None,
-                supported_destination_sync_modes = None
+                module_name = None,
+                connection_specification = {
+                    'key' : null
+                    }
             )
         else:
             return ConnectorSpecification(
                 name = None,
-                connection_specification = None,
+                module_name = None,
+                connection_specification = {
+                    'key' : null
+                    },
         )
         """
 

@@ -16,9 +16,9 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictStr
+from pydantic import Field, StrictStr
 from typing import Any, List
-from dat_client.models.actor_instance_get_response import ActorInstanceGetResponse
+from typing_extensions import Annotated
 from dat_client.models.actor_instance_post_request import ActorInstancePostRequest
 from dat_client.models.actor_instance_put_request import ActorInstancePutRequest
 from dat_client.models.actor_instance_response import ActorInstanceResponse
@@ -42,9 +42,290 @@ class ActorInstancesApi:
 
 
     @validate_call
+    def call_actor_instance_check_actor_instances_actor_instance_id_check_get(
+        self,
+        actor_instance_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> object:
+        """Call Actor Instance Check
+
+        Check the connection for an actor instance within a specific workspace.  Args:     actor_instance_id (str): The ID of the actor instance to check.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the actor instance belongs.  Returns:     The connection status for the actor instance.
+
+        :param actor_instance_id: (required)
+        :type actor_instance_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._call_actor_instance_check_actor_instances_actor_instance_id_check_get_serialize(
+            actor_instance_id=actor_instance_id,
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '404': None,
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def call_actor_instance_check_actor_instances_actor_instance_id_check_get_with_http_info(
+        self,
+        actor_instance_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[object]:
+        """Call Actor Instance Check
+
+        Check the connection for an actor instance within a specific workspace.  Args:     actor_instance_id (str): The ID of the actor instance to check.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the actor instance belongs.  Returns:     The connection status for the actor instance.
+
+        :param actor_instance_id: (required)
+        :type actor_instance_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._call_actor_instance_check_actor_instances_actor_instance_id_check_get_serialize(
+            actor_instance_id=actor_instance_id,
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '404': None,
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def call_actor_instance_check_actor_instances_actor_instance_id_check_get_without_preload_content(
+        self,
+        actor_instance_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Call Actor Instance Check
+
+        Check the connection for an actor instance within a specific workspace.  Args:     actor_instance_id (str): The ID of the actor instance to check.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the actor instance belongs.  Returns:     The connection status for the actor instance.
+
+        :param actor_instance_id: (required)
+        :type actor_instance_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._call_actor_instance_check_actor_instances_actor_instance_id_check_get_serialize(
+            actor_instance_id=actor_instance_id,
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '404': None,
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _call_actor_instance_check_actor_instances_actor_instance_id_check_get_serialize(
+        self,
+        actor_instance_id,
+        workspace_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if actor_instance_id is not None:
+            _path_params['actor_instance_id'] = actor_instance_id
+        # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/actor_instances/{actor_instance_id}/check',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get(
         self,
         actor_instance_uuid: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -60,9 +341,12 @@ class ActorInstancesApi:
     ) -> object:
         """Call Actor Instance Discover
 
+        Discover available data or schema for an actor instance within a specific workspace.  Args:     actor_instance_uuid (str): The UUID of the actor instance to discover.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the actor instance belongs.  Returns:     The discovered catalog or data schema for the actor instance.
 
         :param actor_instance_uuid: (required)
         :type actor_instance_uuid: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -87,6 +371,7 @@ class ActorInstancesApi:
 
         _param = self._call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get_serialize(
             actor_instance_uuid=actor_instance_uuid,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -113,6 +398,7 @@ class ActorInstancesApi:
     def call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get_with_http_info(
         self,
         actor_instance_uuid: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -128,9 +414,12 @@ class ActorInstancesApi:
     ) -> ApiResponse[object]:
         """Call Actor Instance Discover
 
+        Discover available data or schema for an actor instance within a specific workspace.  Args:     actor_instance_uuid (str): The UUID of the actor instance to discover.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the actor instance belongs.  Returns:     The discovered catalog or data schema for the actor instance.
 
         :param actor_instance_uuid: (required)
         :type actor_instance_uuid: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -155,6 +444,7 @@ class ActorInstancesApi:
 
         _param = self._call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get_serialize(
             actor_instance_uuid=actor_instance_uuid,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -181,6 +471,7 @@ class ActorInstancesApi:
     def call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get_without_preload_content(
         self,
         actor_instance_uuid: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -196,9 +487,12 @@ class ActorInstancesApi:
     ) -> RESTResponseType:
         """Call Actor Instance Discover
 
+        Discover available data or schema for an actor instance within a specific workspace.  Args:     actor_instance_uuid (str): The UUID of the actor instance to discover.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the actor instance belongs.  Returns:     The discovered catalog or data schema for the actor instance.
 
         :param actor_instance_uuid: (required)
         :type actor_instance_uuid: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -223,6 +517,7 @@ class ActorInstancesApi:
 
         _param = self._call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get_serialize(
             actor_instance_uuid=actor_instance_uuid,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -244,6 +539,7 @@ class ActorInstancesApi:
     def _call_actor_instance_discover_actor_instances_actor_instance_uuid_discover_get_serialize(
         self,
         actor_instance_uuid,
+        workspace_id,
         _request_auth,
         _content_type,
         _headers,
@@ -266,6 +562,10 @@ class ActorInstancesApi:
         if actor_instance_uuid is not None:
             _path_params['actor_instance_uuid'] = actor_instance_uuid
         # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -304,6 +604,7 @@ class ActorInstancesApi:
     @validate_call
     def create_actor_instance_actor_instances_post(
         self,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         actor_instance_post_request: ActorInstancePostRequest,
         _request_timeout: Union[
             None,
@@ -320,7 +621,10 @@ class ActorInstancesApi:
     ) -> ActorInstanceResponse:
         """Create Actor Instance
 
+        Create a new actor instance after testing the connection.  Args:     payload (ActorInstancePostRequest): The data for the actor instance.     workspace_id (str): The ID of the workspace.     db (Session): The database session.  Returns:     ActorInstanceResponse: The created actor instance.
 
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param actor_instance_post_request: (required)
         :type actor_instance_post_request: ActorInstancePostRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -346,6 +650,7 @@ class ActorInstancesApi:
         """ # noqa: E501
 
         _param = self._create_actor_instance_actor_instances_post_serialize(
+            workspace_id=workspace_id,
             actor_instance_post_request=actor_instance_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -373,6 +678,7 @@ class ActorInstancesApi:
     @validate_call
     def create_actor_instance_actor_instances_post_with_http_info(
         self,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         actor_instance_post_request: ActorInstancePostRequest,
         _request_timeout: Union[
             None,
@@ -389,7 +695,10 @@ class ActorInstancesApi:
     ) -> ApiResponse[ActorInstanceResponse]:
         """Create Actor Instance
 
+        Create a new actor instance after testing the connection.  Args:     payload (ActorInstancePostRequest): The data for the actor instance.     workspace_id (str): The ID of the workspace.     db (Session): The database session.  Returns:     ActorInstanceResponse: The created actor instance.
 
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param actor_instance_post_request: (required)
         :type actor_instance_post_request: ActorInstancePostRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -415,6 +724,7 @@ class ActorInstancesApi:
         """ # noqa: E501
 
         _param = self._create_actor_instance_actor_instances_post_serialize(
+            workspace_id=workspace_id,
             actor_instance_post_request=actor_instance_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -442,6 +752,7 @@ class ActorInstancesApi:
     @validate_call
     def create_actor_instance_actor_instances_post_without_preload_content(
         self,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         actor_instance_post_request: ActorInstancePostRequest,
         _request_timeout: Union[
             None,
@@ -458,7 +769,10 @@ class ActorInstancesApi:
     ) -> RESTResponseType:
         """Create Actor Instance
 
+        Create a new actor instance after testing the connection.  Args:     payload (ActorInstancePostRequest): The data for the actor instance.     workspace_id (str): The ID of the workspace.     db (Session): The database session.  Returns:     ActorInstanceResponse: The created actor instance.
 
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param actor_instance_post_request: (required)
         :type actor_instance_post_request: ActorInstancePostRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -484,6 +798,7 @@ class ActorInstancesApi:
         """ # noqa: E501
 
         _param = self._create_actor_instance_actor_instances_post_serialize(
+            workspace_id=workspace_id,
             actor_instance_post_request=actor_instance_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -506,6 +821,7 @@ class ActorInstancesApi:
 
     def _create_actor_instance_actor_instances_post_serialize(
         self,
+        workspace_id,
         actor_instance_post_request,
         _request_auth,
         _content_type,
@@ -527,6 +843,10 @@ class ActorInstancesApi:
 
         # process the path parameters
         # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -581,6 +901,7 @@ class ActorInstancesApi:
     def delete_actor_instance_actor_instances_actor_instance_id_delete(
         self,
         actor_instance_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -596,9 +917,12 @@ class ActorInstancesApi:
     ) -> object:
         """Delete Actor Instance
 
+        Delete an existing actor instance within a specific workspace.  Args:     actor_instance_id (str): The ID of the actor instance to delete.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the actor instance belongs.  Raises:     HTTPException: If the actor instance is not found or an exception occurs.
 
         :param actor_instance_id: (required)
         :type actor_instance_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -623,6 +947,7 @@ class ActorInstancesApi:
 
         _param = self._delete_actor_instance_actor_instances_actor_instance_id_delete_serialize(
             actor_instance_id=actor_instance_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -650,6 +975,7 @@ class ActorInstancesApi:
     def delete_actor_instance_actor_instances_actor_instance_id_delete_with_http_info(
         self,
         actor_instance_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -665,9 +991,12 @@ class ActorInstancesApi:
     ) -> ApiResponse[object]:
         """Delete Actor Instance
 
+        Delete an existing actor instance within a specific workspace.  Args:     actor_instance_id (str): The ID of the actor instance to delete.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the actor instance belongs.  Raises:     HTTPException: If the actor instance is not found or an exception occurs.
 
         :param actor_instance_id: (required)
         :type actor_instance_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -692,6 +1021,7 @@ class ActorInstancesApi:
 
         _param = self._delete_actor_instance_actor_instances_actor_instance_id_delete_serialize(
             actor_instance_id=actor_instance_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -719,6 +1049,7 @@ class ActorInstancesApi:
     def delete_actor_instance_actor_instances_actor_instance_id_delete_without_preload_content(
         self,
         actor_instance_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -734,9 +1065,12 @@ class ActorInstancesApi:
     ) -> RESTResponseType:
         """Delete Actor Instance
 
+        Delete an existing actor instance within a specific workspace.  Args:     actor_instance_id (str): The ID of the actor instance to delete.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the actor instance belongs.  Raises:     HTTPException: If the actor instance is not found or an exception occurs.
 
         :param actor_instance_id: (required)
         :type actor_instance_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -761,6 +1095,7 @@ class ActorInstancesApi:
 
         _param = self._delete_actor_instance_actor_instances_actor_instance_id_delete_serialize(
             actor_instance_id=actor_instance_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -783,6 +1118,7 @@ class ActorInstancesApi:
     def _delete_actor_instance_actor_instances_actor_instance_id_delete_serialize(
         self,
         actor_instance_id,
+        workspace_id,
         _request_auth,
         _content_type,
         _headers,
@@ -805,6 +1141,10 @@ class ActorInstancesApi:
         if actor_instance_id is not None:
             _path_params['actor_instance_id'] = actor_instance_id
         # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -844,6 +1184,7 @@ class ActorInstancesApi:
     def fetch_available_actor_instances_actor_instances_actor_type_list_get(
         self,
         actor_type: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -856,13 +1197,15 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ActorInstanceGetResponse]:
+    ) -> List[ActorInstanceResponse]:
         """Fetch Available Actor Instances
 
-        Fetch all active actors
+        Fetch all active actors in the workspace
 
         :param actor_type: (required)
         :type actor_type: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -887,6 +1230,7 @@ class ActorInstancesApi:
 
         _param = self._fetch_available_actor_instances_actor_instances_actor_type_list_get_serialize(
             actor_type=actor_type,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -894,7 +1238,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstanceGetResponse]",
+            '200': "List[ActorInstanceResponse]",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -913,6 +1257,7 @@ class ActorInstancesApi:
     def fetch_available_actor_instances_actor_instances_actor_type_list_get_with_http_info(
         self,
         actor_type: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -925,13 +1270,15 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ActorInstanceGetResponse]]:
+    ) -> ApiResponse[List[ActorInstanceResponse]]:
         """Fetch Available Actor Instances
 
-        Fetch all active actors
+        Fetch all active actors in the workspace
 
         :param actor_type: (required)
         :type actor_type: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -956,6 +1303,7 @@ class ActorInstancesApi:
 
         _param = self._fetch_available_actor_instances_actor_instances_actor_type_list_get_serialize(
             actor_type=actor_type,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -963,7 +1311,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstanceGetResponse]",
+            '200': "List[ActorInstanceResponse]",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -982,6 +1330,7 @@ class ActorInstancesApi:
     def fetch_available_actor_instances_actor_instances_actor_type_list_get_without_preload_content(
         self,
         actor_type: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -997,10 +1346,12 @@ class ActorInstancesApi:
     ) -> RESTResponseType:
         """Fetch Available Actor Instances
 
-        Fetch all active actors
+        Fetch all active actors in the workspace
 
         :param actor_type: (required)
         :type actor_type: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1025,6 +1376,7 @@ class ActorInstancesApi:
 
         _param = self._fetch_available_actor_instances_actor_instances_actor_type_list_get_serialize(
             actor_type=actor_type,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1032,7 +1384,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ActorInstanceGetResponse]",
+            '200': "List[ActorInstanceResponse]",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1046,6 +1398,7 @@ class ActorInstancesApi:
     def _fetch_available_actor_instances_actor_instances_actor_type_list_get_serialize(
         self,
         actor_type,
+        workspace_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1068,6 +1421,10 @@ class ActorInstancesApi:
         if actor_type is not None:
             _path_params['actor_type'] = actor_type
         # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1107,6 +1464,7 @@ class ActorInstancesApi:
     def read_actor_instance_actor_instances_actor_instance_id_get(
         self,
         actor_instance_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1119,12 +1477,14 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ActorInstanceGetResponse:
+    ) -> ActorInstanceResponse:
         """Read Actor Instance
 
 
         :param actor_instance_id: (required)
         :type actor_instance_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1149,6 +1509,7 @@ class ActorInstancesApi:
 
         _param = self._read_actor_instance_actor_instances_actor_instance_id_get_serialize(
             actor_instance_id=actor_instance_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1156,7 +1517,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstanceGetResponse",
+            '200': "ActorInstanceResponse",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1175,6 +1536,7 @@ class ActorInstancesApi:
     def read_actor_instance_actor_instances_actor_instance_id_get_with_http_info(
         self,
         actor_instance_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1187,12 +1549,14 @@ class ActorInstancesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ActorInstanceGetResponse]:
+    ) -> ApiResponse[ActorInstanceResponse]:
         """Read Actor Instance
 
 
         :param actor_instance_id: (required)
         :type actor_instance_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1217,6 +1581,7 @@ class ActorInstancesApi:
 
         _param = self._read_actor_instance_actor_instances_actor_instance_id_get_serialize(
             actor_instance_id=actor_instance_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1224,7 +1589,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstanceGetResponse",
+            '200': "ActorInstanceResponse",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1243,6 +1608,7 @@ class ActorInstancesApi:
     def read_actor_instance_actor_instances_actor_instance_id_get_without_preload_content(
         self,
         actor_instance_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1261,6 +1627,8 @@ class ActorInstancesApi:
 
         :param actor_instance_id: (required)
         :type actor_instance_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1285,6 +1653,7 @@ class ActorInstancesApi:
 
         _param = self._read_actor_instance_actor_instances_actor_instance_id_get_serialize(
             actor_instance_id=actor_instance_id,
+            workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1292,7 +1661,7 @@ class ActorInstancesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActorInstanceGetResponse",
+            '200': "ActorInstanceResponse",
             '404': None,
             '422': "HTTPValidationError",
         }
@@ -1306,6 +1675,7 @@ class ActorInstancesApi:
     def _read_actor_instance_actor_instances_actor_instance_id_get_serialize(
         self,
         actor_instance_id,
+        workspace_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1328,6 +1698,10 @@ class ActorInstancesApi:
         if actor_instance_id is not None:
             _path_params['actor_instance_id'] = actor_instance_id
         # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1364,9 +1738,10 @@ class ActorInstancesApi:
 
 
     @validate_call
-    def update_actor_instance_actor_instances_actor_instance_id_put(
+    def update_actor_instance_actor_instances_actor_instance_id_patch(
         self,
         actor_instance_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         actor_instance_put_request: ActorInstancePutRequest,
         _request_timeout: Union[
             None,
@@ -1383,10 +1758,12 @@ class ActorInstancesApi:
     ) -> ActorInstanceResponse:
         """Update Actor Instance
 
-        Update an actor instance.  Args:     actor_instance_id (str): The ID of the actor instance to update.     payload (ActorInstancePutRequest): The updated data for the actor instance.     db (Database): The database session.  Returns:     ActorInstanceResponse: The updated actor instance.  Raises:     HTTPException: If the actor instance is not found or if there     is a validation error or an exception occurs.
+        Update an existing actor instance within a specific workspace after testing the connection.  Args:     actor_instance_id (str): The ID of the actor instance to update.     payload (ActorInstancePutRequest): The updated data for the actor instance.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the actor instance belongs.  Returns:     ActorInstanceResponse: The updated actor instance.  Raises:     HTTPException: If the actor instance is not found, or if a validation error or exception occurs.
 
         :param actor_instance_id: (required)
         :type actor_instance_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param actor_instance_put_request: (required)
         :type actor_instance_put_request: ActorInstancePutRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1411,8 +1788,9 @@ class ActorInstancesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_actor_instance_actor_instances_actor_instance_id_put_serialize(
+        _param = self._update_actor_instance_actor_instances_actor_instance_id_patch_serialize(
             actor_instance_id=actor_instance_id,
+            workspace_id=workspace_id,
             actor_instance_put_request=actor_instance_put_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1438,9 +1816,10 @@ class ActorInstancesApi:
 
 
     @validate_call
-    def update_actor_instance_actor_instances_actor_instance_id_put_with_http_info(
+    def update_actor_instance_actor_instances_actor_instance_id_patch_with_http_info(
         self,
         actor_instance_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         actor_instance_put_request: ActorInstancePutRequest,
         _request_timeout: Union[
             None,
@@ -1457,10 +1836,12 @@ class ActorInstancesApi:
     ) -> ApiResponse[ActorInstanceResponse]:
         """Update Actor Instance
 
-        Update an actor instance.  Args:     actor_instance_id (str): The ID of the actor instance to update.     payload (ActorInstancePutRequest): The updated data for the actor instance.     db (Database): The database session.  Returns:     ActorInstanceResponse: The updated actor instance.  Raises:     HTTPException: If the actor instance is not found or if there     is a validation error or an exception occurs.
+        Update an existing actor instance within a specific workspace after testing the connection.  Args:     actor_instance_id (str): The ID of the actor instance to update.     payload (ActorInstancePutRequest): The updated data for the actor instance.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the actor instance belongs.  Returns:     ActorInstanceResponse: The updated actor instance.  Raises:     HTTPException: If the actor instance is not found, or if a validation error or exception occurs.
 
         :param actor_instance_id: (required)
         :type actor_instance_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param actor_instance_put_request: (required)
         :type actor_instance_put_request: ActorInstancePutRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1485,8 +1866,9 @@ class ActorInstancesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_actor_instance_actor_instances_actor_instance_id_put_serialize(
+        _param = self._update_actor_instance_actor_instances_actor_instance_id_patch_serialize(
             actor_instance_id=actor_instance_id,
+            workspace_id=workspace_id,
             actor_instance_put_request=actor_instance_put_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1512,9 +1894,10 @@ class ActorInstancesApi:
 
 
     @validate_call
-    def update_actor_instance_actor_instances_actor_instance_id_put_without_preload_content(
+    def update_actor_instance_actor_instances_actor_instance_id_patch_without_preload_content(
         self,
         actor_instance_id: StrictStr,
+        workspace_id: Annotated[StrictStr, Field(description="The workspace ID to scope the request")],
         actor_instance_put_request: ActorInstancePutRequest,
         _request_timeout: Union[
             None,
@@ -1531,10 +1914,12 @@ class ActorInstancesApi:
     ) -> RESTResponseType:
         """Update Actor Instance
 
-        Update an actor instance.  Args:     actor_instance_id (str): The ID of the actor instance to update.     payload (ActorInstancePutRequest): The updated data for the actor instance.     db (Database): The database session.  Returns:     ActorInstanceResponse: The updated actor instance.  Raises:     HTTPException: If the actor instance is not found or if there     is a validation error or an exception occurs.
+        Update an existing actor instance within a specific workspace after testing the connection.  Args:     actor_instance_id (str): The ID of the actor instance to update.     payload (ActorInstancePutRequest): The updated data for the actor instance.     db (Session): The database session.     workspace_id (str): The ID of the workspace to which the actor instance belongs.  Returns:     ActorInstanceResponse: The updated actor instance.  Raises:     HTTPException: If the actor instance is not found, or if a validation error or exception occurs.
 
         :param actor_instance_id: (required)
         :type actor_instance_id: str
+        :param workspace_id: The workspace ID to scope the request (required)
+        :type workspace_id: str
         :param actor_instance_put_request: (required)
         :type actor_instance_put_request: ActorInstancePutRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1559,8 +1944,9 @@ class ActorInstancesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_actor_instance_actor_instances_actor_instance_id_put_serialize(
+        _param = self._update_actor_instance_actor_instances_actor_instance_id_patch_serialize(
             actor_instance_id=actor_instance_id,
+            workspace_id=workspace_id,
             actor_instance_put_request=actor_instance_put_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1581,9 +1967,10 @@ class ActorInstancesApi:
         return response_data.response
 
 
-    def _update_actor_instance_actor_instances_actor_instance_id_put_serialize(
+    def _update_actor_instance_actor_instances_actor_instance_id_patch_serialize(
         self,
         actor_instance_id,
+        workspace_id,
         actor_instance_put_request,
         _request_auth,
         _content_type,
@@ -1607,6 +1994,10 @@ class ActorInstancesApi:
         if actor_instance_id is not None:
             _path_params['actor_instance_id'] = actor_instance_id
         # process the query parameters
+        if workspace_id is not None:
+            
+            _query_params.append(('workspace_id', workspace_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1640,7 +2031,7 @@ class ActorInstancesApi:
         ]
 
         return self.api_client.param_serialize(
-            method='PUT',
+            method='PATCH',
             resource_path='/actor_instances/{actor_instance_id}',
             path_params=_path_params,
             query_params=_query_params,

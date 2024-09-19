@@ -19,7 +19,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dat_client.models.split_code_extra_config import SplitCodeExtraConfig
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +26,9 @@ class SplitCodeSettings(BaseModel):
     """
     SplitCodeSettings
     """ # noqa: E501
-    strategy: Optional[StrictStr] = None
-    config: Optional[SplitCodeExtraConfig] = None
-    __properties: ClassVar[List[str]] = ["strategy", "config"]
+    splitter_settings: Optional[StrictStr] = None
+    separators: Optional[List[Any]] = None
+    __properties: ClassVar[List[str]] = ["splitter_settings", "separators"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,18 +69,15 @@ class SplitCodeSettings(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of config
-        if self.config:
-            _dict['config'] = self.config.to_dict()
-        # set to None if strategy (nullable) is None
+        # set to None if splitter_settings (nullable) is None
         # and model_fields_set contains the field
-        if self.strategy is None and "strategy" in self.model_fields_set:
-            _dict['strategy'] = None
+        if self.splitter_settings is None and "splitter_settings" in self.model_fields_set:
+            _dict['splitter_settings'] = None
 
-        # set to None if config (nullable) is None
+        # set to None if separators (nullable) is None
         # and model_fields_set contains the field
-        if self.config is None and "config" in self.model_fields_set:
-            _dict['config'] = None
+        if self.separators is None and "separators" in self.model_fields_set:
+            _dict['separators'] = None
 
         return _dict
 
@@ -95,8 +91,8 @@ class SplitCodeSettings(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "strategy": obj.get("strategy"),
-            "config": SplitCodeExtraConfig.from_dict(obj["config"]) if obj.get("config") is not None else None
+            "splitter_settings": obj.get("splitter_settings"),
+            "separators": obj.get("separators")
         })
         return _obj
 

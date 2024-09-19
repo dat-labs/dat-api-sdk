@@ -43,13 +43,12 @@ class ConnectionOrchestraResponse(BaseModel):
     source_instance_id: Optional[Any]
     generator_instance_id: Optional[Any]
     destination_instance_id: Optional[Any]
-    workspace_id: Optional[Any]
     configuration: Optional[Configuration] = None
     schedule: Optional[ConnectionOrchestraResponseSchedule] = None
     schedule_type: Optional[ScheduleType] = None
     status: Optional[Status1] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["name", "namespace_format", "prefix", "catalog", "source", "generator", "destination", "source_instance_id", "generator_instance_id", "destination_instance_id", "workspace_id", "configuration", "schedule", "schedule_type", "status"]
+    __properties: ClassVar[List[str]] = ["name", "namespace_format", "prefix", "catalog", "source", "generator", "destination", "source_instance_id", "generator_instance_id", "destination_instance_id", "configuration", "schedule", "schedule_type", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -149,11 +148,6 @@ class ConnectionOrchestraResponse(BaseModel):
         if self.destination_instance_id is None and "destination_instance_id" in self.model_fields_set:
             _dict['destination_instance_id'] = None
 
-        # set to None if workspace_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.workspace_id is None and "workspace_id" in self.model_fields_set:
-            _dict['workspace_id'] = None
-
         return _dict
 
     @classmethod
@@ -176,7 +170,6 @@ class ConnectionOrchestraResponse(BaseModel):
             "source_instance_id": obj.get("source_instance_id"),
             "generator_instance_id": obj.get("generator_instance_id"),
             "destination_instance_id": obj.get("destination_instance_id"),
-            "workspace_id": obj.get("workspace_id"),
             "configuration": Configuration.from_dict(obj["configuration"]) if obj.get("configuration") is not None else None,
             "schedule": ConnectionOrchestraResponseSchedule.from_dict(obj["schedule"]) if obj.get("schedule") is not None else None,
             "schedule_type": ScheduleType.from_dict(obj["schedule_type"]) if obj.get("schedule_type") is not None else None,

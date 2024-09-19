@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **namespace** | [**Namespace**](Namespace.md) |  | [optional] 
 **stream** | [**DatDocumentStreamInput**](DatDocumentStreamInput.md) | stream the data is associated with | [optional] 
 **data** | [**Data**](Data.md) | record data | 
-**emitted_at** | **object** | when the data was emitted from the source. epoch in millisecond. | 
+**emitted_at** | **object** | when the data was emitted from the source. epoch in millisecond. | [optional] 
 
 ## Example
 

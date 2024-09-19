@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from dat_client.models.actor_instance_response import ActorInstanceResponse
 from dat_client.models.dat_catalog_output import DatCatalogOutput
 from dat_client.models.schedule import Schedule
 from typing import Optional, Set
@@ -28,10 +29,12 @@ class ConnectionResponse(BaseModel):
     """
     ConnectionResponse
     """ # noqa: E501
+    source_instance: ActorInstanceResponse
+    generator_instance: ActorInstanceResponse
+    destination_instance: ActorInstanceResponse
     source_instance_id: StrictStr
     generator_instance_id: StrictStr
     destination_instance_id: StrictStr
-    workspace_id: StrictStr
     name: StrictStr
     namespace_format: Optional[StrictStr] = '${SOURCE_NAMESPACE}'
     prefix: Optional[StrictStr] = None
@@ -41,7 +44,8 @@ class ConnectionResponse(BaseModel):
     schedule_type: Optional[StrictStr] = None
     status: Optional[StrictStr] = None
     id: StrictStr
-    __properties: ClassVar[List[str]] = ["source_instance_id", "generator_instance_id", "destination_instance_id", "workspace_id", "name", "namespace_format", "prefix", "configuration", "catalog", "schedule", "schedule_type", "status", "id"]
+    workspace_id: StrictStr
+    __properties: ClassVar[List[str]] = ["source_instance", "generator_instance", "destination_instance", "source_instance_id", "generator_instance_id", "destination_instance_id", "name", "namespace_format", "prefix", "configuration", "catalog", "schedule", "schedule_type", "status", "id", "workspace_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,6 +86,15 @@ class ConnectionResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of source_instance
+        if self.source_instance:
+            _dict['source_instance'] = self.source_instance.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of generator_instance
+        if self.generator_instance:
+            _dict['generator_instance'] = self.generator_instance.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of destination_instance
+        if self.destination_instance:
+            _dict['destination_instance'] = self.destination_instance.to_dict()
         # override the default output from pydantic by calling `to_dict()` of catalog
         if self.catalog:
             _dict['catalog'] = self.catalog.to_dict()
@@ -130,10 +143,12 @@ class ConnectionResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "source_instance": ActorInstanceResponse.from_dict(obj["source_instance"]) if obj.get("source_instance") is not None else None,
+            "generator_instance": ActorInstanceResponse.from_dict(obj["generator_instance"]) if obj.get("generator_instance") is not None else None,
+            "destination_instance": ActorInstanceResponse.from_dict(obj["destination_instance"]) if obj.get("destination_instance") is not None else None,
             "source_instance_id": obj.get("source_instance_id"),
             "generator_instance_id": obj.get("generator_instance_id"),
             "destination_instance_id": obj.get("destination_instance_id"),
-            "workspace_id": obj.get("workspace_id"),
             "name": obj.get("name"),
             "namespace_format": obj.get("namespace_format") if obj.get("namespace_format") is not None else '${SOURCE_NAMESPACE}',
             "prefix": obj.get("prefix"),
@@ -142,7 +157,8 @@ class ConnectionResponse(BaseModel):
             "schedule": Schedule.from_dict(obj["schedule"]) if obj.get("schedule") is not None else None,
             "schedule_type": obj.get("schedule_type"),
             "status": obj.get("status"),
-            "id": obj.get("id")
+            "id": obj.get("id"),
+            "workspace_id": obj.get("workspace_id")
         })
         return _obj
 

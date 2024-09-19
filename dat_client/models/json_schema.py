@@ -27,7 +27,7 @@ JSONSCHEMA_ANY_OF_SCHEMAS = ["object"]
 
 class JsonSchema(BaseModel):
     """
-    The JSON schema for the document stream.
+    Stream schema using Json schema specification.
     """
 
     # data type: object

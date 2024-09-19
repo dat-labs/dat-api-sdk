@@ -27,7 +27,6 @@ class ActorInstanceResponse(BaseModel):
     """
     ActorInstanceResponse
     """ # noqa: E501
-    workspace_id: StrictStr
     actor_id: StrictStr
     user_id: StrictStr
     name: StrictStr
@@ -35,8 +34,10 @@ class ActorInstanceResponse(BaseModel):
     status: Optional[StrictStr] = 'active'
     configuration: Optional[Dict[str, Any]] = None
     id: StrictStr
+    workspace_id: StrictStr
     actor: Optional[ActorResponse] = None
-    __properties: ClassVar[List[str]] = ["workspace_id", "actor_id", "user_id", "name", "actor_type", "status", "configuration", "id", "actor"]
+    connected_connections: Optional[List[Any]] = None
+    __properties: ClassVar[List[str]] = ["actor_id", "user_id", "name", "actor_type", "status", "configuration", "id", "workspace_id", "actor", "connected_connections"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,7 +93,6 @@ class ActorInstanceResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "workspace_id": obj.get("workspace_id"),
             "actor_id": obj.get("actor_id"),
             "user_id": obj.get("user_id"),
             "name": obj.get("name"),
@@ -100,7 +100,9 @@ class ActorInstanceResponse(BaseModel):
             "status": obj.get("status") if obj.get("status") is not None else 'active',
             "configuration": obj.get("configuration"),
             "id": obj.get("id"),
-            "actor": ActorResponse.from_dict(obj["actor"]) if obj.get("actor") is not None else None
+            "workspace_id": obj.get("workspace_id"),
+            "actor": ActorResponse.from_dict(obj["actor"]) if obj.get("actor") is not None else None,
+            "connected_connections": obj.get("connected_connections")
         })
         return _obj
 

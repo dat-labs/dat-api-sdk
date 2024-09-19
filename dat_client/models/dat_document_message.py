@@ -32,7 +32,7 @@ class DatDocumentMessage(BaseModel):
     namespace: Optional[Namespace] = None
     stream: Optional[DatDocumentStreamInput] = Field(default=None, description="stream the data is associated with")
     data: Data = Field(description="record data")
-    emitted_at: Optional[Any] = Field(description="when the data was emitted from the source. epoch in millisecond.")
+    emitted_at: Optional[Any] = Field(default=None, description="when the data was emitted from the source. epoch in millisecond.")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["namespace", "stream", "data", "emitted_at"]
 

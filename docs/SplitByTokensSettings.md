@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**strategy** | **str** |  | [optional] 
-**config** | [**SplitByCharacterRecursiverlyConfig**](SplitByCharacterRecursiverlyConfig.md) |  | [optional] 
+**splitter_settings** | **str** |  | [optional] 
+**separators** | **List[object]** |  | [optional] 
 
 ## Example
 

@@ -5,8 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**strategy** | **str** |  | [optional] 
-**config** | **object** |  | [optional] 
+**splitter_settings** | **str** |  | [optional] 
 
 ## Example
 

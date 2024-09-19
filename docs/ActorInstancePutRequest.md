@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**workspace_id** | **str** |  | [optional] 
 **actor_id** | **str** |  | [optional] 
 **user_id** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 

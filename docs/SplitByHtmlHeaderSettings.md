@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**strategy** | **str** |  | [optional] 
-**config** | [**SplitByHtmlHeaderExtraConfig**](SplitByHtmlHeaderExtraConfig.md) |  | [optional] 
+**splitter_settings** | **str** |  | [optional] 
+**headers_to_split_on** | **List[str]** |  | [optional] 
 
 ## Example
 

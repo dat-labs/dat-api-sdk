@@ -38,13 +38,17 @@ class TestDatMessageSpec(unittest.TestCase):
                 documentation_url = None,
                 name = None,
                 module_name = None,
-                connection_specification = None
+                connection_specification = {
+                    'key' : null
+                    }
             )
         else:
             return DatMessageSpec(
                 name = None,
                 module_name = None,
-                connection_specification = None,
+                connection_specification = {
+                    'key' : null
+                    },
         )
         """
 

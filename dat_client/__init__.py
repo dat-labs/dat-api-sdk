@@ -23,6 +23,8 @@ from dat_client.api.actors_api import ActorsApi
 from dat_client.api.connection_run_logs_api import ConnectionRunLogsApi
 from dat_client.api.connections_api import ConnectionsApi
 from dat_client.api.default_api import DefaultApi
+from dat_client.api.organizations_api import OrganizationsApi
+from dat_client.api.workspace_users_api import WorkspaceUsersApi
 from dat_client.api.workspaces_api import WorkspacesApi
 
 # import ApiClient
@@ -37,15 +39,13 @@ from dat_client.exceptions import ApiAttributeError
 from dat_client.exceptions import ApiException
 
 # import models into sdk package
-from dat_client.models.actor_instance_get_response import ActorInstanceGetResponse
 from dat_client.models.actor_instance_post_request import ActorInstancePostRequest
 from dat_client.models.actor_instance_put_request import ActorInstancePutRequest
 from dat_client.models.actor_instance_response import ActorInstanceResponse
 from dat_client.models.actor_post_request import ActorPostRequest
 from dat_client.models.actor_put_request import ActorPutRequest
 from dat_client.models.actor_response import ActorResponse
-from dat_client.models.advanced_input import AdvancedInput
-from dat_client.models.advanced_output import AdvancedOutput
+from dat_client.models.advanced import Advanced
 from dat_client.models.configuration import Configuration
 from dat_client.models.connection_orchestra_response import ConnectionOrchestraResponse
 from dat_client.models.connection_orchestra_response_catalog import ConnectionOrchestraResponseCatalog
@@ -54,6 +54,7 @@ from dat_client.models.connection_post_request import ConnectionPostRequest
 from dat_client.models.connection_put_request import ConnectionPutRequest
 from dat_client.models.connection_response import ConnectionResponse
 from dat_client.models.connection_run_log_response import ConnectionRunLogResponse
+from dat_client.models.connection_specification import ConnectionSpecification
 from dat_client.models.connector_specification import ConnectorSpecification
 from dat_client.models.cron import Cron
 from dat_client.models.cursor_field import CursorField
@@ -68,7 +69,6 @@ from dat_client.models.dat_document_stream_input_advanced import DatDocumentStre
 from dat_client.models.dat_document_stream_input_read_sync_mode import DatDocumentStreamInputReadSyncMode
 from dat_client.models.dat_document_stream_input_write_sync_mode import DatDocumentStreamInputWriteSyncMode
 from dat_client.models.dat_document_stream_output import DatDocumentStreamOutput
-from dat_client.models.dat_document_stream_output_advanced import DatDocumentStreamOutputAdvanced
 from dat_client.models.dat_last_modified import DatLastModified
 from dat_client.models.dat_log_message import DatLogMessage
 from dat_client.models.dat_message import DatMessage
@@ -83,25 +83,25 @@ from dat_client.models.data import Data
 from dat_client.models.data_metadata import DataMetadata
 from dat_client.models.document_chunk import DocumentChunk
 from dat_client.models.documentation_url import DocumentationUrl
+from dat_client.models.emitted_at import EmittedAt
 from dat_client.models.http_validation_error import HTTPValidationError
 from dat_client.models.json_schema import JsonSchema
 from dat_client.models.level import Level
 from dat_client.models.message import Message
 from dat_client.models.namespace import Namespace
 from dat_client.models.namespace1 import Namespace1
+from dat_client.models.organization_post_request import OrganizationPostRequest
+from dat_client.models.organization_put_request import OrganizationPutRequest
+from dat_client.models.organization_response import OrganizationResponse
 from dat_client.models.prefix import Prefix
 from dat_client.models.read_sync_mode import ReadSyncMode
 from dat_client.models.schedule import Schedule
 from dat_client.models.schedule_type import ScheduleType
-from dat_client.models.split_by_character_extra_config import SplitByCharacterExtraConfig
-from dat_client.models.split_by_character_recursiverly_config import SplitByCharacterRecursiverlyConfig
 from dat_client.models.split_by_character_recursiverly_settings import SplitByCharacterRecursiverlySettings
 from dat_client.models.split_by_character_settings import SplitByCharacterSettings
-from dat_client.models.split_by_html_header_extra_config import SplitByHtmlHeaderExtraConfig
 from dat_client.models.split_by_html_header_settings import SplitByHtmlHeaderSettings
 from dat_client.models.split_by_markdown_settings import SplitByMarkdownSettings
 from dat_client.models.split_by_tokens_settings import SplitByTokensSettings
-from dat_client.models.split_code_extra_config import SplitCodeExtraConfig
 from dat_client.models.split_code_settings import SplitCodeSettings
 from dat_client.models.split_json_recursively_settings import SplitJsonRecursivelySettings
 from dat_client.models.splitter_settings import SplitterSettings
@@ -113,10 +113,13 @@ from dat_client.models.stream_state import StreamState
 from dat_client.models.stream_status import StreamStatus
 from dat_client.models.type import Type
 from dat_client.models.user_request_model import UserRequestModel
+from dat_client.models.user_response import UserResponse
 from dat_client.models.validation_error import ValidationError
 from dat_client.models.validation_error_loc_inner import ValidationErrorLocInner
 from dat_client.models.vectors import Vectors
 from dat_client.models.workspace_post_request import WorkspacePostRequest
 from dat_client.models.workspace_put_request import WorkspacePutRequest
 from dat_client.models.workspace_response import WorkspaceResponse
+from dat_client.models.workspace_user_post_request import WorkspaceUserPostRequest
+from dat_client.models.workspace_user_response import WorkspaceUserResponse
 from dat_client.models.write_sync_mode import WriteSyncMode

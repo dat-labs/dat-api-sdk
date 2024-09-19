@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**workspace_id** | **str** |  | 
 **actor_id** | **str** |  | 
 **user_id** | **str** |  | 
 **name** | **str** |  | 
@@ -13,7 +12,9 @@ Name | Type | Description | Notes
 **status** | **str** |  | [optional] [default to 'active']
 **configuration** | **object** |  | [optional] 
 **id** | **str** |  | 
+**workspace_id** | **str** |  | 
 **actor** | [**ActorResponse**](ActorResponse.md) |  | [optional] 
+**connected_connections** | **List[object]** |  | [optional] [default to []]
 
 ## Example
 

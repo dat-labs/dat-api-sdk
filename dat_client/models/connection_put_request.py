@@ -28,6 +28,7 @@ class ConnectionPutRequest(BaseModel):
     """
     ConnectionPutRequest
     """ # noqa: E501
+    source_instance_id: StrictStr
     name: Optional[StrictStr] = None
     namespace_format: Optional[StrictStr] = None
     prefix: Optional[StrictStr] = None
@@ -36,7 +37,7 @@ class ConnectionPutRequest(BaseModel):
     schedule: Optional[Schedule] = None
     schedule_type: Optional[StrictStr] = None
     status: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["name", "namespace_format", "prefix", "configuration", "catalog", "schedule", "schedule_type", "status"]
+    __properties: ClassVar[List[str]] = ["source_instance_id", "name", "namespace_format", "prefix", "configuration", "catalog", "schedule", "schedule_type", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -135,6 +136,7 @@ class ConnectionPutRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "source_instance_id": obj.get("source_instance_id"),
             "name": obj.get("name"),
             "namespace_format": obj.get("namespace_format"),
             "prefix": obj.get("prefix"),

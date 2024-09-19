@@ -1,6 +1,6 @@
 # JsonSchema
 
-The JSON schema for the document stream.
+Stream schema using Json schema specification.
 
 ## Properties
 

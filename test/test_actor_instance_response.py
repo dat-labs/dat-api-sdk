@@ -35,24 +35,33 @@ class TestActorInstanceResponse(unittest.TestCase):
         model = ActorInstanceResponse()
         if include_optional:
             return ActorInstanceResponse(
-                workspace_id = '',
                 actor_id = '',
                 user_id = '',
                 name = '',
                 actor_type = '',
-                status = '',
+                status = 'active',
                 configuration = dat_client.models.configuration.Configuration(),
-                id = ''
+                id = '',
+                workspace_id = '',
+                actor = dat_client.models.actor_response.ActorResponse(
+                    name = '', 
+                    module_name = '', 
+                    icon = '', 
+                    actor_type = '', 
+                    status = 'active', 
+                    id = '', ),
+                connected_connections = [
+                    null
+                    ]
             )
         else:
             return ActorInstanceResponse(
-                workspace_id = '',
                 actor_id = '',
                 user_id = '',
                 name = '',
                 actor_type = '',
-                status = '',
                 id = '',
+                workspace_id = '',
         )
         """
 

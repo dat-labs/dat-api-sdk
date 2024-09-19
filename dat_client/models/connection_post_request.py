@@ -31,7 +31,6 @@ class ConnectionPostRequest(BaseModel):
     source_instance_id: StrictStr
     generator_instance_id: StrictStr
     destination_instance_id: StrictStr
-    workspace_id: StrictStr
     name: StrictStr
     namespace_format: Optional[StrictStr] = '${SOURCE_NAMESPACE}'
     prefix: Optional[StrictStr] = None
@@ -40,7 +39,7 @@ class ConnectionPostRequest(BaseModel):
     schedule: Optional[Schedule] = None
     schedule_type: Optional[StrictStr] = None
     status: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["source_instance_id", "generator_instance_id", "destination_instance_id", "workspace_id", "name", "namespace_format", "prefix", "configuration", "catalog", "schedule", "schedule_type", "status"]
+    __properties: ClassVar[List[str]] = ["source_instance_id", "generator_instance_id", "destination_instance_id", "name", "namespace_format", "prefix", "configuration", "catalog", "schedule", "schedule_type", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -132,7 +131,6 @@ class ConnectionPostRequest(BaseModel):
             "source_instance_id": obj.get("source_instance_id"),
             "generator_instance_id": obj.get("generator_instance_id"),
             "destination_instance_id": obj.get("destination_instance_id"),
-            "workspace_id": obj.get("workspace_id"),
             "name": obj.get("name"),
             "namespace_format": obj.get("namespace_format") if obj.get("namespace_format") is not None else '${SOURCE_NAMESPACE}',
             "prefix": obj.get("prefix"),

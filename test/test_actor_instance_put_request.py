@@ -35,7 +35,6 @@ class TestActorInstancePutRequest(unittest.TestCase):
         model = ActorInstancePutRequest()
         if include_optional:
             return ActorInstancePutRequest(
-                workspace_id = '',
                 actor_id = '',
                 user_id = '',
                 name = '',

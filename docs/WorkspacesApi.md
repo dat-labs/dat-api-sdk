@@ -152,7 +152,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **fetch_available_workspaces_workspaces_list_get**
-> List[WorkspaceResponse] fetch_available_workspaces_workspaces_list_get()
+> List[WorkspaceResponse] fetch_available_workspaces_workspaces_list_get(org_id)
 
 Fetch Available Workspaces
 
@@ -178,10 +178,11 @@ configuration = dat_client.Configuration(
 with dat_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dat_client.WorkspacesApi(api_client)
+    org_id = 'org_id_example' # str | The ID of the organization
 
     try:
         # Fetch Available Workspaces
-        api_response = api_instance.fetch_available_workspaces_workspaces_list_get()
+        api_response = api_instance.fetch_available_workspaces_workspaces_list_get(org_id)
         print("The response of WorkspacesApi->fetch_available_workspaces_workspaces_list_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -192,7 +193,10 @@ with dat_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org_id** | **str**| The ID of the organization | 
 
 ### Return type
 
@@ -213,6 +217,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
 **404** | Not found |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

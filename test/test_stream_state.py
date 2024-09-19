@@ -35,12 +35,12 @@ class TestStreamState(unittest.TestCase):
         model = StreamState()
         if include_optional:
             return StreamState(
-                data = None,
-                stream_status = None
+                data = dat_client.models.data.Data(),
+                stream_status = 'STARTED'
             )
         else:
             return StreamState(
-                data = None,
+                data = dat_client.models.data.Data(),
         )
         """
 
